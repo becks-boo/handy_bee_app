@@ -4,6 +4,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :user_name, required: true %>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -15,6 +16,8 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :role, collection: ["Contractor", "Customer"], required: true %>
+    <!-- Added form field :role, :user_name and :address (like db) -->
   </div>
 
   <div class="form-actions">

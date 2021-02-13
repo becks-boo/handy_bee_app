@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :businesses, dependent: :destroy
   has_many :bookings, dependent: :destroy
   has_many :reviews, dependent: :destroy
+
+  validates :user_name, :role, presence: true
 end
