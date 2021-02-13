@@ -4,5 +4,5 @@ class Business < ApplicationRecord
    has_many :bookings, dependent: :destroy
    has_many :reviews, dependent: :destroy
 
-   validates :name, :description, :category, :picture, presence: truegst
+   validates :name, :description, :category, :picture, presence: true
 end
