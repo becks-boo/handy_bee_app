@@ -3,7 +3,7 @@ class BusinessesController < ApplicationController
     @businesses = Business.all
   end
 
-  def show
-    @businesses = Business.find(params[:id])
-  end
+  # def show
+  #   @businesses = Business.find(params[:id])
+  # end
 end
