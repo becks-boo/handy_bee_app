@@ -1,9 +1,20 @@
 <h2>Sign up</h2>
 
+<!-- CSS to make the class hidden disapear -->
+<style>
+  div.hidden {
+    display: none;
+  }
+</style>
+
+<!-- Buttons to choose and trigger EventListener with the specific form -->
+<button id="customer-btn">Customer</button>
+<button id="contractor-btn">Contractor</button>
+
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
+  <div id="customer-form" class="form-inputs">
     <%= f.input :user_name, required: true %>
     <%= f.input :email,
                 required: true,
@@ -16,13 +27,49 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :role, collection: ["Contractor", "Customer"], required: true %>
+    <%#= f.input :role, collection: ["Contractor", "Customer"], required: true %>
+    <!-- Added form field :role, :user_name and :address (like db) -->
+  </div>
+
+  <div id="contractor-form" class="form-inputs hidden">
+    <%= f.input :user_name, required: true %>
+    <%= f.input :email,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "email" }%>
+    <%= f.input :password,
+                required: true,
+                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :password_confirmation,
+                required: true,
+                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :qualifications %>
+    <%#= f.input :role, collection: ["Contractor", "Customer"], required: true %>
     <!-- Added form field :role, :user_name and :address (like db) -->
   </div>
 
   <div class="form-actions">
     <%= f.button :submit, "Sign up" %>
   </div>
+
+  <!-- JS to toggle the different forms with click event -->
+  <script>
+    const customerButton = document.getElementById("customer-btn");
+    const customerForm = document.getElementById("customer-form");
+    const contractorButton = document.getElementById("contractor-btn");
+    const contractorForm = document.getElementById("contractor-form");
+
+    contractorButton.addEventListener("click", () => {
+      contractorForm.classList.remove("hidden");
+      customerForm.classList.add("hidden");
+    })
+
+    customerButton.addEventListener("click", () => {
+      customerForm.classList.remove("hidden");
+      contractorForm.classList.add("hidden");
+    })
+  </script>
 <% end %>
 
 <%= render "devise/shared/links" %>
