@@ -1,0 +1,26 @@
+.card-index {
+  width: 468px;
+  height: 290px;
+  border: 1px solid #C4C4C4;
+  background: #FFFFFF;
+  .avatar {
+    margin-bottom: 18px;
+    border: 1px solid black;
+  }
+  button {
+    margin-bottom: 16px;
+  }
+}
+
+.card-left {
+  text-align: center;
+  width: 40%;
+  position: relative;
+  bottom: 42px;
+}
+
+#service-type {
+  text-align: right;
+  margin: 8px 8px -9px 0;
+  opacity: 0.5;
+}
