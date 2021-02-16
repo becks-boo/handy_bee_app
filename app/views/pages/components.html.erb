@@ -30,18 +30,28 @@
 <!-- card for index page -->
 <p>Index card</p>
 
-<div class="card-index">
-  <p id="service-type">Service Type</p>
-  <hr>
-  <div class="card-left">
-    <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar") %>
-    <p>Full Name</p>
-    <button class="button-main">
-      Button Main
-    </button>
-    <p>stars</p>
-  </div>
-  <div class="card-icons">
+<%= render "shared/card-index" %>
 
-  </div>
-</div>
+
+<br>
+<br>
+<br>
+<p>review card</p>
+
+<%= render "shared/review-card" %>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<p>chat box</p>
+
+<%= render "shared/chat-box" %>
+
+
+
+
+
+
