@@ -1,3 +1,18 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
+<div class="banner" style="background-image: linear-gradient(to right, rgba(100,100,100,0.4), rgba(100,100,100,0)), url(<%= cl_image_path "https://res.cloudinary.com/jordannadroj/image/upload/v1613580490/t0qilh3yaeyy1tara6vq.jpg"%>)">
+  <!-- for the text and dropdown on the home banner -->
+  <div class="banner-text">
+    <h1>Fix your house in a few clicks</h1>
+    <h3>another text snippet here</h3>
+    <div class="dropdown input-group" id="dropdown-home">
+      <select name="" id="inputGroupSelect02" class="custom-select">
+        <option selected>Choose a service</option>
+          <% @users.each do |user| %>
+            <% if user.role %>
+              <option value="<% user.role %>"><%= user.role %></option>
+            <% end %>
+          <% end %>
+      </select>
+      <input type="submit" class="button-main" value="Search">
+    </div>
+  </div>
+</div>
