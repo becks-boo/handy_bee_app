@@ -1,0 +1,46 @@
+.chat-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 66%;
+  // border: 1px solid black;
+  .avatar {
+    width: 51px;
+    height: 51px;
+  }
+}
+
+.chat-box-text {
+  width: 90%;
+  background: $light-gray;
+  border-radius: 10px;
+  padding: 8px;
+  p {
+    margin: 0;
+  }
+}
+
+// customer chat box
+
+.chat-box-customer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 66%;
+  // border: 1px solid black;
+  .avatar {
+    width: 51px;
+    height: 51px;
+  }
+}
+
+.chat-box-text-customer {
+  width: 90%;
+  background: $blue;
+  color: $white;
+  border-radius: 10px;
+  padding: 8px;
+  p {
+    margin: 0;
+  }
+}

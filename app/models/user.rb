@@ -5,8 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :businesses, dependent: :destroy
-  has_many :bookings, dependent: :destroy
-  has_many :reviews, dependent: :destroy
+  # has_many :bookings, dependent: :destroy
+  # has_many :reviews, dependent: :destroy
 
-  # validates :user_name, :role, presence: true
+  has_one_attached :picture
+
+  validates :user_name, :role, presence: true
+
 end
