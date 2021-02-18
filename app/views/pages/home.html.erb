@@ -1,3 +1,18 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<% roles = [] %>
+<% @users.each do |u| %>
+<% if u.role %>
+<% roles << u.role %>
+<% end %>
+<% end %>
 
+<div class="banner" style="background-image: linear-gradient(to right, rgba(100,100,100,0.4), rgba(100,100,100,0)), url(<%= cl_image_path "https://res.cloudinary.com/jordannadroj/image/upload/v1613580490/t0qilh3yaeyy1tara6vq.jpg"%>)">
+  <!-- for the text and dropdown on the home banner -->
+  <div class="banner-text">
+    <h1>Fix your house in a few clicks</h1>
+    <h3>another text snippet here</h3>
+    <%= form_tag(businesses_path, method: "get") do %>
+      <%= select_tag :query,  options_for_select([roles.each { |role| role }], params[:query]), class: "dropdown,  input-group", id: "dropdown-home", include_blank: "Choose a service" %>
+      <input type="submit" class="button-main" value="Search" for="inputGroupSelect02">
+    <% end %>
+  </div>
+</div>
