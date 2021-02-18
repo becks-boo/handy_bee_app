@@ -1,35 +1,36 @@
-<h2>All businesses available here</h2>
+<div class="container">
+  <h2>All businesses available here</h2>
 
-<div class="dropdown-index_page">
-  <%= form_tag(businesses_path, method: "get") do %>
-    <%= select_tag :query,  options_for_select([["English"], ["German"]], params[:query]), class: "dropdown,  input-group", id: "dropdown-home", include_blank: "Language" %>
-    <%= select_tag :query,  options_for_select([["5"], ["4"], ["3"], ["2"], ["1"],], params[:query]), class: "dropdown,  input-group", id: "dropdown-home", include_blank: "Rating" %>
-    <%= select_tag :query,  options_for_select([["50$"], ["100$"], ["200$"], ["300$"]], params[:query]), class: "dropdown,  input-group", id: "dropdown-home", include_blank: "Price" %>
-    <%# select_tag :query,  options_for_select([roles.each { |role| role }], params[:query]), class: "dropdown,  input-group", id: "dropdown-home", include_blank: "Choose a service" %>
+  <div class="dropdown-index_page d-flex justify-content-space-between">
+    <%= form_tag(businesses_path, method: "get") do %>
+      <%= select_tag :query,  options_for_select([["English"], ["German"]], params[:query]), class: "dropdown,  input-group", id: "dropdown-home", include_blank: "Language" %>
+      <%= select_tag :query,  options_for_select([["5"], ["4"], ["3"], ["2"], ["1"],], params[:query]), class: "dropdown,  input-group", id: "dropdown-home", include_blank: "Rating" %>
+      <%= select_tag :query,  options_for_select([["50$"], ["100$"], ["200$"], ["300$"]], params[:query]), class: "dropdown,  input-group", id: "dropdown-home", include_blank: "Price" %>
 
       <input type="submit" class="button-main" value="Search" for="inputGroupSelect02">
     <% end %>
-</select>
-</div>
+  </div>
 
 
-  <div class="cards-index">
-  <% @businesses.each do |business| %>
-    <div class="card-index">
 
-        <%= link_to(business_path(business)) do %>
-        <%# cl_image_tag business.picture.key, brightness: 30, radius: 20, width: 300, height: 300, crop: :thumb %>
-        <% end %>
+    <div class="container">
+    <% @businesses.each do |business| %>
+      <div class="card-index">
 
-      <div class="card-name-price">
-        <p style="text-align: center; font-weight: bold;"><%= business.id %></p>
-        <hr>
-        <p>Name: <strong><%= business.name %></strong></p>
-        <p>Category: <strong><%= business.category %></strong></p>
-        <p>Description: <strong><%= business.description %></strong></p>
+          <%= link_to(business_path(business)) do %>
+          <%# cl_image_tag business.picture.key, brightness: 30, radius: 20, width: 300, height: 300, crop: :thumb %>
+          <% end %>
+
+          <p style="text-align: center; font-weight: bold;"><%= business.id %></p>
+          <hr>
+          <p>Name: <strong><%= business.name %></strong></p>
+          <p>Category: <strong><%= business.category %></strong></p>
+          <p>Description: <strong><%= business.description %></strong></p>
+
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
+
 
 
