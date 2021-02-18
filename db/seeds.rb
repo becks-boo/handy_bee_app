@@ -8,8 +8,7 @@
 
 require 'open-uri'
 
-User.destroy_all
-Business.destroy_all
+
 
 user1 = User.new(
   user_name: "Bob Builder",
