@@ -13,58 +13,23 @@
 </div>
 
 
+  <div class="cards-index">
+  <% @businesses.each do |business| %>
+    <div class="card-index">
 
-<div class="card-index" style="width: 33%; margin-left: 18px;">
-    <%= render "shared/card-index" %>
-  </div>
+        <%= link_to(business_path(business)) do %>
+        <%# cl_image_tag business.picture.key, brightness: 30, radius: 20, width: 300, height: 300, crop: :thumb %>
+        <% end %>
 
-<!-- <div class="dropdown-container">
-  <div class="dropdown" id="dropdown-home">
-    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Language
-    </button>
-    <ul>
-      <li><a href="#">English</a></li>
-      <li><a href="#"></a>German</li>
-      <li><a href="#"></a>Spanish</li>
-      <li><a href="#"></a>French</li>
-    </ul>
-  </div>
-
-  <div class="dropdown" id="dropdown-home">
-    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Price
-    </button>
-    <ul>
-      <li><a href="#">50$</a></li>
-      <li><a href="#"></a>100$</li>
-      <li><a href="#"></a>200$</li>
-      <li><a href="#"></a>300$</li>
-    </ul>
-  </div>
-
-  <div class="dropdown" id="dropdown-home">
-    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Rating
-    </button>
-    <ul>
-      <li><a href="#">1</a></li>
-      <li><a href="#"></a>2</li>
-      <li><a href="#"></a>3</li>
-      <li><a href="#"></a>4</li>
-    </ul>
-  </div>
-
-  <div class="dropdown" id="dropdown-home">
-    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Sort by
-    </button>
-    <ul>
-      <li><a href="#">Price</a></li>
-      <li><a href="#"></a>Language</li>
-      <li><a href="#"></a>Rating</li>
-      <li><a href="#"></a>Service</li>
-    </ul>
-  </div>
+      <div class="card-name-price">
+        <p style="text-align: center; font-weight: bold;"><%= business.id %></p>
+        <hr>
+        <p>Name: <strong><%= business.name %></strong></p>
+        <p>Category: <strong><%= business.category %></strong></p>
+        <p>Description: <strong><%= business.description %></strong></p>
+      </div>
+    </div>
+  <% end %>
 </div>
- -->
+
+
