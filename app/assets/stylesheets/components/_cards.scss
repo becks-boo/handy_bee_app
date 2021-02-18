@@ -1,3 +1,5 @@
+// for card on the index
+
 .card-index {
   width: 468px;
   height: 290px;
@@ -23,4 +25,29 @@
   text-align: right;
   margin: 8px 8px -9px 0;
   opacity: 0.5;
+}
+
+
+// for review card on show page
+
+.review-card {
+  width: 332px;
+  margin-left: 20px;
+  // height: 220px;
+ .avatar {
+    width: 51px;
+    height: 51px;
+    margin-right: 12px;
+  }
+}
+
+.review-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 12px;
+}
+
+.review-card-top-info p {
+  margin: 0;
 }
