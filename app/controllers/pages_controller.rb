@@ -7,4 +7,10 @@ class PagesController < ApplicationController
 
   def components
   end
+
+
+  def account
+    @user = current_user
+  end
+
 end

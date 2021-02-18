@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :bookings, except: [ :index, :new, :create ]
 
   get '/components', to: 'pages#components', as: 'components'
+  get '/account', to: 'pages#account', as: 'account'
 end
