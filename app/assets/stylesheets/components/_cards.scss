@@ -51,3 +51,10 @@
 .review-card-top-info p {
   margin: 0;
 }
+
+
+.card-about {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 16px;
+}
