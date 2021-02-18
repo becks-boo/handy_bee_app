@@ -1,7 +1,7 @@
 class BusinessesController < ApplicationController
   def index
-    # @businesses = Business.all
-    @businesses = Business.search(params[:search])
+    @businesses = Business.all
+    # @businesses = Business.search(params[:search])
   end
 
 end

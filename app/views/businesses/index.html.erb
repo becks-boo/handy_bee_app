@@ -1,5 +1,27 @@
 <h2>All businesses available here</h2>
 
+
+<!-- <div class="cards-container">
+  <% @busin.each do |bike| %>
+    <div class="card">
+
+        <%= link_to(bike_path(bike)) do %>
+        <%= cl_image_tag bike.picture.key, brightness: 30, radius: 20, width: 300, height: 300, crop: :thumb %>
+        <% end %>
+
+      <div class="card-name-price">
+        <p style="text-align: center; font-weight: bold;"><%= bike.name %></p>
+        <hr>
+        <p>Price: <strong><%= bike.price %></strong> <i class="fas fa-euro-sign"></i> / day</p>
+        <p>Category: <%= bike.category %></p>
+        <p>Size: <%= bike.size %></p>
+        <p><i class="fas fa-map-marker-alt"></i> <%= bike.location %></p>
+      </div>
+    </div>
+  <% end %>
+</div> -->
+
+
 <div class="dropdown-container">
   <div class="dropdown dropdown-filter">
     <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
