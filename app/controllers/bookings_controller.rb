@@ -5,6 +5,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
@@ -13,6 +14,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
 
     @booking.business = @business
+    authorize @booking
 
     if @booking.save!
       redirect_to booking_path(@booking)
