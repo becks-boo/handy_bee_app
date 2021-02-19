@@ -4,7 +4,10 @@ class BookingsController < ApplicationController
   end
 
   def new
+    # If redirecting is the better choice
+    # redirect_back fallback_location: root_path unless current_user.role == "Contractor"
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
@@ -13,6 +16,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
 
     @booking.business = @business
+    authorize @booking
 
     if @booking.save!
       redirect_to booking_path(@booking)
