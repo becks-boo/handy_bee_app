@@ -2,7 +2,11 @@
 <div class="account-information">
   <h2>Account information</h2>
   <hr>
+  <% if @user.picture.attached? %>
   <%= cl_image_tag @user.picture.key, class: "avatar" %>
+  <% else %>
+  <p></p>
+  <% end %>
 
   <br>
   <br>
