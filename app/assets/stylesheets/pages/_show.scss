@@ -19,3 +19,15 @@
  display: grid;
  justify-content: space-between;
 }
+
+.fas {
+  color: $black;
+  opacity: 0.9;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+
+.fas:hover {
+  opacity: 0.4;
+}
