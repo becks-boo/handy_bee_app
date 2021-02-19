@@ -5,15 +5,24 @@ class BookingPolicy < ApplicationPolicy
     end
   end
 
+  # Is this even necessary?
+  def initialize(user, booking)
+    @user = user
+    @booking = booking
+  end
+
+  # Does that mean that everyone can see all bookings?
   def index?
     true
   end
 
-  def new
-    current_user.role == "Contractor" ? true : false
+  def new?
+    # current_user.role == "Contractor"?
+    user.role == "Contractor"
   end
 
   def create?
-    true
+    # What about create, also only the contractor?
+    user.role == "Contractor"
   end
 end
