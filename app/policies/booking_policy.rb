@@ -6,10 +6,10 @@ class BookingPolicy < ApplicationPolicy
   end
 
   # Is this even necessary?
-  def initialize(user, booking)
-    @user = user
-    @booking = booking
-  end
+  # def initialize(user, booking)
+  #   @user = user
+  #   @booking = booking
+  # end
 
   # Does that mean that everyone can see all bookings?
   def index?
@@ -17,8 +17,9 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def new?
-    # current_user.role == "Contractor"?
     user.role == "Contractor"
+    # If redirecting is the better choice
+    # true
   end
 
   def create?
