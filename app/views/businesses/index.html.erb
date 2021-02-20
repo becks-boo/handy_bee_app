@@ -1,18 +1,25 @@
+<h2>All businesses available here</h2>
+
 <div class="container">
-  <h2>All businesses available here</h2>
+
+
+ <div class="col-xs-6" >
+   <div class="right-inner-addon">
+     <i class="icon-search"></i>
+     <input type="search" class="form-control" placeholder="Search" />
+   </div>
+ </div>
+
 
   <!-- dropdown index page -->
-<div>
-  <div class="dropdown-index_page">
+  <div class="dropdown-index-page">
     <%= form_tag(businesses_path, method: "get") do %>
-      <%= select_tag :query,  options_for_select([["English"], ["German"]], params[:query]), class: "dropdown,  input-group", id: "dropdown-home", include_blank: "Language" %>
-      <%= select_tag :query,  options_for_select([["5"], ["4"], ["3"], ["2"], ["1"],], params[:query]), class: "dropdown,  input-group", id: "dropdown-home", include_blank: "Rating" %>
-      <%= select_tag :query,  options_for_select([["50$"], ["100$"], ["200$"], ["300$"]], params[:query]), class: "dropdown,  input-group", id: "dropdown-home", include_blank: "Price" %>
-
-      <input type="submit" class="button-main" value="Search" for="inputGroupSelect02">
+      <%= select_tag :query,  options_for_select([["English"], ["German"]], params[:query]), class: "language", id: "dropdown-filter", include_blank: "Language" %>
+      <%= select_tag :query,  options_for_select([["5"], ["4"], ["3"], ["2"], ["1"],], params[:query]), class: "rating", id: "dropdown-filter", include_blank: "Rating" %>
+      <%= select_tag :query,  options_for_select([["50$"], ["100$"], ["200$"], ["300$"]], params[:query]), class: "price", id: "dropdown-filter", include_blank: "Price" %>
     <% end %>
   </div>
-</div>
+
 
 
 
@@ -24,7 +31,7 @@
         <hr>
         <div class="card-left">
           <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar") %>
-          <p><%= business.id %></p>
+
           <p>Name: <strong><%= business.name %></strong></p>
           <p>Category: <strong><%= business.category %></strong></p>
           <p>Description: <strong><%= business.description %></strong></p>
