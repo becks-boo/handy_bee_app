@@ -1,6 +1,7 @@
 <div class="container">
   <h2>All businesses available here</h2>
 
+  <!-- dropdown index page -->
   <div class="dropdown-index_page d-flex justify-content-space-between">
     <%= form_tag(businesses_path, method: "get") do %>
       <%= select_tag :query,  options_for_select([["English"], ["German"]], params[:query]), class: "dropdown,  input-group", id: "dropdown-home", include_blank: "Language" %>
@@ -12,7 +13,7 @@
   </div>
 
 
-
+  <!-- cards index page -->
     <div class="container">
     <% @businesses.each do |business| %>
       <div class="card-index">
@@ -31,6 +32,3 @@
     <% end %>
   </div>
 </div>
-
-
-
