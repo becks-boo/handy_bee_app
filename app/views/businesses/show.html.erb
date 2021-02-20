@@ -41,6 +41,9 @@
     <hr><h3>Reviews</h3>
     <br>
     <div class="review-container">
+      <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+      <%= link_to 'Back', restaurants_path %> |
+      <%= link_to 'Leave a review', new_restaurant_review_path(@restaurant) %>
       <div class="review-card">
       </div>
     </div>
