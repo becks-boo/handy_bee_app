@@ -2,7 +2,8 @@
   <h2>All businesses available here</h2>
 
   <!-- dropdown index page -->
-  <div class="dropdown-index_page d-flex justify-content-space-between">
+<div>
+  <div class="dropdown-index_page">
     <%= form_tag(businesses_path, method: "get") do %>
       <%= select_tag :query,  options_for_select([["English"], ["German"]], params[:query]), class: "dropdown,  input-group", id: "dropdown-home", include_blank: "Language" %>
       <%= select_tag :query,  options_for_select([["5"], ["4"], ["3"], ["2"], ["1"],], params[:query]), class: "dropdown,  input-group", id: "dropdown-home", include_blank: "Rating" %>
@@ -11,24 +12,32 @@
       <input type="submit" class="button-main" value="Search" for="inputGroupSelect02">
     <% end %>
   </div>
+</div>
 
 
-  <!-- cards index page -->
-    <div class="container">
+
+  <!-- view all cards index page -->
+  <div class="card-container">
     <% @businesses.each do |business| %>
       <div class="card-index">
-
-          <%= link_to(business_path(business)) do %>
-          <%# cl_image_tag business.picture.key, brightness: 30, radius: 20, width: 300, height: 300, crop: :thumb %>
-          <% end %>
-
-          <p style="text-align: center; font-weight: bold;"><%= business.id %></p>
-          <hr>
+        <p id="service-type">Service Type</p>
+        <hr>
+        <div class="card-left">
+          <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar") %>
+          <p><%= business.id %></p>
           <p>Name: <strong><%= business.name %></strong></p>
           <p>Category: <strong><%= business.category %></strong></p>
           <p>Description: <strong><%= business.description %></strong></p>
+          <button class="button-main">
+            Button Main
+          </button>
+          <p>stars</p>
+        </div>
+        <div class="card-icons">
 
+        </div>
       </div>
     <% end %>
   </div>
 </div>
+
