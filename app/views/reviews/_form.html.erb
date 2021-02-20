@@ -1,4 +1,4 @@
-<%= simple_form_for [ @booking, @review ] do |f| %>
+<%= simple_form_for [ @booking, Review.new ] do |f| %>
   <%= f.input :content %>
   <%= f.input :rating, input_html: { min: "1", max: "5", step: "1" } %>
   <%= f.submit "Submit review", class: "btn button-blue" %>
