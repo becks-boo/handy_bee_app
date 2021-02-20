@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2021_02_20_134924) do
     t.float "price"
     t.date "start_date"
     t.date "end_date"
-    t.boolean "confirmed"
+    t.boolean "confirmed", default: false
     t.bigint "business_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -57,6 +57,9 @@ ActiveRecord::Schema.define(version: 2021_02_20_134924) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
+    t.text "qualification"
+    t.string "location"
+    t.string "language"
     t.index ["user_id"], name: "index_businesses_on_user_id"
   end
 
@@ -96,7 +99,6 @@ ActiveRecord::Schema.define(version: 2021_02_20_134924) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "user_name"
-    t.string "address"
     t.string "picture"
     t.string "role"
     t.text "qualifications"
