@@ -3,6 +3,10 @@
     <span><%= message.user.user_name %></span>
     <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
   </i>
+
+  <div class=" <% message.user == current_user ? 'chat-box-customer' : 'chat-box' %> "></div>
+  <p><%= message.content %></p>
+
   <% if message.user == current_user %>
 
 
