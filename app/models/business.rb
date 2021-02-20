@@ -7,5 +7,5 @@ class Business < ApplicationRecord
    has_many :reviews, through: :bookings, dependent: :destroy
    has_many_attached :pictures
 
-   validates :name, :description, :category, presence: true
+   validates :name, :description, :category, :location, :language, presence: true
 end
