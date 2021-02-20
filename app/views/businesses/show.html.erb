@@ -40,9 +40,21 @@
     <br>
     <hr><h3>Reviews</h3>
     <br>
-    <div class="review-container">
-      <div class="review-card">
-      </div>
+    <div class="reviews">
+      <br>
+      <p><%= @business.reviews.length %> reviews</p>
+      <hr>
+        <div class="review-container">
+          <% @business.reviews.each do |review| %>
+            <%= review.content %>
+            <%= review.rating %>
+          <% end %>
+          <%# if current_user.bookings.where(booking: @booking).any? %>
+          <%# end %>
+          <br>
+          <p style="margin-left: 17%;">Leave a review</p>
+        <%#= render "reviews/form" %>
+        </div>
     </div>
   </div>
 
