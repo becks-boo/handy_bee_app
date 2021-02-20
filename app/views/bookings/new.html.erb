@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Create a booking</h1>
+
+  <%= simple_form_for @booking, url: business_bookings_path, method: :post do |f| %>
+    <%= f.input :price %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.button :submit, class: 'button-main' %>
+  <% end %>
+</div>
+

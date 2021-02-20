@@ -7,31 +7,36 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'open-uri'
-
-
-
-user1 = User.new(
-  user_name: "Bob Builder",
-  email: "bob@gmail.com",
-  password: "123456",
-  address: "Berlin, Kreuzberg",
-  role: "Painter",
-  qualifications: "Painter, Builder"
-  )
+require 'faker'
 
 image_1 = URI.open('https://images.unsplash.com/photo-1577033169343-75977941abdd?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MXwxfDB8MXxyYW5kb218fHx8fHx8fA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600')
-user1.picture.attach(io: image_1, filename: "#{user1.user_name}", content_type: 'image/png')
 
-user1.save!
+10.times do
+user = User.new(
+  user_name: Faker::Name.name,
+  email: Faker::Internet.email,
+  password: "123456",
+  address: Faker::Address.city,
+  role: "Contractor",
+  qualifications: Faker::Construction.trade,
+  )
 
+# user.picture.attach(io: image_1, filename: "file.png", content_type: 'image/png')
+user.save
+puts "Creating #{user.user_name}"
+end
+
+10.times do
 business1 = Business.new(
-  user_id: user1.id,
-  name: "Painting",
-  description: "Painting for the walls",
-  category: "Home repairing"
+  user_id: 2,
+  name: Faker::Company.name,
+  description: Faker::Construction.subcontract_category,
+  category: Faker::Construction.role
   )
 
 business_img = URI.open('https://images.unsplash.com/photo-1613288030301-b448aa439640?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MXwxfDB8MXxyYW5kb218fHx8fHx8fA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600')
 business1.pictures.attach(io: business_img, filename: "#{business1.name}", content_type: 'image/png')
 
 business1.save!
+puts "creating #{business1.name}"
+end
