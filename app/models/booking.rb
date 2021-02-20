@@ -1,6 +1,6 @@
 class Booking < ApplicationRecord
-  has_one :review
-
   belongs_to :business
   belongs_to :user
+
+  has_one :review, dependent: :destroy
 end
