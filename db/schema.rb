@@ -56,10 +56,7 @@ ActiveRecord::Schema.define(version: 2021_02_20_134924) do
     t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
-    t.text "qualification"
-    t.string "location"
-    t.string "language"
+    t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_businesses_on_user_id"
   end
 
