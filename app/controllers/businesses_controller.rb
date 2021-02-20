@@ -11,4 +11,9 @@ class BusinessesController < ApplicationController
     @bookings = @business.bookings
     authorize @business
   end
+
+  def new
+    @business = Business.new
+    authorize @business
+  end
 end

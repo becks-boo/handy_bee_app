@@ -12,4 +12,12 @@ class BusinessPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def new?
+    user.role == "Contractor"
+  end
+
+  def create?
+    user.role == "Contractor"
+  end
 end
