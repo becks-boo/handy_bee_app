@@ -1,0 +1,33 @@
+.big-navbar {
+  background-color: rgba(255, 168, 0, 0.8);
+  height: 100px;
+  position: relative;
+}
+
+.button-blue-show-page {
+  position: absolute;
+  right: 100px;
+  top: 75px;
+  // width: 40px;
+}
+
+.card-about {
+  margin-top: 120px;
+}
+
+.container {
+ display: grid;
+ justify-content: space-between;
+}
+
+.fas {
+  color: $black;
+  opacity: 0.9;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+
+.fas:hover {
+  opacity: 0.4;
+}
