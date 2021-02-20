@@ -4,4 +4,8 @@ class BusinessesController < ApplicationController
     # @businesses = Business.search(params[:search])
   end
 
+
+  def show
+    @business = Business.find(params[:id])
+  end
 end
