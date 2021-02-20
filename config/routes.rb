@@ -13,4 +13,13 @@ Rails.application.routes.draw do
 
   get '/components', to: 'pages#components', as: 'components'
   get '/account', to: 'pages#account', as: 'account'
+
+
+
+  # for chatrooms
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
+
+  mount ActionCable.server => "/cable"
 end

@@ -5,6 +5,7 @@ class BusinessesController < ApplicationController
     @businesses = policy_scope(Business)
   end
 
+
   def show
     @business = Business.find(params[:id])
     @bookings = @business.bookings
