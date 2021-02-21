@@ -3,6 +3,10 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
   def new
     # If redirecting is the better choice
     # redirect_back fallback_location: root_path unless current_user.role == "Contractor"
