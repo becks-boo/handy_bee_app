@@ -1,0 +1,24 @@
+<div id="contractor-form" class="form-inputs d-none">
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :user_name, required: true %>
+    <%= f.input :email,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "email" }%>
+    <%= f.input :password,
+                required: true,
+                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :password_confirmation,
+                required: true,
+                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :picture, as: :file %>
+    <%= f.input :role, as: :hidden, input_html: {value: "Contractor"} %>
+    <!-- Added form field :role, :user_name etc. (like db) -->
+
+    <div class="form-actions button-main">
+      <%= f.button :submit, "Sign up" %>
+    </div>
+  <% end %>
+</div>

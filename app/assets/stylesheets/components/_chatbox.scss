@@ -1,4 +1,4 @@
-.chat-box {
+.chat-box-receiver {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,7 +10,7 @@
   }
 }
 
-.chat-box-text {
+.chat-box-receiver-text {
   width: 90%;
   background: $light-gray;
   border-radius: 10px;
@@ -20,9 +20,9 @@
   }
 }
 
-// customer chat box
+// sender chat box
 
-.chat-box-customer {
+.chat-box-sender {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,7 +34,7 @@
   }
 }
 
-.chat-box-text-customer {
+.chat-box-sender-text {
   width: 90%;
   background: $blue;
   color: $white;

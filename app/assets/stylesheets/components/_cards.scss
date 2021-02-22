@@ -62,11 +62,11 @@
 // past work on the business show page
 .card-work {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   background-size: cover;
   background-position: center;
-  height: 180px;
+  height: 200px;
   display: flex;
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -74,7 +74,7 @@
 
 .cards-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
 }
 
