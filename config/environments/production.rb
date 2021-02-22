@@ -90,6 +90,12 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+
+  # action cable
+  config.action_cable.url = "ws://www.handybee.me/cable"
+  config.action_cable.allowed_request_origins = [ "http://www.handybee.me", "https://www.handybee.me" ]
+
+
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector
   # middleware. The `delay` is used to determine how long to wait after a write

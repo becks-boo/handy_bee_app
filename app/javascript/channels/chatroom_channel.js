@@ -8,7 +8,7 @@ const initChatroomCable = () => {
 
     consumer.subscriptions.create({ channel: "ChatroomChannel", id: id }, {
       received(data) {
-        // console.log(data); // called when data is broadcast in the cable
+        console.log(data); // called when data is broadcast in the cable
         messagesContainer.insertAdjacentHTML('beforeend', data);
       },
     });
@@ -21,7 +21,7 @@ const initChatroomCable = () => {
 const enterkey = () => {
   const messages = document.getElementById("message_content");
   messages.addEventListener("keydown", (e) => {
-    console.log(e);
+    // console.log(e);
     // if enter is presses and shift is not pressed, then the message can be submitted
     if (e.key === "Enter" && !e.shiftKey) {
       // console.log("Enter key");

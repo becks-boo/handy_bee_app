@@ -23,8 +23,11 @@
         <p><%= @user.email %></p>
       </div>
       <div class="user-info-item">
-        <p><strong>Address</strong></p>
-        <p><%= @user.address %></p>
+        <p><strong>Picture</strong></p>
+        <!-- Changed address to picture, added if statement to not break if no picture -->
+        <% if @user.picture? %>
+          <p><%= cl_image_tag @user.picture %></p>
+        <% end %>
       </div>
     </div>
   <% else %>

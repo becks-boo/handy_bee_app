@@ -3,20 +3,19 @@
     <span><%= message.user.user_name %></span>
     <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
   </i>
+
   <% if message.user == current_user %>
-
-
-    <div class="chat-box-customer">
-      <div class="chat-box-text-customer">
+    <div class="chat-box-sender" id="sender" data-user-id="<%= current_user.id %>">
+      <div class="chat-box-sender-text">
         <p><%= message.content %></p>
       </div>
       <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar") %>
     </div>
 
     <% else %>
-    <div class="chat-box">
+    <div class="chat-box-receiver" id="receiver" data-user-id="<%= current_user.id %>">
       <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar") %>
-      <div class="chat-box-text">
+      <div class="chat-box-receiver-text">
         <p><%= message.content %></p>
       </div>
     </div>
