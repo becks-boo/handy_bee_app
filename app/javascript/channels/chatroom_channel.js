@@ -7,12 +7,12 @@ const initChatroomCable = () => {
     const id = messagesContainer.dataset.chatroomId;
     const sender = document.getElementById('sender');
 
+
     consumer.subscriptions.create({ channel: "ChatroomChannel", id: id }, {
       received(data) {
         console.log(data); // called when data is broadcast in the cable
         messagesContainer.insertAdjacentHTML('beforeend', data);
-        console.log(sender.dataset.userId);
-        // console.log(data);
+        // console.log(sender.dataset.userId);
       },
     });
   }

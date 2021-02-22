@@ -1,6 +1,10 @@
 <div class="big-navbar">
   <img class="avatar-show-page" src="https://images.unsplash.com/photo-1597409212870-c47068072688?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1498&q=80">
-  <%= link_to "Connect", "#", class: "button-blue button-blue-show-page" %>
+  <!-- for messsage modal -->
+  <button type="button" class="button-blue" data-toggle="modal" data-target="#exampleModalCenter">
+    Launch demo modal
+  </button>
+  <%= link_to "Connect", business_chatrooms_path(@business), method: :post, class: "button-blue button-blue-show-page" %>
 </div>
 
 <div class="container">
@@ -54,6 +58,57 @@
     </div>
   </div>
 </div>
+
+<!-- modal  -->
+
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Write <%= @business.name %> a message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="button-blue">
+          <%= link_to "Connect", business_chatrooms_path(@business), method: :post %>
+        </button>
+        <button type="button" class="button-decline" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

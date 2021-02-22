@@ -1,14 +1,33 @@
-<h1>#<%= @chatroom.name %></h1>
-<div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-  <% @chatroom.messages.each do |message| %>
-    <%= render "messages/message", message: message %>
-  <% end %>
+<div class="chatroom-container">
+  <div class="row">
+    <div class="chatroom-index col-4">
+      <%= render "chatLeft" %>
+    </div>
+      <div class="col-8">
+        <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+          <h3><%= @chatroom.customer == current_user ? @chatroom.contractor.user_name : @chatroom.customer.user_name %></h3>
+          <hr>
+          <% @chatroom.messages.each do |message| %>
+            <%= render "messages/message", message: message %>
+          <% end %>
+        </div>
+
+
+        <!-- form for creating messages  -->
+        <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+          <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
+          <%= f.button :submit, class: 'button-main', value: "Send" %>
+        <% end %>
+      </div>
+
+
+     <!--  <div class="col-2">
+        <p>right side</p>
+        <p>@chatroom.contractor.user_name</p>
+      </div> -->
+    </div>
 </div>
 
 
 
-<!-- form for creating messages  -->
-<%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-  <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
-  <%= f.button :submit, class: 'button-main', value: "Send" %>
-<% end %>
+
