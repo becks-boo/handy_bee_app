@@ -1,0 +1,17 @@
+<h3>Messages (<%= @chatrooms.count %>)</h3>
+      <hr>
+      <% @chatrooms.each do |c| %>
+        <%= link_to(chatroom_path(c)) do  %>
+          <div class="chatroom-index-card">
+              <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar", id: "chatroom-avatar") %>
+              <div class="chatroom-index-card-info">
+                <% if current_user.role == "Customer" %>
+                  <p><%= c.contractor.user_name %></p>
+                  <p>Contractor</p>
+                <% else %>
+                  <p><%= c.customer.user_name %></p>
+                <% end %>
+              </div>
+              </div>
+          <% end %>
+      <% end %>

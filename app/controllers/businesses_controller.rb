@@ -7,6 +7,7 @@ class BusinessesController < ApplicationController
 
 
   def show
+    # raise
     @business = Business.find(params[:id])
     @bookings = @business.bookings
     authorize @business
