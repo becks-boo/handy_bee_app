@@ -28,7 +28,7 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { toggleSignUp } from '../components/toggle_sign_up';
-import { initSelect2 } from '../components/init_select2'
+// import { initSelect2 } from '../components/init_select2'
 // for importing the chatroom channel action cable
 import { initChatroomCable, enterkey } from '../channels/chatroom_channel';
 
@@ -37,5 +37,5 @@ document.addEventListener('turbolinks:load', () => {
   toggleSignUp();
   initChatroomCable();
   enterkey();
-  initSelect2();
+  // initSelect2();
 });
