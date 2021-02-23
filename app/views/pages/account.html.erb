@@ -3,7 +3,7 @@
   <h2>Account information</h2>
   <hr>
   <% if @user.picture.attached? %>
-  <%= cl_image_tag @user.picture.key, class: "avatar" %>
+  <%= cl_image_tag @user.picture.key, class: "avatar-show-page" %>
   <% else %>
   <p></p>
   <% end %>

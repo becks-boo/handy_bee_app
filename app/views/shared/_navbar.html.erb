@@ -18,9 +18,9 @@
           <%= link_to "Messages", chatrooms_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
-          <% if @user.picture.attached? %>
-          <div class="avatar-navbar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= cl_image_tag @user.picture.key, class: "avatar"%>
+          <% if current_user.picture.attached? %>
+          <div class="avatar-navbar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="">
+            <%= cl_image_tag current_user.picture.key, class: "avatar"%>
           </div>
           <% else %>
             <i class="far fa-user avatar-navbar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
