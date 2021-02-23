@@ -7,8 +7,13 @@ class BusinessesController < ApplicationController
 
 
   def show
+    puts "Holisito k tal"
     @business = Business.find(params[:id])
     @bookings = @business.bookings
     authorize @business
+  end
+
+  def category
+    @business = Business.find(params[:category])
   end
 end
