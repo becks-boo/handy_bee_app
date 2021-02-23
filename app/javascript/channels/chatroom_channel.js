@@ -5,14 +5,16 @@ const initChatroomCable = () => {
 
   if (messagesContainer) {
     const id = messagesContainer.dataset.chatroomId;
-    const sender = document.getElementById('sender');
-
-
     consumer.subscriptions.create({ channel: "ChatroomChannel", id: id }, {
       received(data) {
         console.log(data); // called when data is broadcast in the cable
         messagesContainer.insertAdjacentHTML('beforeend', data);
-        // console.log(sender.dataset.userId);
+        const receivedMessage = document.getElementById('sender');
+        const senderId = receivedMessage.dataset.messageId;
+        console.log(senderId);
+        // if (senderId !== current_user.id) {
+        //   receivedMessage.classList.remove("chat-box-sender")
+        // }
       },
     });
   }
