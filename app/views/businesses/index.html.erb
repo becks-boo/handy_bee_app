@@ -39,9 +39,10 @@
           <p>Name: <strong><%= business.name %></strong></p>
           <p>Category: <strong><%= business.category %></strong></p>
           <p>Description: <strong><%= business.description %></strong></p>
-          <button class="button-main">
-            <%= link_to "View", business_path(business) %>
-          </button>
+          <!-- <button class="button-main"> -->
+            <%= link_to "View", business_path(business), class: "button-main-index" %>
+            <!-- <button class="button-main"> -->
+          <!-- </button> -->
           <p>stars</p>
         </div>
         <div class="card-icons">
