@@ -8,14 +8,14 @@
           <h3><%= @chatroom.customer == current_user ? @chatroom.contractor.user_name : @chatroom.customer.user_name %></h3>
           <hr>
           <% @chatroom.messages.each do |message| %>
-            <%= render "messages/message", message: message %>
+            <%= render "messages/message", message: message, current_user: current_user %>
           <% end %>
         </div>
 
 
         <!-- form for creating messages  -->
         <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-          <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
+          <%= f.input :content, label: false, placeholder: "Message #{@chatroom.name}" %>
           <%= f.button :submit, class: 'button-main', value: "Send" %>
         <% end %>
       </div>

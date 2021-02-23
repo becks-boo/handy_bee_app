@@ -1,7 +1,7 @@
 <h3>Messages (<%= @chatrooms.count %>)</h3>
       <hr>
       <% @chatrooms.each do |c| %>
-        <%= link_to(chatroom_path(c)) do  %>
+        <%= link_to chatroom_path(c), class: "#{'active' if c == @chatroom}" do  %>
           <div class="chatroom-index-card">
               <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar", id: "chatroom-avatar") %>
               <div class="chatroom-index-card-info">
