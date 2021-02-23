@@ -30,6 +30,7 @@
           <%= f.input :password_confirmation,
                       required: true,
                       input_html: { autocomplete: "new-password" } %>
+          <%= f.input :picture, as: :file %>
           <%= f.input :role, as: :hidden, input_html: {value: "Customer"} %>
           <!-- Added form field :role, :user_name and :address (like db) -->
 
