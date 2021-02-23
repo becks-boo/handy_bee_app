@@ -3,7 +3,7 @@
   <h2>Account information</h2>
   <hr>
   <% if @user.picture.attached? %>
-  <%= cl_image_tag @user.picture.key, class: "avatar" %>
+  <%= cl_image_tag @user.picture.key, class: "avatar-show-page" %>
   <% else %>
   <p></p>
   <% end %>
@@ -21,13 +21,6 @@
       <div class="user-info-item">
         <p><strong>email</strong></p>
         <p><%= @user.email %></p>
-      </div>
-      <div class="user-info-item">
-        <p><strong>Picture</strong></p>
-        <!-- Changed address to picture, added if statement to not break if no picture -->
-        <% if @user.picture? %>
-          <p><%= cl_image_tag @user.picture %></p>
-        <% end %>
       </div>
     </div>
   <% else %>
