@@ -1,12 +1,18 @@
 <div class="container">
-  <div class="row justift-content-center">
-    <div class="col-6">
-      <h2>Sign up</h2>
 
-      <!-- Buttons to choose and trigger EventListener with the specific form -->
-      <button id="customer-btn" class="button-blue">Customer</button>
-      <button id="contractor-btn" class="button-blue">Contractor</button>
-
+<h2 align="center" style="margin-top: 20px ">Sign up</h2>
+  <!-- Buttons to choose and trigger EventListener with the specific form -->
+  <div class="btn-toolbar" role="toolbar">
+    <div>
+      <div class="btn-group" role="group">
+        <button id="customer-btn" class="button-blue">Customer</button>
+      </div>
+      <div class="btn-group" role="group">
+        <button id="contractor-btn" class="button-blue">Contractor</button>
+      </div>
+    </div>
+  </div>
+  <div class="container-sign-up">
       <!-- Two different divs, with contractor with d-none class to hide -->
       <div id="customer-form" class="form-inputs">
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -59,7 +65,5 @@
       </div>
 
       <%= render "devise/shared/links" %>
-
-    </div>
   </div>
 </div>

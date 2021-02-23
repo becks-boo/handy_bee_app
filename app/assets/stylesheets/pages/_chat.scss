@@ -1,0 +1,32 @@
+
+// styling left side of chatrooms, list of chats
+.chatroom-index {
+  border-right: 1px solid black;
+}
+
+// for styling left side of chatrooms, each chat card
+.chatroom-index-card {
+  display: flex;
+  align-items: flex-end;
+  padding: 8px 0;
+  border-bottom: 1px solid black;
+  justify-content: space-between;
+  &:hover {
+    background-color: rgba(200,200,200,0.3);
+  }
+}
+
+#chatroom-avatar {
+  width: 60px;
+  height: 60px;
+}
+
+.chatroom-index-card p {
+  color: $black;
+}
+
+
+.chatroom-container {
+  width: 80%;
+  margin: auto;
+}
