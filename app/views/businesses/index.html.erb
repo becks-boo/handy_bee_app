@@ -40,7 +40,7 @@
           <p>Category: <strong><%= business.category %></strong></p>
           <p>Description: <strong><%= business.description %></strong></p>
           <button class="button-main">
-            Button Main
+            <%= link_to "View", business_path(business) %>
           </button>
           <p>stars</p>
         </div>
