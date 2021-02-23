@@ -1,9 +1,9 @@
 <h2>All businesses available here</h2>
 
-<!--  -->
+<!-- Filter by category -->
 <div class="title-index">
-  <%= params[:query].split.first.capitalize %>
-   <p><%# Businesses.count %></p>
+   <p> <strong> <%= params[:query].split.first.capitalize %> </strong> </p>
+   <p>Business available <strong><%= @businesses_count %></strong> </p>
 </div>
 
 
