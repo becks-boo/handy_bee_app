@@ -2,8 +2,6 @@
 <% categories = [] %>
 <% @users.each do |u| %>
   <% u.businesses.each do |b| %>
-  <%= puts "**********************************" %>
-  <%= puts b.category %>
 <% categories << b.category %>
   <% end %>
   <% end %>
