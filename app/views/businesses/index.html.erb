@@ -1,33 +1,26 @@
-<div class="container">
+<h2>All businesses available here</h2>
 
-<div class="row d-flex justify-content-around" style="margin-top: 40px">
-  <h2 class="col-md-8">All businesses available here</h2>
-   <div class="col-md-4">
-     <div class="right-inner-addon">
-       <i class="icon-search"></i>
-       <input type="search" class="form-control" placeholder="Search" style="width: 400px"/>
-     </div>
+<div class="container">
 
 
  <div class="col-xs-6" >
    <div class="right-inner-addon">
      <i class="icon-search"></i>
-     <input type="search" class="form-control" id="search-index" placeholder="Search" />
-
+     <input type="search" class="form-control" placeholder="Search" />
    </div>
  </div>
 
 
 <div class="verticalLine">
-  -
+
 </div>
 
   <!-- dropdown index page -->
-  <div class="dropdown-index-page" style="margin-top: 40px">
+  <div class="dropdown-index-page">
     <%= form_tag(businesses_path, method: "get") do %>
-      <%= select_tag :query,  options_for_select([["English"], ["German"]], params[:query]), class: "language btn btn-secondary dropdown-toggle", id: "dropdown-filter", include_blank: "Language" %>
-      <%= select_tag :query,  options_for_select([["5"], ["4"], ["3"], ["2"], ["1"],], params[:query]), class: "rating btn btn-secondary dropdown-toggle", id: "dropdown-filter", include_blank: "Rating" %>
-      <%= select_tag :query,  options_for_select([["50$"], ["100$"], ["200$"], ["300$"]], params[:query]), class: "price btn btn-secondary dropdown-toggle", id: "dropdown-filter", include_blank: "Price" %>
+      <%= select_tag :query,  options_for_select([["English"], ["German"]], params[:query]), class: "language", id: "dropdown-filter", include_blank: "Language" %>
+      <%= select_tag :query,  options_for_select([["5"], ["4"], ["3"], ["2"], ["1"],], params[:query]), class: "rating", id: "dropdown-filter", include_blank: "Rating" %>
+      <%= select_tag :query,  options_for_select([["50$"], ["100$"], ["200$"], ["300$"]], params[:query]), class: "price", id: "dropdown-filter", include_blank: "Price" %>
     <% end %>
   </div>
 
@@ -47,7 +40,7 @@
           <p>Category: <strong><%= business.category %></strong></p>
           <p>Description: <strong><%= business.description %></strong></p>
           <button class="button-main">
-          <%= link_to "View", business_path(business) %>
+            Button Main
           </button>
           <p>stars</p>
         </div>
