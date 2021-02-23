@@ -4,8 +4,8 @@
 
 <!-- Filter by category -->
 <div class="title-index">
-   <p> <strong> <%= params[:query].split.first.capitalize %> </strong> </p>
-   <p>Business available <strong><%= @businesses_count %></strong> </p>
+   <p> <strong> <%= params[:query].split.first.capitalize if params[:query].present? %> </strong> </p>
+   <p>Business available <strong><%= @businesses.count %></strong> </p>
 </div>
 
   <div class="row d-flex justify-content-around" style="margin-top: 40px">
