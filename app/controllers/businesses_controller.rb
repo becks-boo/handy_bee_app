@@ -15,6 +15,7 @@ class BusinessesController < ApplicationController
   def show
     @business = Business.find(params[:id])
     @bookings = @business.bookings
+    @chatrooms = Chatroom.all
     authorize @business
   end
 

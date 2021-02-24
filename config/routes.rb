@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :businesses do
     resources :bookings, only: [ :index, :new, :create ]
     resources :reviews, only: [ :index, :new, :create ]
-    resources :chatrooms, only: :create
+    resources :chatrooms, only: [:create, :show]
   end
 
   resources :bookings, except: [ :index, :new, :create ]
