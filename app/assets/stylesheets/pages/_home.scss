@@ -5,6 +5,7 @@
   height: 100vh;
   background-size: cover;
   background-position: center;
+  transform: scaleX(-1);
 }
 
 .banner-text {
@@ -13,6 +14,7 @@
   align-items: flex-start;
   padding: 15% 0 0 10%;
   color: white;
+  transform: scaleX(-1);
 }
 
 #button-main-home {
