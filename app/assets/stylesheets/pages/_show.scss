@@ -6,8 +6,9 @@
 
 .button-blue-show-page {
   position: absolute;
-  right: 100px;
-  top: 75px;
+  align: center;
+  right: 10%;
+  top: 24%;
   // width: 40px;
 }
 
@@ -17,7 +18,7 @@
 
 .container {
  display: grid;
- justify-content: space-between;
+ // justify-content: space-between;
 }
 
 .fas {
