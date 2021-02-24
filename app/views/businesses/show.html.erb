@@ -1,10 +1,27 @@
+<!-- this ruby code determines if a chat between the user and business owner already exist -->
+<!-- if a chat does not already exist, a new chat is created. If it does it loads the existing chat -->
+  <% existing_chatroom = @chatrooms.find_by(contractor_id: @business.user_id, customer_id: current_user.id) %>
+  <% assigned_chat = nil %>
+
+    <% if existing_chatroom %>
+    <% assigned_chat = chatroom_path(existing_chatroom) %>
+    <% else %>
+    <% assigned_chat = business_chatrooms_path(@business) %>
+    <% end %>
+
+
+
 <div class="big-navbar">
   <img class="avatar-show-page" src="https://images.unsplash.com/photo-1597409212870-c47068072688?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1498&q=80">
   <!-- for messsage modal -->
   <!-- <button type="button" class="button-blue" data-toggle="modal" data-target="#exampleModalCenter">
     Launch demo modal
   </button> -->
-  <%= link_to "Connect", business_chatrooms_path(@business), method: :post, class: "button-blue button-blue-show-page" %>
+  <% if existing_chatroom %>
+    <%= link_to "Connect", assigned_chat, class: "button-blue button-blue-show-page" %>
+  <% else %>
+    <%= link_to "Connect", assigned_chat, method: :post, class: "button-blue button-blue-show-page" %>
+  <% end %>
 </div>
 
 <div class="container">
