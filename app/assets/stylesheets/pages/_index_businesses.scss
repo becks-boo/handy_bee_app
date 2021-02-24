@@ -10,6 +10,7 @@
   display: flex !important;
   justify-content: center;
   padding-bottom: 20px;
+  width: 250px;
 }
 
 
@@ -44,4 +45,8 @@
 
 .grid-container {
   display: grid;
+}
+
+.searchbar {
+  margin-left: 60%;
 }
