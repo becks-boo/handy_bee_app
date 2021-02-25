@@ -28,5 +28,16 @@
 
 .chatroom-container {
   width: 80%;
-  margin: auto;
+  margin: 2em;
 }
+
+a:hover {
+  text-decoration: none;
+}
+
+
+#message_content {
+  border-radius: 50px;
+  border: orange 1px solid;
+}
+

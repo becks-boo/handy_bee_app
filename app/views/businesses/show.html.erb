@@ -1,33 +1,44 @@
+<!-- this ruby code determines if a chat between the user and business owner already exist -->
+<!-- if a chat does not already exist, a new chat is created. If it does it loads the existing chat -->
+  <% existing_chatroom = @chatrooms.find_by(contractor_id: @business.user_id, customer_id: current_user.id) %>
+  <% assigned_chat = nil %>
+
+    <% if existing_chatroom %>
+    <% assigned_chat = chatroom_path(existing_chatroom) %>
+    <% else %>
+    <% assigned_chat = business_chatrooms_path(@business) %>
+    <% end %>
+
+
+
 <div class="big-navbar">
-  <img class="avatar-show-page" src="https://images.unsplash.com/photo-1597409212870-c47068072688?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1498&q=80">
   <!-- for messsage modal -->
-  <button type="button" class="button-blue" data-toggle="modal" data-target="#exampleModalCenter">
+  <!-- <button type="button" class="button-blue" data-toggle="modal" data-target="#exampleModalCenter">
     Launch demo modal
-  </button>
-  <%= link_to "Connect", business_chatrooms_path(@business), method: :post, class: "button-blue button-blue-show-page" %>
+  </button> -->
 </div>
 
 <div class="container">
   <div class="row">
-    <div class="col card-about info-show-page">
-      <h3>About</h3>
-      <p><%= @business.language %></p>
-      <p><%= @business.location %></p>
-      <p><%= @business.description %></p>
-    </div>
-    <div class="col card-about qualifications-icons" style="text-align: left;">
-      <p><i class="fas fa-paint-roller"></i> Painting the walls</p>
-      <p><i class="fas fa-palette"></i> Picking up colors</p>
-      <p><i class="fas fa-spray-can"></i> Working with a color spray</p>
-      <p><i class="fas fa-brush"></i> Doing the walls from scratch</p>
-    </div>
-    <div class="col card-about qualifications-icons" style="text-align: left;">
-      <p><i class="fas fa-swatchbook"></i> Making measurments</p>
-      <p><i class="fas fa-wrench"></i> Working with wrench</p>
-      <p><i class="fas fa-hammer"></i> Working with hammer</i></p>
-      <p><i class="fas fa-screwdriver"></i> Working with a screwdriver</p>
-    </div>
+      <img class="avatar-show-page" src="https://images.unsplash.com/photo-1597409212870-c47068072688?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1498&q=80" style="margin-top:-100px; margin-left: -20px; position: absolute;">
   </div>
+    <% if existing_chatroom %>
+      <%= link_to "Connect", assigned_chat, class: "button-blue button-blue-show-page" %>
+    <% else %>
+      <%= link_to "Connect", assigned_chat, method: :post, class: "button-blue button-blue-show-page" %>
+    <% end %>
+    <div class="row">
+      <div class="col card-about info-show-page">
+        <h3>About</h3>
+        <p>Hello, I am a Painter. With more than 20 years of professional experience I will make your house shining in just a few hours.
+              Contact me to know the price and ask all the question regarding my services.</p>
+      </div>
+      <div class="col card-about qualifications-icons" style="text-align: left;">
+        <p><i class="fas fa-language"></i><%= @business.language %></p>
+        <p><i class="fas fa-map-marker-alt"></i><%= @business.location %></p>
+        <p><i class="fas fa-briefcase"></i><%= @business.description %></p>
+      </div>
+    </div>
 
   <div class="past-work">
     <hr>
@@ -90,6 +101,31 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

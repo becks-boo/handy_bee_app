@@ -37,4 +37,5 @@ document.addEventListener('turbolinks:load', () => {
   toggleSignUp();
   initChatroomCable();
   enterkey();
+  // initSelect2();
 });
