@@ -20,7 +20,11 @@
 
 <div class="container">
   <div class="row">
+    <% if @business.user.picture.attached? %>
+      <%= cl_image_tag @business.user.picture.key, class: "avatar-show-page" %>
+    <% else %>
       <img class="avatar-show-page" src="https://images.unsplash.com/photo-1597409212870-c47068072688?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1498&q=80" style="margin-top:-100px; margin-left: -20px; position: absolute;">
+    <% end %>
   </div>
     <% if existing_chatroom %>
       <%= link_to "Connect", assigned_chat, class: "button-blue button-blue-show-page" %>
