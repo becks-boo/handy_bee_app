@@ -31,7 +31,7 @@
   <div class="card-container">
     <% @businesses.each do |business| %>
       <div class="card-index">
-        <p id="service-type">Service Type</p>
+        <p id="service-type"><i class="fas fa-briefcase"></i><%= business.description %></p>
         <hr>
         <div class="card-left">
           <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar-index") %>
