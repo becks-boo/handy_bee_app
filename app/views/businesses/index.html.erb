@@ -2,6 +2,13 @@
 
 <!-- Filter by category -->
 <div class="title-index">
+ <!-- home-dropdown-banner -->
+   <p> <strong> <%= params[:query] %> </strong> </p>
+   <p>Business available <strong><%= @businesses_count %></strong> </p>
+</div>
+
+
+
   <div class="row d-flex justify-content-around" style="margin-top: 40px">
     <h2><strong><%= @businesses.count %></strong> business available for you</h2>
     <p> <strong> <%= params[:query].split.first.capitalize if params[:query].present? %> </strong> </p>
@@ -12,7 +19,7 @@
   </div>
 
 
-  <!-- dropdown index page -->
+  <!-- dropdown index page 
   <div class="dropdown-index-page" style="margin-top: 40px; margin-bottom: 20px;">
     <%= form_tag(businesses_path, method: "get") do %>
       <%= select_tag :query,  options_for_select([["English"], ["German"]], params[:query]), class: "language btn btn-dark", id: "dropdown-filter", include_blank: "Language" %>
