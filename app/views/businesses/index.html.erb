@@ -1,28 +1,23 @@
-
-<h2>All businesses available here</h2>
 <div class="container">
 
 <!-- Filter by category -->
 <div class="title-index">
-   <p> <strong> <%= params[:query].split.first.capitalize if params[:query].present? %> </strong> </p>
-   <p>Business available <strong><%= @businesses.count %></strong> </p>
-</div>
-
   <div class="row d-flex justify-content-around" style="margin-top: 40px">
-    <h2>All businesses available here</h2>
+    <h2><strong><%= @businesses.count %></strong> business available for you</h2>
+    <p> <strong> <%= params[:query].split.first.capitalize if params[:query].present? %> </strong> </p>
     <div class="right-inner-addon">
       <i class="icon-search"></i>
-      <input type="search" class="form-control" placeholder="Search" style="width: 400px"/>
+      <input type="search" class="form-control" placeholder="Search" style="width: 400px; box-shadow: 0 0 15px rgba(0,0,0,0.1);"/>
     </div>
   </div>
 
 
   <!-- dropdown index page -->
-  <div class="dropdown-index-page">
+  <div class="dropdown-index-page" style="margin-top: 40px; margin-bottom: 20px;">
     <%= form_tag(businesses_path, method: "get") do %>
-      <%= select_tag :query,  options_for_select([["English"], ["German"]], params[:query]), class: "language", id: "dropdown-filter", include_blank: "Language" %>
-      <%= select_tag :query,  options_for_select([["5"], ["4"], ["3"], ["2"], ["1"],], params[:query]), class: "rating", id: "dropdown-filter", include_blank: "Rating" %>
-      <%= select_tag :query,  options_for_select([["50$"], ["100$"], ["200$"], ["300$"]], params[:query]), class: "price", id: "dropdown-filter", include_blank: "Price" %>
+      <%= select_tag :query,  options_for_select([["English"], ["German"]], params[:query]), class: "language btn btn-dark", id: "dropdown-filter", include_blank: "Language" %>
+      <%= select_tag :query,  options_for_select([["5"], ["4"], ["3"], ["2"], ["1"],], params[:query]), class: "rating btn btn-dark", id: "dropdown-filter", include_blank: "Rating" %>
+      <%= select_tag :query,  options_for_select([["50$"], ["100$"], ["200$"], ["300$"]], params[:query]), class: "price btn btn-dark", id: "dropdown-filter", include_blank: "Price" %>
     <% end %>
   </div>
 
@@ -31,22 +26,23 @@
   <div class="card-container">
     <% @businesses.each do |business| %>
       <div class="card-index">
-        <p id="service-type">Service Type</p>
+        <p id="service-type"><i class="fas fa-briefcase"></i><%= business.category %></p>
         <hr>
         <div class="card-left">
-          <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar") %>
-
+          <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar-index") %>
+        </div>
+        <div class="card-body">
           <p>Name: <strong><%= business.name %></strong></p>
           <p>Category: <strong><%= business.category %></strong></p>
           <p>Description: <strong><%= business.description %></strong></p>
-          <!-- <button class="button-main"> -->
-            <%= link_to "View", business_path(business), class: "button-main-index" %>
-            <!-- <button class="button-main"> -->
-          <!-- </button> -->
-          <p>stars</p>
         </div>
+  <!-- </button> -->
+        <div class="">
+            <%= link_to "View", business_path(business), class: "button-main-index" %>
+        </div>
+  <!-- raiting -->
         <div class="card-icons">
-
+          <!-- <p><i class="fas fa-star"></i></p> -->
         </div>
       </div>
     <% end %>
