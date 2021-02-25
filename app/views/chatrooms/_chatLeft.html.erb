@@ -1,4 +1,4 @@
-<h3>Messages (<%= @chatrooms.count %>)</h3>
+<p>Messages (<%= @chatrooms.count %>)</p>
       <hr>
       <% @chatrooms.each do |c| %>
         <%= link_to chatroom_path(c), class: "#{'active' if c == @chatroom}" do  %>

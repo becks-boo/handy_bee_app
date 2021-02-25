@@ -5,7 +5,7 @@
     </div>
       <div class="col-8">
         <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-          <h3><%= @chatroom.customer == current_user ? @chatroom.contractor.user_name : @chatroom.customer.user_name %></h3>
+          <p>Chat with <%= @chatroom.customer == current_user ? @chatroom.contractor.user_name : @chatroom.customer.user_name %></p>
           <hr>
           <% @chatroom.messages.each do |message| %>
             <%= render "messages/message", message: message, current_user: current_user %>
@@ -15,8 +15,8 @@
 
         <!-- form for creating messages  -->
         <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-          <%= f.input :content, label: false, placeholder: "Message #{@chatroom.name}" %>
-          <%= f.button :submit, class: 'button-main', value: "Send" %>
+          <%= f.input :content, label: false, placeholder: "Type a message #{@chatroom.name}" %>
+          <%= f.button :submit, class: 'button-main', value: "Send", id: 'button-message' %>
         <% end %>
       </div>
 
