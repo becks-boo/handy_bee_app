@@ -12,7 +12,7 @@
   <!-- for the text and dropdown on the home banner -->
   <div class="banner-text">
     <h1>Fix your house in a few clicks</h1>
-    <h3>another text snippet here</h3>
+    <br>
     <%= form_tag(businesses_path, method: "get") do %>
       <%= select_tag :query,  options_for_select(categories_unique, params[:query]), class: "dropdown,  input-group, select2", id: "dropdown-home", include_blank: "Choose a service" %>
       <input type="submit" class="button-main" value="Search" for="inputGroupSelect02">
