@@ -35,18 +35,19 @@
         <hr>
         <div class="card-left">
           <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar-index") %>
-
+        </div>
+        <div class="card-body">
           <p>Name: <strong><%= business.name %></strong></p>
           <p>Category: <strong><%= business.category %></strong></p>
           <p>Description: <strong><%= business.description %></strong></p>
-          <!-- <button class="button-main"> -->
-            <%= link_to "View", business_path(business), class: "button-main-index" %>
-            <!-- <button class="button-main"> -->
-          <!-- </button> -->
-          <p>stars</p>
         </div>
+  <!-- </button> -->
+        <div class="">
+            <%= link_to "View", business_path(business), class: "button-main-index" %>
+        </div>
+  <!-- raiting -->
         <div class="card-icons">
-
+          <!-- <p><i class="fas fa-star"></i></p> -->
         </div>
       </div>
     <% end %>
