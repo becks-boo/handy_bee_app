@@ -7,7 +7,7 @@
               <div class="chatroom-index-card-info">
                 <% if current_user.role == "Customer" %>
                   <p><%= c.contractor.user_name %></p>
-                  <p>Contractor</p>
+                  <p><%= c.contractor.businesses.first.category %></p>
                 <% else %>
                   <p><%= c.customer.user_name %></p>
                 <% end %>
