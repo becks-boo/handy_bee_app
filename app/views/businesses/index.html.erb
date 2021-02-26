@@ -12,7 +12,7 @@
 
 <%= form_tag(businesses_path, method: "get") do %>
   <%= select_tag :filter,  options_for_select(@languages_uniq, params[:filter]), class: "dropdown input-group dropdown-index", include_blank: "Language" %>
-  <input type="submit" class="button-main" value="Search" for="dropdown-index
+  <input type="submit" class="button-main" value="Search" for="dropdown-index"/>
 <% end %>
 
 
@@ -26,7 +26,7 @@
   </div>
 
 
-  <!-- dropdown index page
+  <!-- dropdown index page -->
   <div class="dropdown-index-page" style="margin-top: 40px; margin-bottom: 20px;">
     <%= form_tag(businesses_path, method: "get") do %>
       <%= select_tag :query,  options_for_select([["English"], ["German"]], params[:query]), class: "language btn btn-dark", id: "dropdown-filter", include_blank: "Language" %>
@@ -36,6 +36,57 @@
   </div>
 
 
+
+
+<div class="frame card-container" style="margin-bottom: 20px">
+  <div class="center">
+
+    <div class="profile">
+      <div class="image">
+        <div class="circle-1"></div>
+        <div class="circle-2"></div>
+        <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar-index") %>
+      </div>
+
+      <div class="name">Business name</div>
+      <div class="job">Business description</div>
+
+      <div class="actions">
+        <button class="btn">Connect</button>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="box">
+        <i class="fas fa-bolt"></i>
+        <span class="parameter">Electrical</span>
+      </div>
+      <div class="box">
+        <i class="fas fa-map-marker-alt"></i>
+        <span class="value">Location</span>
+      </div>
+      <div class="box">
+        <i class="fas fa-user-check"></i>
+        <span class="parameter">Certified</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <!-- view all cards index page -->
   <div class="card-container">
     <% @businesses.each do |business| %>
@@ -43,11 +94,11 @@
         <p id="service-type"><i class="fas fa-briefcase"></i><%= business.category %></p>
         <hr>
         <div class="card-left">
-          <% if business.user.picture.attached? %>
-            <%= cl_image_tag business.user.picture.key, class: "avatar-index" %>
-          <% else %>
-            <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar-index") %>
-          <% end %>
+          <% if business.user.picture.attached? %>            <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar-index") %>
+              <%= cl_image_tag business.user.picture.key, class: "avatar-index" %>
+            <% else %>
+              <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar-index") %>
+            <% end %>
         </div>
         <div class="card-body">
           <p>Name: <strong><%= business.name %></strong></p>
