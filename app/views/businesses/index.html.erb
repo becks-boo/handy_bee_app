@@ -1,7 +1,21 @@
+
+
+
 <div class="container">
 
 <!-- Filter by category -->
 <div class="title-index">
+ <!-- home-dropdown-banner -->
+   <p> <strong> <%= params[:query] %> </strong> </p>
+   <p>Business available <strong><%= @businesses_count %></strong> </p>
+</div>
+
+<%= form_tag(businesses_path, method: "get") do %>
+  <%= select_tag :filter,  options_for_select(@languages_uniq, params[:filter]), class: "dropdown input-group dropdown-index", include_blank: "Language" %>
+  <input type="submit" class="button-main" value="Search" for="dropdown-index"/>
+<% end %>
+
+
   <div class="row d-flex justify-content-around" style="margin-top: 40px">
     <h2><strong><%= @businesses.count %></strong> business available for you</h2>
     <p> <strong> <%= params[:query].split.first.capitalize if params[:query].present? %> </strong> </p>
