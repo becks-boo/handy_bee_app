@@ -80,7 +80,11 @@
         <p id="service-type"><i class="fas fa-briefcase"></i><%= business.category %></p>
         <hr>
         <div class="card-left">
-          <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar-index") %>
+          <% if business.user.picture.attached? %>            <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar-index") %>
+              <%= cl_image_tag business.user.picture.key, class: "avatar-index" %>
+            <% else %>
+              <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar-index") %>
+            <% end %>
         </div>
         <div class="card-body">
           <p>Name: <strong><%= business.name %></strong></p>
