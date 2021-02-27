@@ -61,12 +61,6 @@
 }
 
 
-
-
-
-
-
-
 // NEW STYLE SHOW PAGE
 
 .container {
@@ -74,17 +68,16 @@
   margin: 30px auto 30px;
   padding: 0 !important;
   width: 90%;
-  background-color: #fff;
+  background-color: $white;
   box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.10);
 }
 
 header {
-  background: #eee;
-  background-image: url("https://images.pexels.com/photos/1731427/pexels-photo-1731427.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background: $white;
+  background-color: rgba(255, 168, 0, 0.8);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-color: red;
   height: 250px;
 }
 
@@ -94,7 +87,7 @@ header i {
   right: -96%;
   top: 25px;
   font-size: 18px !important;
-  color: #fff;
+  color: $white;;
 }
 
 @media (max-width:800px) {
@@ -123,30 +116,18 @@ main {
   height: 200px;
   margin-top: -120px;
   border-radius: 100px;
-  border: 4px solid #fff;
+  border: 4px solid $white;;
+  object-fit: cover;
 }
 
-.active {
-  width: 20px;
-  height: 20px;
-  border-radius: 20px;
-  position: absolute;
-  right: calc(50% - 70px);
-  top: 75px;
-  background-color: #FFC107;
-  border: 3px solid #fff;
-}
 
 @media (max-width:990px) {
-  .active {
     right: calc(50% - 60px);
     top: 50px;
-  }
 }
 
 .name {
   margin-top: 20px;
-  font-family: "Open Sans";
   font-weight: 600;
   font-size: 18pt;
   color: #777;
@@ -155,17 +136,15 @@ main {
 .info {
   margin-top: -5px;
   margin-bottom: 5px;
-  font-family: 'Montserrat', sans-serif;
   font-size: 11pt;
   color: #aaa;
 }
 
 .stats {
-  margin-top: 25px;
+  // margin-top: 25px; this will break index page as there's another stats
   text-align: center;
   padding-bottom: 20px;
   border-bottom: 1px solid #ededed;
-  font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -173,7 +152,6 @@ main {
   padding: 0px;
   font-size: 14pt;
   font-weight: bold;
-  font-family: 'Montserrat', sans-serif;
   color: #aaa;
 }
 
@@ -189,27 +167,9 @@ main {
   margin: 25px 40px;
   color: #999;
   font-size: 11pt;
-  font-family: "Open Sans";
   padding-bottom: 25px;
   border-bottom: 1px solid #ededed;
 }
-
-.social {
-  margin: 5px 0 12px 0;
-  text-align: center;
-  display: inline-block;
-  font-size: 20pt;
-}
-
-.social i {
-  cursor: pointer;
-  margin: 0 15px;
-}
-
-.social i:nth-child(1)  { color: #4267b2; }
-.social i:nth-child(2)  { color: #1da1f2; }
-.social i:nth-child(3)  { color: #bd081c; }
-.social i:nth-child(4)  { color: #36465d; }
 
 .right {
   padding: 0 25px 0 25px !important;
@@ -224,32 +184,37 @@ main {
   cursor: pointer;
   font-size: 13pt;
   text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   color: #888;
 }
 
 .nav li:hover, .nav li:nth-child(1)  {
-  color: #999;
-  border-bottom: 2px solid #999;
+  color: $grey;
+  border-bottom: 2px solid $grey;
 }
 
-.follow {
+.connect-show-page {
   position: absolute;
   right: 8%;
-  top: 35px;
-  font-size: 11pt;
-  background-color: #42b1fa;
-  color: #fff;
-  padding: 8px 15px;
+  top: 10px;
   cursor: pointer;
   transition: all .4s;
-  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
+  padding: 20px 28px;
+  background: rgba(39, 109, 255, 0.91);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  border: none;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  color: #FFFFFF;
 }
 
-.follow:hover {
-  box-shadow: 0 0 15px rgba(0,0,0,0.2), 0 0 15px rgba(0,0,0,0.2);
+.connect-show-page:hover {
+
 }
 
 @media (max-width:990px) {
@@ -257,7 +222,7 @@ main {
     display: none;
   }
 
-  .follow {
+  .connect-show-page {
     width: 50%;
     margin-left: 25%;
     display: block;
