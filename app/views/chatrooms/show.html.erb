@@ -22,16 +22,100 @@
 
 
       <div class="col-2">
-        <p>right side</p>
+        <% if current_user.role == "Contractor" %>
+        <p>Send <%= @chatroom.customer.user_name %> a booking request</p>
         <%= simple_form_for @booking, url: chatroom_bookings_path(@chatroom), method: :post do |f| %>
             <%= f.input :price %>
             <%= f.input :start_date %>
             <%= f.input :end_date %>
             <%= f.button :submit, class: 'button-main' %>
-          <% end %>
+            <% end %>
+          <% else %>
+            <div class="frame " style="margin-bottom: 20px">
+              <div class="center">
+                <div class="profile">
+                  <div class="image">
+                    <div class="circle-1"></div>
+                      <div class="circle-2"></div>
+                        <% if @chatroom.business.user.picture.attached? %><%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar-index") %>
+                          <%= cl_image_tag @chatroom.business.user.picture.key, class: "avatar-index" %>
+                        <% else %>
+                          <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar-index") %>
+                        <% end %>
+                      </div>
+
+                      <div class="name"><%= @chatroom.business.name %></div>
+                      <div class="job"><%= @chatroom.business.description %></div>
+
+                      <!-- button -->
+                      <div class="actions">
+                        <%= link_to "View", business_path(@chatroom.business), class: "btn" %>
+                      </div>
+                </div>
+
+                <!-- cards with icons -->
+                <div class="stats">
+                  <div class="box">
+                    <i class="fas fa-bolt"></i>
+                    <span class="parameter"><%= @chatroom.business.category %></span>
+                  </div>
+                  <div class="box">
+                    <i class="fas fa-map-marker-alt"></i>
+                      <span class="value"><%= @chatroom.business.location %></span>
+                  </div>
+                  <div class="box">
+                    <i class="fas fa-user-check"></i>
+                    <span class="parameter">Certified</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+        <% end %>
       </div>
     </div>
 </div>
+<br><br>
+
+<hr>
+
+<div class="row">
+  <% @pending_booking.each do |b| %>
+  <div class="booking-request col-6">
+    <p>Booking request from <%= @chatroom.contractor.user_name %></p>
+    <p>From: <%= b.start_date %></p>
+    <p>To: <%= b.end_date %></p>
+    <p>Price: <%= b.price.to_i %> €</p>
+    <p>Status: <%= b.confirmed ? "Confirmed" : "Pending" %></p>
+    <div class="accept-decline">
+      <%= simple_form_for(b) do |f| %>
+        <%= f.hidden_field :accept, :value => true %>
+        <%= f.submit value="Accept", class: "button-main", id: "button-accept", style: "padding: 14px; margin-right: 12px;
+" %>
+      <% end %>
+
+      <button class="button-decline" id="button-decline">
+        <%= link_to "Decline", b, method: :delete, data: {confirm: "Are you sure?"}, style: "color: black;" %>
+      </button>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

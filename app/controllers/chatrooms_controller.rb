@@ -9,8 +9,16 @@ class ChatroomsController < ApplicationController
     @chatrooms = policy_scope(Chatroom)
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
+    @booking = Booking.new
+    @pending_booking = Booking.where(customer_id: @chatroom.customer, contractor_id: @chatroom.contractor)
     authorize @chatroom
   end
+
+  def confirm_booking
+    @pending_booking = Booking.where(customer_id: @chatroom.customer, contractor_id: @chatroom.contractor)
+    @pending_booking.confirmed = true
+  end
+
 
   def create
     @chatroom = Chatroom.new
@@ -27,5 +35,6 @@ class ChatroomsController < ApplicationController
   def chat_params
     params.require(:chatroom).permit(:name)
   end
+
 
 end

@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   # for chatrooms
   resources :chatrooms, only: [:show, :index] do
     resources :messages, only: :create
-    resources :bookings, only: [:new, :create, :show]
+    resources :bookings, only: [:new, :create, :show, :update, :destroy]
   end
 
   mount ActionCable.server => "/cable"

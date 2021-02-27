@@ -29,7 +29,7 @@ class BookingsController < ApplicationController
     @booking.contractor_id = @contractor
     @booking.business = @business
     @booking.customer_id = @customer
-    @booking.user = current_user
+    @booking.user_id = @contractor
     authorize @booking
 
     if @booking.save!
@@ -41,6 +41,23 @@ class BookingsController < ApplicationController
 
   def edit
     @booking = Booking.find(params[:id])
+  end
+
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(confirmed: true)
+    authorize @booking
+    flash.notice = "Booking confirmed"
+    redirect_back(fallback_location: 'chatrooms/index')
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    authorize @booking
+    flash.notice = "Booking declined"
+    redirect_back(fallback_location: 'chatrooms/index')
   end
 
   private
