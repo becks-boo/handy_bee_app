@@ -63,6 +63,14 @@ class BusinessesController < ApplicationController
     authorize @business
   end
 
+  def destroy
+    @business = Business.find(params[:id])
+
+    authorize @business
+    @business.destroy
+    redirect_to account_path
+  end
+
   private
 
   def filter_language
