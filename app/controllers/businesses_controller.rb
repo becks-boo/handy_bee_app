@@ -47,14 +47,20 @@ class BusinessesController < ApplicationController
 
   def edit
     @business = Business.find(params[:id])
+
+    authorize @business
   end
 
   def update
+    @business = Business.find(params[:id])
+
     if @business.update(business_params)
-      redirect_to @bike, notice: "Business was succesfully updated."
+      redirect_to @business, notice: "Business was succesfully updated."
     else
       render :edit
     end
+
+    authorize @business
   end
 
   private

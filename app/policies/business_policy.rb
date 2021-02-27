@@ -20,4 +20,12 @@ class BusinessPolicy < ApplicationPolicy
   def create?
     user.role == "Contractor"
   end
+
+  def edit?
+    record.user == user
+  end
+
+  def update?
+    record.user == user
+  end
 end
