@@ -1,3 +1,16 @@
 .modal-content {
-    border-radius: 14px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #FFFFFC;
+    background-clip: padding-box;
+    border: 1px solid rgba(35, 31, 33, 0.2);
+    border-radius: 15px;
+    outline: 0;
   }
+
+.modal-dialog {
+  padding-top: 200px;
+}

@@ -8,23 +8,21 @@
 <% categories_unique = categories.uniq %>
 
 
-<div class="banner" style="background-image: linear-gradient(to right, rgba(100,100,100,0.4), rgba(100,100,100,0)), url(<%= cl_image_path "https://res.cloudinary.com/jordannadroj/image/upload/v1614272481/prtm27ymxpnjygkzw22c.jpg"%>)">
+<div class="banner" style="background-image: linear-gradient(to right, rgba(100,100,100,0.4), rgba(100,100,100,0)), url(<%= cl_image_path "https://res.cloudinary.com/jordannadroj/image/upload/v1614440538/cjdklhgb6fwmisnj5r7s.jpg"%>)">
   <!-- for the text and dropdown on the home banner -->
   <div class="banner-text">
     <h1>Fix your house in a few clicks</h1>
     <br>
-    <%= form_tag(businesses_path, method: "get") do %>
-      <%= select_tag :query,  options_for_select(categories_unique, params[:query]), class: "dropdown,  input-group, select2", id: "dropdown-home", include_blank: "Choose a service" %>
+    <%# form_tag(businesses_path, method: "get") do %>
+      <%# select_tag :query,  options_for_select(categories_unique, params[:query]), class: "dropdown,  input-group, select2", id: "dropdown-home", include_blank: "Choose a service" %>
       <!-- <input type="submit" class="button-main" value="Search" for="inputGroupSelect02"> -->
       <!-- Button trigger modal -->
-<button type="button" class="button-home" data-toggle="modal" data-target="#exampleModal">
+<button type="button" class="button-main" data-toggle="modal" data-target="#exampleModal">
   Find a Service
 </button>
-    <% end %>
+    <%# end %>
   </div>
 </div>
-
-
 
 
 <%= render "shared/modal" %>
