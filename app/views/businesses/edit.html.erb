@@ -6,7 +6,7 @@
     <%= f.input :language, collection: %w(English French German Arabic Turkish Farsi Portuguese Spanish Russian Manding) %>
     <%= f.input :location %>
     <%= f.input :qualification %>
-    <%= f.input :picture, as: :file %>
+    <%= f.input :pictures, as: :file, input_html: { multiple: true } %>
     <%= f.submit "Edit business", class: "form-actions button-main" %>
   <% end %>
 </div>
