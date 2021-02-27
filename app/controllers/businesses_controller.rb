@@ -10,6 +10,15 @@ class BusinessesController < ApplicationController
     else
       @businesses = Business.all
     end
+
+    if params[:filter].present?
+      @businesses = Business.where(language: params[:filter])
+      @businesses_count = @businesses.count
+    else
+      @businesses = Business.all
+    end
+
+    filter_language
   end
 
   def show
@@ -37,6 +46,14 @@ class BusinessesController < ApplicationController
   end
 
   private
+
+  def filter_language
+    @languages = []
+    @businesses.each do |b|
+      @languages << b.language
+    end
+    @languages_uniq = @languages.uniq
+  end
 
   def business_params
     params.require(:business).permit(:name, :description, :picture, :category, :qualification, :location, :language)

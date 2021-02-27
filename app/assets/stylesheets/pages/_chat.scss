@@ -1,16 +1,16 @@
 
 // styling left side of chatrooms, list of chats
 .chatroom-index {
-  border-right: 1px solid black;
+  border-right: 1px solid rgba(0,0,0,0.2);
 }
 
 // for styling left side of chatrooms, each chat card
 .chatroom-index-card {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   padding: 8px 0;
-  border-bottom: 1px solid black;
-  justify-content: space-between;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  justify-content: space-around;
   &:hover {
     background-color: rgba(200,200,200,0.3);
   }
@@ -39,5 +39,12 @@ a:hover {
 #message_content {
   border-radius: 50px;
   border: orange 1px solid;
+  width: 80%;
+  // margin: auto;
 }
 
+#button-message {
+  position: absolute;
+  right: 21%;
+
+}
