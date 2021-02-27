@@ -156,8 +156,10 @@
     margin-top: 33px;
 
     .btn {
-      display: block;
-      width: 140px;
+      // display: block;
+      display: inline-grid;
+      align-items: center;
+      width: 128px;
       height: 40px;
       margin: 0 auto 10px auto;
       background: none;
@@ -190,10 +192,10 @@
     padding-top: 28px;
     transition: all .4s ease-in-out;
 
-    &:hover {
-      background: #E1CFC2;
-      cursor: pointer;
-    }
+    // &:hover {
+    //   background: #E1CFC2;
+    //   cursor: pointer;
+    // }
 
     &:nth-child(2) {
       margin: 1px 0;
