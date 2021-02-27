@@ -14,8 +14,6 @@ class BusinessesController < ApplicationController
     if params[:filter].present?
       @businesses = Business.where(language: params[:filter])
       @businesses_count = @businesses.count
-    else
-      @businesses = Business.all
     end
 
     filter_language
@@ -45,6 +43,32 @@ class BusinessesController < ApplicationController
     end
   end
 
+  def edit
+    @business = Business.find(params[:id])
+
+    authorize @business
+  end
+
+  def update
+    @business = Business.find(params[:id])
+
+    if @business.update(business_params)
+      redirect_to @business, notice: "Business was succesfully updated."
+    else
+      render :edit
+    end
+
+    authorize @business
+  end
+
+  def destroy
+    @business = Business.find(params[:id])
+
+    authorize @business
+    @business.destroy
+    redirect_to account_path
+  end
+
   private
 
   def filter_language
@@ -56,6 +80,6 @@ class BusinessesController < ApplicationController
   end
 
   def business_params
-    params.require(:business).permit(:name, :description, :picture, :category, :qualification, :location, :language)
+    params.require(:business).permit(:name, :description, :category, :qualification, :location, :language, pictures: [])
   end
 end

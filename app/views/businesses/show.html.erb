@@ -33,6 +33,9 @@
     <% end %>
     <div class="row">
       <div class="col card-about info-show-page">
+        <!-- Delete the h4 lines, just for testing -->
+        <h4><%= link_to "Edit", edit_business_path %></h4>
+        <h4><%= link_to "Delete", business_path, method: :delete, data: { confirm: "Are you sure?" } %></h4>
         <h3>About</h3>
         <p>Hello, I am a Painter. With more than 20 years of professional experience I will make your house shining in just a few hours.
               Contact me to know the price and ask all the question regarding my services.</p>
@@ -49,7 +52,9 @@
     <h3>Past work</h3>
     <br>
     <div class="cards-container">
-      <div class="card-work" style="background-image: url('https://images.unsplash.com/photo-1568654360516-7a3aff4c3b4f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80')"></div>
+      <% @business.pictures.each do |picture| %>
+        <div class="card-work"><%= cl_image_tag picture.key %></div>
+      <% end %>
       <div class="card-work" style="background-image: url('https://images.unsplash.com/photo-1568654360516-7a3aff4c3b4f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80')"></div>
       <div class="card-work" style="background-image: url('https://images.unsplash.com/photo-1568654360516-7a3aff4c3b4f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80')"></div>
       <div class="card-work" style="background-image: url('https://images.unsplash.com/photo-1568654360516-7a3aff4c3b4f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80')"></div>

@@ -27,7 +27,7 @@
 
 
 .chatroom-container {
-  width: 80%;
+  width: 100wh;
   margin: 2em;
 }
 
@@ -47,4 +47,14 @@ a:hover {
   position: absolute;
   right: 21%;
 
+}
+
+.booking-request {
+  text-align: center;
+  margin: auto;
+}
+
+.accept-decline {
+  display: flex;
+  justify-content: flex-end;
 }
