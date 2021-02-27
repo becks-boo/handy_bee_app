@@ -16,6 +16,7 @@ class ChatroomsController < ApplicationController
     @chatroom = Chatroom.new
     @chatroom.customer_id = current_user.id
     @chatroom.contractor_id = Business.find(params[:business_id]).user_id
+    @chatroom.business = Business.find(params[:business_id])
     @chatroom.save
     redirect_to chatroom_path(@chatroom)
     authorize @chatroom

@@ -3,7 +3,7 @@
     <div class="chatroom-index col-4">
       <%= render "chatLeft" %>
     </div>
-      <div class="col-8">
+      <div class="col-6">
         <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
           <p>Chat with <%= @chatroom.customer == current_user ? @chatroom.contractor.user_name : @chatroom.customer.user_name %></p>
           <hr>
@@ -21,10 +21,15 @@
       </div>
 
 
-     <!--  <div class="col-2">
+      <div class="col-2">
         <p>right side</p>
-        <p>@chatroom.contractor.user_name</p>
-      </div> -->
+        <%= simple_form_for @booking, url: chatroom_bookings_path(@chatroom), method: :post do |f| %>
+            <%= f.input :price %>
+            <%= f.input :start_date %>
+            <%= f.input :end_date %>
+            <%= f.button :submit, class: 'button-main' %>
+          <% end %>
+      </div>
     </div>
 </div>
 

@@ -22,6 +22,10 @@ class BookingPolicy < ApplicationPolicy
     # true
   end
 
+  def show?
+    true
+  end
+
   def create?
     # What about create, also only the contractor?
     user.role == "Contractor"

@@ -1,0 +1,5 @@
+<% @businesses.each do |b| %>
+  <p><%= b.name %></p>
+  <%= link_to "show business", business_path(b)  %>
+  <hr>
+<% end %>
