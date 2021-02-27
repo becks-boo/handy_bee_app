@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_22_182937) do
+ActiveRecord::Schema.define(version: 2021_02_27_110327) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,7 +45,11 @@ ActiveRecord::Schema.define(version: 2021_02_22_182937) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
+    t.bigint "customer_id", null: false
+    t.bigint "contractor_id", null: false
     t.index ["business_id"], name: "index_bookings_on_business_id"
+    t.index ["contractor_id"], name: "index_bookings_on_contractor_id"
+    t.index ["customer_id"], name: "index_bookings_on_customer_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -69,6 +73,8 @@ ActiveRecord::Schema.define(version: 2021_02_22_182937) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "customer_id", null: false
     t.bigint "contractor_id", null: false
+    t.bigint "business_id", null: false
+    t.index ["business_id"], name: "index_chatrooms_on_business_id"
     t.index ["contractor_id"], name: "index_chatrooms_on_contractor_id"
     t.index ["customer_id"], name: "index_chatrooms_on_customer_id"
   end
@@ -112,7 +118,10 @@ ActiveRecord::Schema.define(version: 2021_02_22_182937) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "businesses"
   add_foreign_key "bookings", "users"
+  add_foreign_key "bookings", "users", column: "contractor_id"
+  add_foreign_key "bookings", "users", column: "customer_id"
   add_foreign_key "businesses", "users"
+  add_foreign_key "chatrooms", "businesses"
   add_foreign_key "chatrooms", "users", column: "contractor_id"
   add_foreign_key "chatrooms", "users", column: "customer_id"
   add_foreign_key "messages", "chatrooms"
