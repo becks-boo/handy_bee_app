@@ -45,6 +45,32 @@ class BusinessesController < ApplicationController
     end
   end
 
+  def edit
+    @business = Business.find(params[:id])
+
+    authorize @business
+  end
+
+  def update
+    @business = Business.find(params[:id])
+
+    if @business.update(business_params)
+      redirect_to @business, notice: "Business was succesfully updated."
+    else
+      render :edit
+    end
+
+    authorize @business
+  end
+
+  def destroy
+    @business = Business.find(params[:id])
+
+    authorize @business
+    @business.destroy
+    redirect_to account_path
+  end
+
   private
 
   def filter_language

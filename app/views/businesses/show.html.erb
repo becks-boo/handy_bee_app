@@ -33,6 +33,9 @@
     <% end %>
     <div class="row">
       <div class="col card-about info-show-page">
+        <!-- Delete the h4 lines, just for testing -->
+        <h4><%= link_to "Edit", edit_business_path %></h4>
+        <h4><%= link_to "Delete", business_path, method: :delete, data: { confirm: "Are you sure?" } %></h4>
         <h3>About</h3>
         <p>Hello, I am a Painter. With more than 20 years of professional experience I will make your house shining in just a few hours.
               Contact me to know the price and ask all the question regarding my services.</p>
