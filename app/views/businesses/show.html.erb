@@ -10,76 +10,71 @@
     <% end %>
 
 
-
-<div class="big-navbar">
-  <!-- for messsage modal -->
-  <!-- <button type="button" class="button-blue" data-toggle="modal" data-target="#exampleModalCenter">
-    Launch demo modal
-  </button> -->
-</div>
-
 <div class="container">
-  <div class="row">
-    <% if @business.user.picture.attached? %>
-      <%= cl_image_tag @business.user.picture.key, class: "avatar-show-page" %>
-    <% else %>
-      <img class="avatar-show-page" src="https://images.unsplash.com/photo-1597409212870-c47068072688?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1498&q=80" style="margin-top:-100px; margin-left: -20px; position: absolute;">
-    <% end %>
-  </div>
-    <% if existing_chatroom %>
-      <%= link_to "Connect", assigned_chat, class: "button-blue button-blue-show-page" %>
-    <% else %>
-      <%= link_to "Connect", assigned_chat, method: :post, class: "button-blue button-blue-show-page" %>
-    <% end %>
+  <header>
+  </header>
+  <main>
     <div class="row">
-      <div class="col card-about info-show-page">
-        <!-- Delete the h4 lines, just for testing -->
-        <h4><%= link_to "Edit", edit_business_path %></h4>
-        <h4><%= link_to "Delete", business_path, method: :delete, data: { confirm: "Are you sure?" } %></h4>
-        <h3>About</h3>
-        <p>Hello, I am a Painter. With more than 20 years of professional experience I will make your house shining in just a few hours.
-              Contact me to know the price and ask all the question regarding my services.</p>
-      </div>
-      <div class="col card-about qualifications-icons" style="text-align: left;">
-        <p><i class="fas fa-language"></i><%= @business.language %></p>
-        <p><i class="fas fa-map-marker-alt"></i><%= @business.location %></p>
-        <p><i class="fas fa-briefcase"></i><%= @business.description %></p>
-      </div>
-    </div>
-
-  <div class="past-work">
-    <hr>
-    <h3>Past work</h3>
-    <br>
-    <div class="cards-container">
-      <% @business.pictures.each do |picture| %>
-        <div class="card-work"><%= cl_image_tag picture.key %></div>
-      <% end %>
-      <div class="card-work" style="background-image: url('https://images.unsplash.com/photo-1568654360516-7a3aff4c3b4f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80')"></div>
-      <div class="card-work" style="background-image: url('https://images.unsplash.com/photo-1568654360516-7a3aff4c3b4f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80')"></div>
-      <div class="card-work" style="background-image: url('https://images.unsplash.com/photo-1568654360516-7a3aff4c3b4f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80')"></div>
-    </div>
-  </div>
-
-  <div class="reviews">
-    <br>
-    <hr><h3>Reviews</h3>
-    <div class="reviews-container">
-      <br>
-      <p><%= @business.reviews.length %> reviews</p>
-      <div class="review-container">
-        <% @business.reviews.each do |review| %>
-        <div class="raiting-stars">
-          <% review.rating.times do %>
-          <p><i class="fas fa-star"></i></p>
-          <% end %>
+      <div class="left col-lg-4">
+        <div class="photo-left">
+          <img class="photo" src="https://images.unsplash.com/photo-1597409212870-c47068072688?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1498&q=80"/>
+          <div class="active"></div>
         </div>
-        <%= review.content %>
-        <% end %>
+        <h4 class="name"><%= @business.name %></h4>
+        <p class="info"><%= @business.category %></p>
+        <p class="info"><%= @business.description %></p>
+        <p class="info"><%= @business.location %></p>
+        <div class="stats row">
+          <div class="stat col-xs-4" style="padding-right: 50px;">
+            <p class="number-stat">3 619</p>
+            <p class="desc-stat">Reviews</p>
+          </div>
+          <div class="stat col-xs-4">
+            <p class="number-stat">4 200</p>
+            <p class="desc-stat">Clients</p>
+          </div>
+
+
+        </div>
+        <p class="desc">Hello, I am a Painter. With more than 20 years of professional experience I will make your house shining in just a few hours.
+          Contact me to know the price and ask all the question regarding my services.</p>
       </div>
-    </div>
-  </div>
+
+      <div class="right col-lg-8">
+        <ul class="nav">
+          <li>Previous works gallery</li>
+        </ul>
+        <span class="connect-show-page">Connect</span>
+        <div class="row gallery">
+          <div class="col-md-4">
+             <img src="https://images.unsplash.com/photo-1568654360516-7a3aff4c3b4f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80"/>
+          </div>
+          <div class="col-md-4">
+             <img src="https://images.unsplash.com/photo-1568654360516-7a3aff4c3b4f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80"/>
+          </div>
+          <div class="col-md-4">
+             <img src="https://images.unsplash.com/photo-1568654360516-7a3aff4c3b4f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80"/>
+          </div>
+          <div class="col-md-4">
+             <img src="https://images.unsplash.com/photo-1568654360516-7a3aff4c3b4f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80"/>
+          </div>
+          <div class="col-md-4">
+             <img src="https://images.unsplash.com/photo-1568654360516-7a3aff4c3b4f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80"/>
+          </div>
+        </div>
+      </div>
+  </main>
 </div>
+
+
+
+
+
+
+
+
+
+
 
 <!-- modal  -->
 
