@@ -45,6 +45,18 @@ class BusinessesController < ApplicationController
     end
   end
 
+  def edit
+    @business = Business.find(params[:id])
+  end
+
+  def update
+    if @business.update(business_params)
+      redirect_to @bike, notice: "Business was succesfully updated."
+    else
+      render :edit
+    end
+  end
+
   private
 
   def filter_language
