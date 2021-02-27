@@ -85,12 +85,28 @@
     <p>From: <%= b.start_date %></p>
     <p>To: <%= b.end_date %></p>
     <p>Price: <%= b.price.to_i %> €</p>
-    <p>Status: <%= b.confirmed ? "Confirmed" : "Pending" %></p>
+    <% confirmed = '' %>
+      <% if b.confirmed == nil %>
+        <% confirmed = 'Pending' %>
+      <% elsif b.confirmed %>
+        <% confirmed = 'Confirmed' %>
+      <% else %>
+        <% confirmed = 'Declined' %>
+      <% end %>
+    <p>Status: <%= confirmed %></p>
+
+
+
+
     <div class="accept-decline">
       <%= simple_form_for(b) do |f| %>
         <%= f.hidden_field :accept, :value => true %>
-        <%= f.submit value="Accept", class: "button-main", id: "button-accept", style: "padding: 14px; margin-right: 12px;
-" %>
+        <%= f.submit value="Accept", class: "button-main", id: "button-accept", style: "padding: 14px; margin-right: 12px;" %>
+      <% end %>
+
+      <%= simple_form_for(b) do |f| %>
+        <%= f.hidden_field :decline, :value => false %>
+        <%= f.submit value="Decline", class: "button-decline", id: "button-decline", style: "padding: 14px; margin-right: 12px;" %>
       <% end %>
 
       <button class="button-decline" id="button-decline">
