@@ -14,8 +14,6 @@ class BusinessesController < ApplicationController
     if params[:filter].present?
       @businesses = Business.where(language: params[:filter])
       @businesses_count = @businesses.count
-    else
-      @businesses = Business.all
     end
 
     filter_language
