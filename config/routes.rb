@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :chatrooms, only: [:create, :show]
   end
 
-  resources :bookings, except: [ :index, :new, :create ]
+  resources :bookings, except: [ :new, :create ]
   resources :reviews, only: [ :show, :edit, :update, :destroy ]
 
   get '/components', to: 'pages#components', as: 'components'

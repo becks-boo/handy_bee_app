@@ -1,7 +1,7 @@
 class BookingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(customer_id: user).or(scope.where(contractor_id: user))
     end
   end
 
