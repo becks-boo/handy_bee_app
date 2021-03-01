@@ -111,6 +111,8 @@
             <%= f.hidden_field :confirmed, :value => false %>
             <%= f.submit value="Decline", class: "button-decline", id: "button-decline", style: "padding: 14px; margin-right: 12px;" %>
           <% end %>
+      <% else %>
+        <%= link_to "Bookings", bookings_path  %>
       <% end %>
     <% end %>
 
