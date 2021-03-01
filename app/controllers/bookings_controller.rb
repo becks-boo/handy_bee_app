@@ -33,7 +33,7 @@ class BookingsController < ApplicationController
     authorize @booking
 
     if @booking.save!
-      redirect_to booking_path(@booking)
+      redirect_back(fallback_location: 'chatrooms/index')
     else
       render "businesses/show"
     end
@@ -42,7 +42,6 @@ class BookingsController < ApplicationController
   def edit
     @booking = Booking.find(params[:id])
   end
-
 
   def update
     @booking = Booking.find(params[:id])
@@ -53,7 +52,7 @@ class BookingsController < ApplicationController
     elsif @booking.confirmed == false
       flash.notice = "Booking Declined"
     end
-    # redirect_back(fallback_location: 'chatrooms/index')
+    redirect_back(fallback_location: 'chatrooms/index')
   end
 
   def destroy

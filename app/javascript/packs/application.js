@@ -38,6 +38,6 @@ document.addEventListener('turbolinks:load', () => {
   toggleSignUp();
   initChatroomCable();
   enterkey();
-  booking();
+  // booking();
   // initSelect2();
 });

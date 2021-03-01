@@ -3,7 +3,6 @@ const booking = () => {
   buttons.addEventListener('click', (event) => {
     console.log(event);
     buttons.remove();
-    buttons.hide();
   })
 }
 
