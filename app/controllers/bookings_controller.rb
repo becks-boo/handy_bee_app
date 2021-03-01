@@ -2,7 +2,9 @@ class BookingsController < ApplicationController
   # before_action :find_business, only: [:create]
 
   def index
-    @bookings = Booking.all
+    @bookings = policy_scope(Booking)
+    # @bookings = Booking.where(customer_id: current_user)
+    authorize @bookings
   end
 
   def show
