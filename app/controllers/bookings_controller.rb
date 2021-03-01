@@ -46,10 +46,14 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    @booking.update(confirmed: true)
+    @booking.update(booking_params)
     authorize @booking
-    flash.notice = "Booking confirmed"
-    redirect_back(fallback_location: 'chatrooms/index')
+    if @booking.confirmed == true
+      flash.notice = "Booking confirmed"
+    elsif @booking.confirmed == false
+      flash.notice = "Booking Declined"
+    end
+    # redirect_back(fallback_location: 'chatrooms/index')
   end
 
   def destroy
@@ -67,6 +71,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:price, :start_date, :end_date)
+    params.require(:booking).permit(:price, :start_date, :end_date, :confirmed)
   end
 end

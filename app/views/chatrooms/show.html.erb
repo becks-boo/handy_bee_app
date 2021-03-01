@@ -98,20 +98,20 @@
 
 
 
-    <div class="accept-decline">
+    <div class="accept-decline" id="booking-buttons">
       <%= simple_form_for(b) do |f| %>
-        <%= f.hidden_field :accept, :value => true %>
+        <%= f.hidden_field :confirmed, :value => true %>
         <%= f.submit value="Accept", class: "button-main", id: "button-accept", style: "padding: 14px; margin-right: 12px;" %>
       <% end %>
 
       <%= simple_form_for(b) do |f| %>
-        <%= f.hidden_field :decline, :value => false %>
+        <%= f.hidden_field :confirmed, :value => false %>
         <%= f.submit value="Decline", class: "button-decline", id: "button-decline", style: "padding: 14px; margin-right: 12px;" %>
       <% end %>
 
-      <button class="button-decline" id="button-decline">
-        <%= link_to "Decline", b, method: :delete, data: {confirm: "Are you sure?"}, style: "color: black;" %>
-      </button>
+      <!-- <button class="button-decline" id="button-decline">
+        <%#= link_to "Decline", b, method: :delete, data: {confirm: "Are you sure?"}, style: "color: black;" %>
+      </button> -->
     </div>
   </div>
   <% end %>
