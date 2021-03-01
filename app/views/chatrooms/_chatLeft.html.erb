@@ -3,7 +3,11 @@
       <% @chatrooms.each do |c| %>
         <%= link_to chatroom_path(c), class: "#{'active' if c == @chatroom}" do  %>
           <div class="chatroom-index-card">
-              <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar", id: "chatroom-avatar") %>
+              <% if c.contractor.picture.attached? %>
+                  <%= cl_image_tag c.contractor.picture.key, class: "avatar avatar-chat"%>
+              <% else %>
+                <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar avatar-chat") %>
+              <% end %>
               <div class="chatroom-index-card-info">
                 <% if current_user.role == "Customer" %>
                   <p><%= c.contractor.user_name %></p>

@@ -1,0 +1,21 @@
+<div class="message-container" id="message-<%= message.id %>">
+  <i class="author">
+      <% if message.user.picture.attached? %>
+        <% if message.user == current_user %>
+          <%= cl_image_tag current_user.picture.key, class: "avatar avatar-chat"%>
+        <% else %>
+          <%= cl_image_tag message.user.picture.key, class: "avatar avatar-chat"%>
+        <% end %>
+      <% else %>
+        <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar avatar-chat") %>
+      <% end %>
+      <span><%= message.user.user_name %></span>
+      <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+    </i>
+
+  <div class="chat-box-sender" id="sender" data-message-id="<%= message.user.id %>">
+    <div class="chat-box-sender-text">
+      <p><%= message.content %></p>
+    </div>
+  </div>
+</div>

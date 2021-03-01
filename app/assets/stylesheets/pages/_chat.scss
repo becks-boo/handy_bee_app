@@ -12,7 +12,7 @@
   border-bottom: 1px solid rgba(0,0,0,0.2);
   justify-content: space-around;
   &:hover {
-    background-color: rgba(200,200,200,0.3);
+    background-color: $orange4;
   }
 }
 
@@ -30,6 +30,15 @@
   width: 100wh;
   margin: 2em;
 }
+.chatroom-messages {
+      border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.new_message_form {
+  // position: absolute;
+  // bottom: 1px;
+  width: 100%;
+}
 
 a:hover {
   text-decoration: none;
@@ -39,15 +48,9 @@ a:hover {
 #message_content {
   border-radius: 50px;
   border: orange 1px solid;
-  width: 80%;
-  // margin: auto;
+  width: 95%;
 }
 
-#button-message {
-  position: absolute;
-  right: 21%;
-
-}
 
 .booking-request {
   text-align: center;

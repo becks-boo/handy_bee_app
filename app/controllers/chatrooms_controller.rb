@@ -14,12 +14,6 @@ class ChatroomsController < ApplicationController
     authorize @chatroom
   end
 
-  def confirm_booking
-    @pending_booking = Booking.where(customer_id: @chatroom.customer, contractor_id: @chatroom.contractor)
-    @pending_booking.confirmed = true
-  end
-
-
   def create
     @chatroom = Chatroom.new
     @chatroom.customer_id = current_user.id
