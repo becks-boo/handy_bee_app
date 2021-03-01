@@ -8,10 +8,19 @@ const initChatroomCable = () => {
     consumer.subscriptions.create({ channel: "ChatroomChannel", id: id }, {
       received(data) {
         console.log(data); // called when data is broadcast in the cable
-        messagesContainer.insertAdjacentHTML('beforeend', data);
+        const messageElement = document.getElementById('user-id');
+        const currentUserId =  Number(messageElement.getAttribute("data-user-id"));
+        let html = "";
+        if (currentUserId === data.message.user_id) {
+          html = data.sender
+          } else {
+            html = data.receiver
+        }
+        messagesContainer.insertAdjacentHTML('beforeend', html);
         const receivedMessage = document.getElementById('sender');
         const senderId = receivedMessage.dataset.messageId;
         console.log(senderId);
+
         // if (senderId !== current_user.id) {
         //   receivedMessage.classList.remove("chat-box-sender")
         // }

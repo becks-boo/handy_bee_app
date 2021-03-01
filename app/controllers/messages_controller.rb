@@ -7,9 +7,11 @@ class MessagesController < ApplicationController
     authorize @message
     if @message.save
       # send message to user
+      sender = render_to_string(partial: "messages/sender", locals: { message: @message })
+      receiver = render_to_string(partial: "messages/receiver", locals: { message: @message })
       ChatroomChannel.broadcast_to(
         @chatroom,
-        render_to_string(partial: "message", locals: { message: @message })
+        sender: sender, receiver: receiver, message: @message
       )
 
       redirect_to chatroom_path(@chatroom, anchor: "message-#{@message.id}")
