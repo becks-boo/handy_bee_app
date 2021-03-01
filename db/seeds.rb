@@ -63,6 +63,16 @@ business1.save!
 puts "Creating #{business1.name}"
 end
 
+booking = Booking.create(
+  price: 55,
+  start_date: Date.today,
+  end_date: Date.tomorrow,
+  confirmed: true,
+  business: Business.first,
+  user: customer,
+  customer_id: customer.id,
+  contractor_id: User.where(role: "Contractor").sample.id,
+  )
 
 # puts "---------------- 1 -----------------"
 
