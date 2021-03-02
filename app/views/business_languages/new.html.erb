@@ -1,0 +1,4 @@
+  <%= simple_form_for [ @business, @business_language ] do |f| %>
+        <%= f.input :language, collection: Language.all, input_html: { multiple: true }%>
+        <%= f.submit "Add your languages", class: "form-actions button-main" %>
+  <% end %>

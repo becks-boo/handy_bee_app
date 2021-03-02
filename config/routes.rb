@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     # resources :bookings, only: [ :index, :new, :create ]
     resources :reviews, only: [ :index, :new, :create ]
     resources :chatrooms, only: [:create, :show]
-    resources :languages, only: [:new, :create]
+    resources :business_languages, only: [:new, :create]
   end
 
   resources :bookings, except: [ :new, :create ]
