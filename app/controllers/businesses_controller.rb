@@ -27,6 +27,7 @@ class BusinessesController < ApplicationController
     @business = Business.find(params[:id])
     @bookings = @business.bookings
     @chatrooms = Chatroom.all
+    @review = Review.new
     authorize @business
   end
 

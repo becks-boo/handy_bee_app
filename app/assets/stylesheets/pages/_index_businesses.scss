@@ -2,13 +2,13 @@
 //   margin: auto;
 // }
 
-.cards-container-index-page {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 56px;
-  width: 64%;
-  margin: 0 auto;
-}
+// .cards-container-index-page {
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+//   grid-gap: 56px;
+//   width: 64%;
+//   margin: 0 auto;
+// }
 
 .card-container {
   display: grid;
@@ -17,6 +17,13 @@
   grid-row-gap: 50px;
   justify-content: center;
   align-content: center;
+}
+
+.cards-container-index-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 56px;
+  margin: 4%;
 }
 
 // Smallest device
@@ -36,21 +43,21 @@
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   .cards-container-index-page {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .cards-container-index-page {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .cards-container-index-page {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
