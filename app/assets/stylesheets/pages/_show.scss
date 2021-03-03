@@ -64,7 +64,7 @@
 // NEW STYLE SHOW PAGE
 
 .container {
-  max-width: 1250px;
+  max-width: 1870px;
   margin: 30px auto 30px;
   padding: 0 !important;
   width: 90%;
@@ -81,27 +81,16 @@ header {
   height: 120px;
 }
 
-header i {
-  position: relative;
-  cursor: pointer;
-  right: -96%;
-  top: 25px;
-  font-size: 18px !important;
-  color: $white;;
-}
 
 @media (max-width:800px) {
   header {
     height: 150px;
   }
-
-  header i {
-    right: -90%;
-  }
 }
 
 main {
-      padding: 20px 20px 0px 20px;
+  padding: 20px 20px 0px 20px;
+
 }
 
 .left {
