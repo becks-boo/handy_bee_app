@@ -80,7 +80,26 @@
         </div>
       </div>
     </main>
+  </main>
+  <div class="reviews">
+      <br>
+      <%= pluralize @business.reviews.length, "review" %>
+      <hr>
+        <div class="review-container">
+          <%= render @business.reviews %>
+          <% if current_user.bookings.where(business: @business).any? %>
+          <% end %>
+          <br>
+          <p style="margin-left: 17%;">Leave a review</p>
+          <% if @business.bookings.any? {|booking| booking.user == current_user}%>
+          <%= render "reviews/form" %>
+          <% end %>
+        </div>
+    </div>
 </div>
+
+<%# render 'reviews/form' %>
+
 
 <!-- modal  -->
 
