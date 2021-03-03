@@ -91,7 +91,7 @@
           <% end %>
           <br>
           <p style="margin-left: 17%;">Leave a review</p>
-          <% if @business.bookings.any? {|booking| booking.user == current_user}%>
+          <% if @business.bookings.any? {|booking| booking.customer_id == current_user.id}%>
           <%= render "reviews/form" %>
           <% end %>
         </div>
