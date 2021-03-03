@@ -12,11 +12,22 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 15% 0% 0 0%;
+  // padding: 15% 0% 0 0%;
   color: white;
   align-items: center;
   // transform: scaleX(-1);
+}
 
+.banner h1 {
+  display: flex;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 52px;
+  font-weight: bold;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 15% 0% 0 0%;
+  color: white;
+  align-items: center;
 }
 
 #button-main-home {
