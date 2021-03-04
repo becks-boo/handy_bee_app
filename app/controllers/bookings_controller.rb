@@ -14,7 +14,6 @@ class BookingsController < ApplicationController
   end
 
   def new
-    # raise
     # If redirecting is the better choice
     # redirect_back fallback_location: root_path unless current_user.role == "Contractor"
     @booking = Booking.new
@@ -72,6 +71,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:price, :start_date, :end_date, :confirmed)
+    params.require(:booking).permit(:price, :start_date, :end_date, :confirmed, :description)
   end
 end
