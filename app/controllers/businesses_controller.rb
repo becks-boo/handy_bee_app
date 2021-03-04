@@ -41,7 +41,6 @@ class BusinessesController < ApplicationController
     @business = Business.new(business_params)
     @business.user = current_user
     authorize @business
-    # @language =
 
     if @business.save
       # @connect_lang = BusinessLanguage.create(business_id: @business.id, language_id: @language.id)

@@ -1,5 +1,6 @@
 class BusinessLanguagesController < ApplicationController
   def new
+    @languages = Language.all
     @business = Business.find(params[:business_id])
     @business_language = BusinessLanguage.new
     authorize @business_language
