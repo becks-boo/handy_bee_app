@@ -84,11 +84,12 @@
         </div>
       </div>
     </main>
+
     <!-- Reviews -->
   <div class="reviews">
     <div>
       <br>
-      <%= pluralize @business.reviews.length, "review" %>
+      <p> <strong> <%= pluralize @business.reviews.length, "review" %></strong> </p>
       <hr>
       <div class="review-container">
         <%= render @business.reviews %>
