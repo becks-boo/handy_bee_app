@@ -1,4 +1,4 @@
-<div class="chatroom-container">
+<div class="chatroom-container" style="<%='filter: grayscale(100%);' if @pending_booking.last.confirmed == nil %>">
   <div class="row">
     <div class="chatroom-index col-2">
       <%= render "chatLeft" %>
@@ -32,6 +32,7 @@
             <%= f.input :price %>
             <%= f.input :start_date %>
             <%= f.input :end_date %>
+            <%= f.input :description %>
             <%= f.button :submit, class: 'button-main' %>
             <% end %>
           <% else %>
@@ -83,12 +84,15 @@
 <br><br>
 
 <div class="row">
-  <% @pending_booking.each do |b| %>
-  <div class="booking-request col-6">
+  <% b = @pending_booking.last %>
+  <div class="booking-request col-4" style="<%='position: absolute;
+  top: 28%;
+  right: 35%;' if @pending_booking.last.confirmed == nil %>">
     <p>Booking request from <%= @chatroom.contractor.user_name %></p>
     <p>From: <%= b.start_date %></p>
     <p>To: <%= b.end_date %></p>
     <p>Price: <%= b.price.to_i %> €</p>
+    <p><%= b.description %></p>
     <% confirmed = '' %>
       <% if b.confirmed == nil %>
         <% confirmed = 'Pending' %>
@@ -111,7 +115,7 @@
             <%= f.hidden_field :confirmed, :value => false %>
             <%= f.submit value="Decline", class: "button-decline", id: "button-decline", style: "padding: 14px; margin-right: 12px;" %>
           <% end %>
-      <% else %>
+    <% else %>
         <%= link_to "Bookings", bookings_path  %>
       <% end %>
     <% end %>
@@ -121,7 +125,7 @@
       </button> -->
     </div>
   </div>
-  <% end %>
+  <%# end %>
 </div>
 
 
