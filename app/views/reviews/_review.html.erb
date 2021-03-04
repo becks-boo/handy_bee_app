@@ -9,10 +9,10 @@
 
     <% if review.user_id == current_user.id %>
 
-      <div class="links button-main">
+      <!-- <div class="links button-main"> -->
 
-        <%= link_to "Edit", edit_review_path(review), class: "button-main" %>
-        <%= link_to "Delete", review_path(review), method: :delete, data: { confirm: "Are you sure?" }, class: "button-main" %>
+        <%# link_to "Edit", edit_review_path(review), class: "button-main" %>
+        <%# link_to "Delete", review_path(review), method: :delete, data: { confirm: "Are you sure?" }, class: "button-main" %>
 
       </div>
     <% end %>
