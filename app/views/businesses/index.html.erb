@@ -55,7 +55,11 @@
           </div>
           <div class="box">
             <i class="fas fa-language"></i>
-            <span class="parameter"><%= business.language %></span>
+            <span class="parameter">
+              <% business.languages.each do |l| %>
+                <%= l.name %>
+              <% end %>
+            </span>
           </div>
         </div>
       </div>

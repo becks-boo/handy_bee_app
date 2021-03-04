@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     # resources :bookings, only: [ :index, :new, :create ]
     resources :reviews, only: [ :index, :new, :create ]
     resources :chatrooms, only: [:create, :show]
+    resources :business_languages, only: [:new, :create]
   end
 
   resources :bookings, except: [ :new, :create ]
@@ -28,3 +29,9 @@ Rails.application.routes.draw do
 
   mount ActionCable.server => "/cable"
 end
+# 1. generate the models (join + lang)
+# 2. generate the routes nested in business (new and create)
+# 3. make seeds for languages
+# 4. redirect_to after creating business to new_business_languages
+# 5. select2 for selecting in form
+# 6. update filter to languages

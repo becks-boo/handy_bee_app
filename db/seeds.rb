@@ -9,6 +9,8 @@
 require 'open-uri'
 require 'faker'
 
+BusinessLanguage.destroy_all
+Language.destroy_all
 User.destroy_all
 Business.destroy_all
 Booking.destroy_all
@@ -35,6 +37,13 @@ customer = User.create(
   password: "123456",
   role: "Customer"
   )
+
+# Languages - Do not delete
+languages = ["English", "Mandarin", "German", "Spanish", "Hindi", "French", "Arabic", "Bengali", "Russian", "Portuguese", "Indonesian", "Turkish", "Polish", "Italian", "Farsi"]
+languages.each do |l|
+  Language.create(name: l)
+  puts "Creating the language #{l}"
+end
 
 10.times do
 business1 = Business.new(
@@ -65,12 +74,25 @@ booking = Booking.create(
   contractor_id: User.where(role: "Contractor").sample.id,
   )
 
-Review.create(
-  booking: booking,
-  content: "Awesome",
-  rating: 5,
-  user: customer
-  )
+# puts "---------------- 1 -----------------"
+
+# booking = Booking.create(
+#   price: 55,
+#   start_date: Date.today,
+#   end_date: Date.tomorrow,
+#   confirmed: true,
+#   business: Business.first,
+#   user_id: User.find_by_role("Contractor").id
+#   )
+
+# puts "---------------- 2 -----------------"
+
+# Review.create(
+#   booking: booking,
+#   content: "Awesome",
+#   rating: 5,
+#   user_id: User.find_by_role("Customer").id
+#   )
 
 
 
