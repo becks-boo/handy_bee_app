@@ -84,23 +84,29 @@
         </div>
       </div>
     </main>
-  </main>
+
+    <!-- Reviews -->
   <div class="reviews">
+    <div>
       <br>
-      <%= pluralize @business.reviews.length, "review" %>
+      <p> <strong> <%= pluralize @business.reviews.length, "review" %></strong> </p>
       <hr>
-        <div class="review-container">
-          <%= render @business.reviews %>
-          <% if current_user.bookings.where(business: @business).any? %>
-          <% end %>
-          <br>
-          <p style="margin-left: 17%;">Leave a review</p>
-          <% if @business.bookings.any? {|booking| booking.customer_id == current_user.id}%>
-          <%= render "reviews/form" %>
-          <% end %>
-        </div>
+      <div class="review-container">
+        <%= render @business.reviews %>
+        <% if current_user.bookings.where(business: @business).any? %>
+        <% end %>
+        <br>
+        <p style="font-weight: bold;">Leave a review</p>
+        <% if @business.bookings.any? {|booking| booking.customer_id == current_user.id}%>
+        <%= render "reviews/form" %>
+        <% end %>
+      </div>
     </div>
+  </div>
 </div>
+
+
+
 
 <%# render 'reviews/form' %>
 

@@ -7,6 +7,14 @@ class BusinessesController < ApplicationController
     if params[:query].present?
       @businesses = Business.where(category: params[:query])
       # @businesses_count = @businesses.count
+
+      if params[:language].present? && params[:rating].present?
+        @businesses = Business.where(language: params[:language], category: params[:query]).includes(:reviews).where("reviews.rating" => params[:rating])
+      elsif params[:language].present?
+        @businesses = Business.where(language: params[:language], category: params[:query])
+      elsif params[:rating].present?
+        @businesses = Business.includes(:reviews).where("reviews.rating" => params[:rating])
+      end
     else
       @businesses = Business.all
     end
@@ -19,6 +27,11 @@ class BusinessesController < ApplicationController
     if params[:rating].present?
       @businesses = Business.includes(:reviews).where("reviews.rating" => params[:rating])
     end
+
+    # if params[:rating].present?
+    #   @businesses = Business.includes(:reviews).where("reviews.rating" => params[:rating])
+    # end
+
 
     # filter_language
   end
