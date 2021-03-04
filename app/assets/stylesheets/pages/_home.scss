@@ -5,6 +5,9 @@
   height: 100vh;
   background-size: cover;
   background-position: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
   // transform: scaleX(-1);
 }
 
@@ -40,7 +43,6 @@
 }
 
 
-
-.navbar-inner {
-  background: transparent;
-}
+// .navbar-inner {
+//   background: transparent;
+// }
