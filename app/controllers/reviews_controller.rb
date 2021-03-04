@@ -14,8 +14,11 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
     authorize @review
 
+    @business = Business.find(params[:business_id])
+
+
     if @review.save!
-      redirect_to booking_path(@booking)
+      redirect_to business_path(@business)
     else
       render :new
     end

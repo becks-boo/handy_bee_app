@@ -8,17 +8,18 @@
 <% categories_unique = categories.uniq %>
 
 <!-- Banner hompage -->
-<div class="banner" style="background-image: linear-gradient(to right, rgba(100,100,100,0.4), rgba(100,100,100,0)), url(<%= cl_image_path "https://res.cloudinary.com/jordannadroj/image/upload/v1614440538/cjdklhgb6fwmisnj5r7s.jpg"%>)">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.1)), url(https://images.pexels.com/photos/4312849/pexels-photo-4312849.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)">
   <!-- for the text and dropdown on the home banner -->
   <div class="banner-text">
-    <h1>Fix your house in a few clicks</h1>
+    <h1 style="text-shadow: 1px 1px 3px rgba(0,0,0,0.2);">Fix your house in a few clicks</h1>
+    <p>Book your next handyman appointmment now</p>
     <br>
     <%# form_tag(businesses_path, method: "get") do %>
       <%# select_tag :query,  options_for_select(categories_unique, params[:query]), class: "dropdown,  input-group, select2", id: "dropdown-home", include_blank: "Choose a service" %>
       <!-- <input type="submit" class="button-main" value="Search" for="inputGroupSelect02"> -->
       <!-- Button trigger modal -->
 <button type="button" class="button-main" data-toggle="modal" data-target="#exampleModal">
-  Find a Service
+  Find a service
 </button>
     <%# end %>
   </div>
