@@ -225,8 +225,9 @@ main {
 
 .gallery img {
   box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.10);
-  width: auto;
-  height: auto;
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
   cursor: pointer;
   max-width: 100%;
 }
