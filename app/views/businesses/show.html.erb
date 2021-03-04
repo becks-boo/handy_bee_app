@@ -18,9 +18,9 @@
         <!-- avatar -->
         <div class="photo-left">
           <% if @business.user.picture.attached? %>
-            <%= cl_image_tag @business.user.picture.key, class: "photo circle-3 circle-4" %>
+            <%= cl_image_tag @business.user.picture.key, class: "photo" %>
           <% else %>
-            <img class="photo circle-3 circle-4" src="https://images.unsplash.com/photo-1597409212870-c47068072688?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1498&q=80">
+            <img class="photo" src="https://images.unsplash.com/photo-1568654360516-7a3aff4c3b4f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80">
           <% end %>
           <div class="active"></div>
         </div>
@@ -29,8 +29,12 @@
         <br>
         <p class="info"> <i class="fas fa-bolt"></i><%= @business.category %></p>
         <p class="info"><i class="fas fa-briefcase"></i><%= @business.description %></p>
-        <p class="info"><i class="fas fa-language"></i><%= @business.language %></p>
+        <p class="info"><i class="fas fa-language"></i><% @business.languages.each do |l| %>
+          <%= l.name %>
+        <% end %>
+        </p>
         <p class="info"><i class="fas fa-map-marker-alt"></i><%= @business.location %></p>
+        <p></p>
        <!--  <div class="stats row"> -->
          <!--  <div class="stat col-xs-4" style="padding-right: 50px;">
             <p class="number-stat">3 619</p>

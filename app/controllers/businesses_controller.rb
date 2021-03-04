@@ -35,6 +35,7 @@ class BusinessesController < ApplicationController
 
   def new
     @business = Business.new
+    @languages = Language.all
     authorize @business
   end
 
@@ -42,9 +43,11 @@ class BusinessesController < ApplicationController
     @business = Business.new(business_params)
     @business.user = current_user
     authorize @business
+    # @language =
 
     if @business.save
-      redirect_to business_path(@business)
+      # @connect_lang = BusinessLanguage.create(business_id: @business.id, language_id: @language.id)
+      redirect_to new_business_business_language_path(@business)
     else
       render :new
     end
@@ -87,6 +90,6 @@ class BusinessesController < ApplicationController
   end
 
   def business_params
-    params.require(:business).permit(:name, :description, :category, :qualification, :location, :language, pictures: [])
+    params.require(:business).permit(:name, :description, :category, :qualification, :location, language_ids: [], pictures: [])
   end
 end

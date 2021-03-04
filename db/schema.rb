@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_27_195806) do
+ActiveRecord::Schema.define(version: 2021_03_03_205646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,10 +47,20 @@ ActiveRecord::Schema.define(version: 2021_02_27_195806) do
     t.bigint "customer_id", null: false
     t.bigint "contractor_id", null: false
     t.boolean "confirmed"
+    t.text "description"
     t.index ["business_id"], name: "index_bookings_on_business_id"
     t.index ["contractor_id"], name: "index_bookings_on_contractor_id"
     t.index ["customer_id"], name: "index_bookings_on_customer_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "business_languages", force: :cascade do |t|
+    t.bigint "language_id", null: false
+    t.bigint "business_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["business_id"], name: "index_business_languages_on_business_id"
+    t.index ["language_id"], name: "index_business_languages_on_language_id"
   end
 
   create_table "businesses", force: :cascade do |t|
@@ -63,7 +73,6 @@ ActiveRecord::Schema.define(version: 2021_02_27_195806) do
     t.bigint "user_id", null: false
     t.text "qualification"
     t.string "location"
-    t.string "language"
     t.index ["user_id"], name: "index_businesses_on_user_id"
   end
 
@@ -77,6 +86,12 @@ ActiveRecord::Schema.define(version: 2021_02_27_195806) do
     t.index ["business_id"], name: "index_chatrooms_on_business_id"
     t.index ["contractor_id"], name: "index_chatrooms_on_contractor_id"
     t.index ["customer_id"], name: "index_chatrooms_on_customer_id"
+  end
+
+  create_table "languages", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "messages", force: :cascade do |t|
@@ -120,6 +135,8 @@ ActiveRecord::Schema.define(version: 2021_02_27_195806) do
   add_foreign_key "bookings", "users"
   add_foreign_key "bookings", "users", column: "contractor_id"
   add_foreign_key "bookings", "users", column: "customer_id"
+  add_foreign_key "business_languages", "businesses"
+  add_foreign_key "business_languages", "languages"
   add_foreign_key "businesses", "users"
   add_foreign_key "chatrooms", "businesses"
   add_foreign_key "chatrooms", "users", column: "contractor_id"
