@@ -34,6 +34,7 @@ const initChatroomCable = () => {
 // a new line is created only when "shift" + "enter" are presses
 const enterkey = () => {
   const messages = document.getElementById("message_content");
+  if (!messages) return;
   messages.addEventListener("keydown", (e) => {
     // console.log(e);
     // if enter is presses and shift is not pressed, then the message can be submitted

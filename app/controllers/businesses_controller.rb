@@ -6,23 +6,28 @@ class BusinessesController < ApplicationController
     # filter by category
     if params[:query].present?
       @businesses = Business.where(category: params[:query])
-      @businesses_count = @businesses.count
+      # @businesses_count = @businesses.count
     else
       @businesses = Business.all
     end
 
-    if params[:filter].present?
-      @businesses = Business.where(language: params[:filter])
-      @businesses_count = @businesses.count
+    if params[:language].present?
+      @businesses = Business.where(language: params[:language])
+      # @businesses_count = @businesses.count
     end
 
-    filter_language
+    if params[:rating].present?
+      @businesses = Business.includes(:reviews).where("reviews.rating" => params[:rating])
+    end
+
+    # filter_language
   end
 
   def show
     @business = Business.find(params[:id])
     @bookings = @business.bookings
     @chatrooms = Chatroom.all
+    @review = Review.new
     authorize @business
   end
 

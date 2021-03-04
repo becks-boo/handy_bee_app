@@ -13,7 +13,6 @@
 <div class="container">
   <header></header>
   <main>
-
     <div class="row">
       <div class="left col-lg-4">
         <!-- avatar -->
@@ -30,6 +29,7 @@
         <br>
         <p class="info"> <i class="fas fa-bolt"></i><%= @business.category %></p>
         <p class="info"><i class="fas fa-briefcase"></i><%= @business.description %></p>
+        <p class="info"><i class="fas fa-language"></i><%= @business.language %></p>
         <p class="info"><i class="fas fa-map-marker-alt"></i><%= @business.location %></p>
        <!--  <div class="stats row"> -->
          <!--  <div class="stat col-xs-4" style="padding-right: 50px;">
@@ -77,16 +77,31 @@
           <div class="col-md-4">
              <img src="https://images.unsplash.com/photo-1568654360516-7a3aff4c3b4f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80"/>
           </div>
-          <div class="col-md-4">
-             <img src="https://images.unsplash.com/photo-1568654360516-7a3aff4c3b4f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80"/>
-          </div>
         </div>
       </div>
+    </main>
   </main>
+  <div class="reviews">
+      <br>
+      <%= pluralize @business.reviews.length, "review" %>
+      <hr>
+        <div class="review-container">
+          <%= render @business.reviews %>
+          <% if current_user.bookings.where(business: @business).any? %>
+          <% end %>
+          <br>
+          <p style="margin-left: 17%;">Leave a review</p>
+          <% if @business.bookings.any? {|booking| booking.customer_id == current_user.id}%>
+          <%= render "reviews/form" %>
+          <% end %>
+        </div>
+    </div>
 </div>
 
-<!-- modal  -->
+<%# render 'reviews/form' %>
 
+
+<!-- modal  -->
 
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">

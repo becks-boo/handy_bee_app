@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
   belongs_to :user
-  belongs_to :business
+  # belongs_to :business
   belongs_to :booking
 
   validates :content, :rating, presence: true
