@@ -6,14 +6,14 @@
   <% @bookings.each do |b| %>
 
     <div class="bookings-index-frame">
-      <div class="center">
+      <div class="center" style="border-color: #F5E8DF";>
         <div class="bookings-index-information" style="margin: 4%;">
           <ul style="padding: 0px; margin: 16px;">
             <p><strong>Booking with </strong><%= b.contractor.user_name %></p>
             <p><strong><i class="fas fa-money-check"></i></i>Price: </strong><%= b.price.to_i %>€</p>
             <p><strong><i class="fas fa-hourglass-start"></i>From: </strong><%= b.start_date %></p>
             <p><strong><i class="fas fa-hourglass-end"></i>To: </strong><%= b.end_date %></p>
-            <p><strong></i>Description </strong><%= b.description %></p>
+            <p><strong></i>Description: </strong><%= b.description %></p>
           </ul>
         </div>
       </div>
@@ -60,6 +60,6 @@
       </div>
     </div>
     <% @chatroom = Chatroom.find_by(contractor_id: b.contractor_id) %>
-    <%= link_to "Go to chat",  chatroom_path(@chatroom) %>
+    <%= link_to "Go to chat",  chatroom_path(@chatroom), class: "button-main-index" %>
   <% end %>
 </div>
