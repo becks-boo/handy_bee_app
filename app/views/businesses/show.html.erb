@@ -29,8 +29,8 @@
         <br>
         <p class="info"> <i class="fas fa-bolt"></i><%= @business.category %></p>
         <p class="info"><i class="fas fa-briefcase"></i><%= @business.description %></p>
-        <p class="info"><i class="fas fa-language"></i><% @business.languages.each do |l| %>
-          <%= l.name %>
+        <p class="info"><i class="fas fa-language"></i><% @business.languages.each do |language| %>
+          <%= language.name %>
         <% end %>
         </p>
         <p class="info"><i class="fas fa-map-marker-alt"></i><%= @business.location %></p>

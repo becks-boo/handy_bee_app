@@ -1,4 +1,4 @@
-  <%= simple_form_for [ @business, @business_language ] do |f| %>
-        <%= f.input :language, collection: Language.all, input_html: { multiple: true }, include_hidden: false %>
-        <%= f.submit "Add your languages", class: "form-actions button-main" %>
-  <% end %>
+<%= simple_form_for [ @business, @business_language ] do |f| %>
+  <%= f.association :language, collection: @languages, as: :select, input_html: { class: "multiple-select", multiple: true } %>
+  <%= f.submit "Add your languages", class: "form-actions button-main" %>
+<% end %>

@@ -32,12 +32,14 @@ import { toggleSignUp } from '../components/toggle_sign_up';
 // import { initSelect2 } from '../components/init_select2'
 // for importing the chatroom channel action cable
 import { initChatroomCable, enterkey } from '../channels/chatroom_channel';
+import { multipleSelect } from '../components/select.js';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   toggleSignUp();
   initChatroomCable();
   enterkey();
+  multipleSelect();
   // booking();
   // initSelect2();
 });
