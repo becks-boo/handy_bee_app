@@ -1,53 +1,65 @@
-<p>Bookings</p>
+<div class="row d-flex justify-content-around" style="margin-top: 40px">
+  <h2>Bookings</h2>
+</div>
 
-<% @bookings.each do |b| %>
+<div>
+  <% @bookings.each do |b| %>
 
-  <div class="bookings-index-frame" style="margin-bottom: 20px">
-    <div class="center">
-      <p>Booking with <%= b.contractor.user_name %></p>
-      <p>From: <%= b.start_date %></p>
-      <p>To: <%= b.end_date %></p>
-      <p>Price: <%= b.price.to_i %> €</p>
-      <p>DescriptionL <%= b.description %></p>
-    </div>
-    <div class="center">
-      <div class="profile">
-        <div class="image">
-          <div class="circle-1"></div>
-            <div class="circle-2"></div>
-              <% if b.business.user.picture.attached? %><%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar-index") %>
-                <%= cl_image_tag b.business.user.picture.key, class: "avatar-index" %>
-              <% else %>
-                <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar-index") %>
-              <% end %>
-            </div>
-
-            <div class="name"><%= b.business.name %></div>
-            <div class="job"><%= b.business.description %></div>
-
-            <!-- button -->
-            <div class="actions">
-              <%= link_to "View", business_path(b.business), class: "btn" %>
-            </div>
-      </div>
-
-      <!-- cards with icons -->
-      <div class="stats">
-        <div class="box">
-          <i class="fas fa-bolt"></i>
-          <span class="parameter"><%= b.business.category %></span>
-        </div>
-        <div class="box">
-          <i class="fas fa-map-marker-alt"></i>
-            <span class="value"><%= b.business.location %></span>
-        </div>
-        <div class="box">
-          <i class="fas fa-user-check"></i>
-          <span class="parameter">Certified</span>
+    <div class="bookings-index-frame">
+      <div class="center" style="border-color: #F5E8DF";>
+        <div class="bookings-index-information" style="margin: 4%;">
+          <ul style="padding: 0px; margin: 16px;">
+            <p><strong>Booking with </strong><%= b.contractor.user_name %></p>
+            <p><strong><i class="fas fa-money-check"></i></i>Price: </strong><%= b.price.to_i %>€</p>
+            <p><strong><i class="fas fa-hourglass-start"></i>From: </strong><%= b.start_date %></p>
+            <p><strong><i class="fas fa-hourglass-end"></i>To: </strong><%= b.end_date %></p>
+            <p><strong></i>Description: </strong><%= b.description %></p>
+          </ul>
         </div>
       </div>
+      <div class="center">
+        <div class="profile">
+          <div class="image">
+            <div class="circle-1"></div>
+              <div class="circle-2"></div>
+                <% if b.business.user.picture.attached? %>
+                  <%= cl_image_tag b.business.user.picture.key, class: "avatar-index" %>
+                <% else %>
+                  <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar-index") %>
+                <% end %>
+              </div>
+
+              <div class="name"><%= b.business.name %></div>
+              <div class="job"><%= b.business.description %></div>
+
+              <!-- button -->
+              <div class="actions">
+                <%= link_to "View", business_path(b.business), class: "btn" %>
+              </div>
+        </div>
+
+        <!-- cards with icons -->
+        <div class="stats">
+          <div class="box">
+            <i class="fas fa-bolt"></i>
+            <span class="parameter"><%= b.business.category %></span>
+          </div>
+          <div class="box">
+            <i class="fas fa-map-marker-alt"></i>
+              <span class="value"><%= b.business.location %></span>
+          </div>
+          <div class="box">
+            <i class="fas fa-language"></i>
+              <span class="parameter">
+                <% b.business.languages.each do |l| %>
+                  <%= l.name %>
+                <% end %>
+              </span>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <% @chatroom = Chatroom.find_by(contractor_id: b.contractor_id) %>
-  <%= link_to "Go to chat",  chatroom_path(@chatroom) %>
-<% end %>
+    <% @chatroom = Chatroom.find_by(contractor_id: b.contractor_id) %>
+    <%= link_to "Go to chat",  chatroom_path(@chatroom), class: "button-main-index" %>
+  <% end %>
+</div>
