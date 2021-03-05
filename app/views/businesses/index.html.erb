@@ -35,10 +35,11 @@
           <div class="image">
             <div class="circle-1"></div>
               <div class="circle-2"></div>
-                <% if business.user.picture.attached? %><%= cl_image_tag business.user.picture.key, class: "avatar-index" %>
-                <% else %>
-                  <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar-index") %>
-                <% end %>
+               <% if b.business.user.picture.attached? %>
+                <%= cl_image_tag b.business.user.picture.key, class: "avatar-index" %>
+              <% else %>
+                <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar-index") %>
+              <% end %>
               </div>
 
               <div class="name"><%= business.name %></div>
