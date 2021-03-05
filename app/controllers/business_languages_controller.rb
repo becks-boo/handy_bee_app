@@ -1,5 +1,6 @@
 class BusinessLanguagesController < ApplicationController
   def new
+    @languages = Language.all
     @business = Business.find(params[:business_id])
     @business_language = BusinessLanguage.new
     authorize @business_language
@@ -7,10 +8,10 @@ class BusinessLanguagesController < ApplicationController
 
   def create
     @business = Business.find(params[:business_id])
-    @languages = Language.where(id:params[:business_language][:language])
+    authorize @business
+    @languages = Language.where(id:params[:business_language][:language_id])
     @languages.each do |l|
       @business_language = BusinessLanguage.new(business: @business, language: l)
-      authorize @business_language
       @business_language.save
     end
     redirect_to business_path(@business)

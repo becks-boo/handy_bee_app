@@ -53,7 +53,7 @@
                   <div class="image">
                     <div class="circle-1"></div>
                       <div class="circle-2"></div>
-                        <% if @chatroom.business.user.picture.attached? %><%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar-index") %>
+                       <% if @chatroom.business.user.picture.attached? %>
                           <%= cl_image_tag @chatroom.business.user.picture.key, class: "avatar-index" %>
                         <% else %>
                           <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar-index") %>
