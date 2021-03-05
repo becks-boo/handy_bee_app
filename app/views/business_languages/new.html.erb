@@ -1,14 +1,4 @@
-<%#= simple_form_for [ @business, @business_language ] do |f| %>
-        <%#= f.select_tag "Hallo", @languages, class: 'multiple-select' %>
-        <%#= f.input :language, collection: Language.all, as: :select, include_hidden: false %>
-        <%#= f.submit "Add your languages", class: "form-actions button-main" %>
-  <%# end %>
-
-<select class="js-example-basic-multiple multiple-select" multiple="multiple">
-  <% @languages.each do |language| %>
-    <option class="multiple-select-option">
-      <%= language.name %>
-    </option>
-  <% end %>
-</select>
-<%= link_to "Create", business_business_languages_path(business_id: params[:business_id], ), method: :post %>
+<%= simple_form_for [ @business, @business_language ] do |f| %>
+  <%= f.association :language, collection: @languages, as: :select, input_html: { class: "multiple-select", multiple: true } %>
+  <%= f.submit "Add your languages", class: "form-actions button-main" %>
+<% end %>
