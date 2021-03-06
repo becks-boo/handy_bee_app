@@ -2,6 +2,7 @@ class BusinessesController < ApplicationController
   def index
     # @businesses = Business.all
     # @businesses = Business.search(params[:search])
+    @users = User.all
     @businesses = policy_scope(Business)
     # filter by category
     if params[:query].present?

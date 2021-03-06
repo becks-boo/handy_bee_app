@@ -22,7 +22,20 @@
 
   <%#= link_to "Sort by rating", sort: "rating"  %>
 
+  <!-- other services  -->
+  <% categories = [] %>
+  <% @users.each do |u| %>
+    <% u.businesses.each do |b| %>
+  <% categories << b.category %>
+    <% end %>
+    <% end %>
+  <% categories_unique = categories.uniq %>
 
+  <ul>
+    <% categories_unique.each do |c| %>
+    <li><%= c %></li>
+    <% end %>
+  </ul>
 
   <!-- Card grid container with all the cards-->
 
