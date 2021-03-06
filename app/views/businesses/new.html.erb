@@ -5,6 +5,7 @@
         <%= f.input :name %>
         <%= f.input :category, collection: Business::CATEGORY %>
         <%= f.input :description %>
+        <%= f.association :languages, collection: Language.all, as: :select, input_html: { class: "multiple-select", multiple: true } %>
         <%= f.input :location %>
         <%= f.input :qualification %>
         <%= f.input :pictures, as: :file, input_html: { multiple: true } %>
