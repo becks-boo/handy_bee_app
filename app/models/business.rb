@@ -1,5 +1,5 @@
 class Business < ApplicationRecord
-  LANGUAGES = %w(English French German Arabic Turkish Farsi Portuguese Spanish Russian Manding)
+  CATEGORY = %w(Painting Carpentry Plumbing Electrical Landscaper Engineer Estimator Cabinet-Maker Heating-Technician Laborer Drywall Mechanic Welder Mason Roofer Floorer)
   belongs_to :user
 
   has_many :bookings, dependent: :destroy
