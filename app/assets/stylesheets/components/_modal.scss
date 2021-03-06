@@ -14,3 +14,35 @@
 .modal-dialog {
   padding-top: 200px;
 }
+
+.modal-body {
+    label {
+      display: block;
+
+      cursor: pointer;
+      box-sizing: border-box;
+      width: 100%;
+      font-size: 12px;
+      text-align: left;
+      padding: 10px 10px 30px 10px;
+      border: 1px solid #EAEAEA;
+      border-radius: 10px;
+      background-color: white;
+    }
+
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 10px;
+    }
+
+  .hidden-input {
+  display: none;
+  }
+}
+
+
+.modal-body label:hover{
+  background-color: pink;
+}
