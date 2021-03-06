@@ -8,7 +8,7 @@
 <!-- Filter by category -->
   <div class="title-index">
    <!-- home-dropdown-banner -->
-    <div class="row d-flex justify-content-around" style="margin-top: 40px">
+    <div class="row index-title" style="margin-top: 40px">
       <h2><strong> <%= params[:query].split.first.capitalize if params[:query].present? %></strong>: <%= pluralize @businesses.length, "service" %> available for you</h2>
     </div>
   </div>
@@ -21,7 +21,7 @@
 
     <%#= hidden_field_tag :query, params[:query] %>
 
-    <input type="submit" class="button-main" value="Search" for="dropdown-index"/>
+    <input type="submit" class="button-main" value="Apply" for="dropdown-index"/>
   <% end %>
 
   <%#= link_to "Sort by rating", sort: "rating"  %>
@@ -39,10 +39,12 @@
         <% end %>
         <% end %>
       <% categories_unique = categories.uniq %>
-
+      <h4>More Available Services</h4>
       <ul>
         <% categories_unique.each do |c| %>
-        <li><%= c %></li>
+        <li>
+          <%= link_to c, businesses_path(query: c)   %>
+        </li>
         <% end %>
       </ul>
     </div>
