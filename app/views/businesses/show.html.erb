@@ -1,68 +1,119 @@
-<div class="big-navbar">
-  <img class="avatar-show-page" src="https://images.unsplash.com/photo-1597409212870-c47068072688?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1498&q=80">
-  <!-- for messsage modal -->
-  <button type="button" class="button-blue" data-toggle="modal" data-target="#exampleModalCenter">
-    Launch demo modal
-  </button>
-  <%= link_to "Connect", business_chatrooms_path(@business), method: :post, class: "button-blue button-blue-show-page" %>
-</div>
+<!-- this ruby code determines if a chat between the user and business owner already exist -->
+<!-- if a chat does not already exist, a new chat is created. If it does it loads the existing chat -->
+<% existing_chatroom = @chatrooms.find_by(contractor_id: @business.user_id, customer_id: current_user.id) %>
+<% assigned_chat = nil %>
+
+<% if existing_chatroom %>
+  <% assigned_chat = chatroom_path(existing_chatroom) %>
+<% else %>
+  <% assigned_chat = business_chatrooms_path(@business) %>
+<% end %>
+
 
 <div class="container">
-  <div class="row">
-    <div class="col card-about info-show-page">
-      <h3>About</h3>
-      <p><%= @business.language %></p>
-      <p><%= @business.location %></p>
-      <p><%= @business.description %></p>
-    </div>
-    <div class="col card-about qualifications-icons" style="text-align: left;">
-      <p><i class="fas fa-paint-roller"></i> Painting the walls</p>
-      <p><i class="fas fa-palette"></i> Picking up colors</p>
-      <p><i class="fas fa-spray-can"></i> Working with a color spray</p>
-      <p><i class="fas fa-brush"></i> Doing the walls from scratch</p>
-    </div>
-    <div class="col card-about qualifications-icons" style="text-align: left;">
-      <p><i class="fas fa-swatchbook"></i> Making measurments</p>
-      <p><i class="fas fa-wrench"></i> Working with wrench</p>
-      <p><i class="fas fa-hammer"></i> Working with hammer</i></p>
-      <p><i class="fas fa-screwdriver"></i> Working with a screwdriver</p>
-    </div>
-  </div>
+  <header></header>
+  <main>
+    <div class="row">
+      <div class="left col-lg-4">
+        <!-- avatar -->
+        <div class="photo-left">
+          <% if @business.user.picture.attached? %>
+            <%= cl_image_tag @business.user.picture.key, class: "photo" %>
+          <% else %>
+            <img class="photo" src="https://images.unsplash.com/photo-1568654360516-7a3aff4c3b4f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80">
+          <% end %>
+          <div class="active"></div>
+        </div>
 
-  <div class="past-work">
-    <hr>
-    <h3>Past work</h3>
-    <br>
-    <div class="cards-container">
-      <div class="card-work" style="background-image: url('https://images.unsplash.com/photo-1568654360516-7a3aff4c3b4f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80')"></div>
-      <div class="card-work" style="background-image: url('https://images.unsplash.com/photo-1568654360516-7a3aff4c3b4f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80')"></div>
-      <div class="card-work" style="background-image: url('https://images.unsplash.com/photo-1568654360516-7a3aff4c3b4f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80')"></div>
-      <div class="card-work" style="background-image: url('https://images.unsplash.com/photo-1568654360516-7a3aff4c3b4f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80')"></div>
-    </div>
-  </div>
+        <h3 class="name"><%= @business.name %></h3>
+        <br>
+        <p class="info"> <i class="fas fa-bolt"></i><%= @business.category %></p>
+        <p class="info"><i class="fas fa-briefcase"></i><%= @business.description %></p>
+        <p class="info"><i class="fas fa-language"></i>
+          <% unique_languages = @business.languages.uniq %>
+          <% unique_languages.each do |language| %>
+            <%= language.name %>
+          <% end %>
+        </p>
+        <p class="info"><i class="fas fa-map-marker-alt"></i><%= @business.location %></p>
+        <p></p>
+       <!--  <div class="stats row"> -->
+         <!--  <div class="stat col-xs-4" style="padding-right: 50px;">
+            <p class="number-stat">3 619</p>
+            <p class="desc-stat">Reviews</p>
+          </div> -->
+         <!--  <div class="stat col-xs-4">
+            <p class="number-stat">4 200</p>
+            <p class="desc-stat">Clients</p>
+          </div> -->
+        <!-- </div> -->
+        <p class="desc">Hello, I am a Painter. With more than 20 years of professional experience I will make your house shining in just a few hours.
+          Contact me to know the price and ask all the question regarding my services.</p>
+      </div>
 
-  <div class="reviews">
-    <br>
-    <hr><h3>Reviews</h3>
-    <div class="reviews-container">
-      <br>
-      <p><%= @business.reviews.length %> reviews</p>
-      <div class="review-container">
-        <% @business.reviews.each do |review| %>
-        <div class="raiting-stars">
-          <% review.rating.times do %>
-          <p><i class="fas fa-star"></i></p>
+      <div class="right col-lg-8">
+        <ul class="nav">
+          <li>Previous works gallery</li>
+        </ul>
+
+        <!-- connect button -->
+        <div>
+          <% if existing_chatroom %>
+            <%= link_to "Connect", assigned_chat, class: "connect-show-page" %>
+          <% else %>
+            <%= link_to "Connect", assigned_chat, method: :post, class: "connect-show-page" %>
           <% end %>
         </div>
-        <%= review.content %>
+
+        <!-- previous work gallery -->
+        <div class="row gallery">
+          <% @business.pictures.each do |picture| %>
+            <div class="col-md-4"><%= cl_image_tag picture.key %></div>
+          <% end %>
+
+          <div class="col-md-4">
+             <img src="https://images.unsplash.com/photo-1568654360516-7a3aff4c3b4f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80"/>
+          </div>
+          <div class="col-md-4">
+             <img src="https://images.unsplash.com/photo-1568654360516-7a3aff4c3b4f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80"/>
+          </div>
+          <div class="col-md-4">
+             <img src="https://images.unsplash.com/photo-1568654360516-7a3aff4c3b4f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80"/>
+          </div>
+          <div class="col-md-4">
+             <img src="https://images.unsplash.com/photo-1568654360516-7a3aff4c3b4f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80"/>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Reviews -->
+  <div class="reviews">
+    <div>
+      <br>
+      <p> <strong> <%= pluralize @business.reviews.length, "review" %></strong> </p>
+      <hr>
+      <div class="review-container">
+        <%= render @business.reviews %>
+        <% if current_user.bookings.where(business: @business).any? %>
+        <% end %>
+        <br>
+        <p style="font-weight: bold;">Leave a review</p>
+        <% if @business.bookings.any? {|booking| booking.customer_id == current_user.id}%>
+        <%= render "reviews/form" %>
         <% end %>
       </div>
     </div>
   </div>
 </div>
 
-<!-- modal  -->
 
+
+
+<%# render 'reviews/form' %>
+
+
+<!-- modal  -->
 
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -90,6 +141,31 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

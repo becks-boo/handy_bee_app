@@ -1,7 +1,7 @@
 class BookingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(customer_id: user).or(scope.where(contractor_id: user))
     end
   end
 
@@ -22,8 +22,21 @@ class BookingPolicy < ApplicationPolicy
     # true
   end
 
+  def show?
+    true
+  end
+
   def create?
     # What about create, also only the contractor?
     user.role == "Contractor"
   end
+
+  def update?
+    true
+  end
+
+  def destroy?
+    true
+  end
+
 end

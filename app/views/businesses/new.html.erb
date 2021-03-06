@@ -3,12 +3,11 @@
     <div class="col-6">
       <%= simple_form_for @business do |f| %>
         <%= f.input :name %>
-        <%= f.input :category, collection: %w(Painting Electrical Installation Plumbing Carpentry) %>
+        <%= f.input :category, collection: Business::CATEGORY %>
         <%= f.input :description %>
-        <%= f.input :language, collection: %w(English French German Arabic Turkish Farsi Portuguese Spanish Russian Manding) %>
         <%= f.input :location %>
         <%= f.input :qualification %>
-        <%= f.input :picture, as: :file %>
+        <%= f.input :pictures, as: :file, input_html: { multiple: true } %>
         <%= f.submit "Create business", class: "form-actions button-main" %>
       <% end %>
     </div>

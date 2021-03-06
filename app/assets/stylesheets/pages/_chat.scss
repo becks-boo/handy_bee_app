@@ -1,18 +1,18 @@
 
 // styling left side of chatrooms, list of chats
 .chatroom-index {
-  border-right: 1px solid black;
+  border-right: 1px solid rgba(0,0,0,0.2);
 }
 
 // for styling left side of chatrooms, each chat card
 .chatroom-index-card {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   padding: 8px 0;
-  border-bottom: 1px solid black;
-  justify-content: space-between;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  justify-content: space-around;
   &:hover {
-    background-color: rgba(200,200,200,0.3);
+    background-color: $orange4;
   }
 }
 
@@ -27,6 +27,71 @@
 
 
 .chatroom-container {
-  width: 80%;
-  margin: auto;
+  width: 100wh;
+  margin: 2em;
 }
+.chatroom-messages {
+      border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.new_message_form {
+  // position: absolute;
+  // bottom: 1px;
+  width: 100%;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+
+#message_content {
+  border-radius: 50px;
+  border: orange 1px solid;
+  width: 95%;
+}
+
+
+.booking-request {
+  // border: 1px solid black;
+  border-radius: 25px;
+  padding: 20px;
+  background: rgba(255, 185, 79, 0.9);
+  box-shadow: 1px 2px 5px rgba(10, 10, 10, 0.5);
+}
+
+.booking-request-message {
+  background-color: #FFD500;
+  text-align: center;
+  width: 80%;
+  margin: 30px auto;
+  border-radius: 12px;
+  p {
+    padding: 10px 0;
+  }
+}
+
+.accept-decline {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#button-accept:hover {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+#button-decline:hover {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+#button-chatroom-booking {
+  padding: 11px 0;
+  position: absolute;
+  bottom: 2%;
+  right: 7%;
+  color: white;
+  background-color: blue;
+  text-align: center;
+  white-space: nowrap;
+}
+

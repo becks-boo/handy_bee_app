@@ -1,10 +1,16 @@
 class BookingsController < ApplicationController
+  # before_action :find_business, only: [:create]
+
   def index
-    @bookings = Booking.all
+    @bookings = policy_scope(Booking)
+    # @bookings = Booking.where(customer_id: current_user)
+    authorize @bookings
   end
 
   def show
+    # raise
     @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def new
@@ -16,14 +22,19 @@ class BookingsController < ApplicationController
 
   def create
     # initialize new booking
+    @chatroom = Chatroom.find(params[:chatroom_id])
     @booking = Booking.new(booking_params)
-    @booking.user = current_user
-
+    @business = Chatroom.find(params[:chatroom_id]).business
+    @customer = Chatroom.find(params[:chatroom_id]).customer.id
+    @contractor = Chatroom.find(params[:chatroom_id]).contractor.id
+    @booking.contractor_id = @contractor
     @booking.business = @business
+    @booking.customer_id = @customer
+    @booking.user_id = @contractor
     authorize @booking
 
     if @booking.save!
-      redirect_to booking_path(@booking)
+      redirect_back(fallback_location: 'chatrooms/index')
     else
       render "businesses/show"
     end
@@ -33,9 +44,33 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+    authorize @booking
+    if @booking.confirmed == true
+      flash.notice = "Booking confirmed"
+    elsif @booking.confirmed == false
+      flash.notice = "Booking Declined"
+    end
+    redirect_back(fallback_location: 'chatrooms/index')
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    authorize @booking
+    flash.notice = "Booking declined"
+    redirect_back(fallback_location: 'chatrooms/index')
+  end
+
   private
 
+  def find_business
+    @business = Business.find(params[:business_id])
+  end
+
   def booking_params
-    params.require(:booking).permit(:price, :start_date, :end_date)
+    params.require(:booking).permit(:price, :start_date, :end_date, :confirmed, :description)
   end
 end

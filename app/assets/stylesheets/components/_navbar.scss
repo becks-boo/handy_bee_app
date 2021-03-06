@@ -1,6 +1,7 @@
 .navbar {
   justify-content: space-between;
   background: rgba(255, 168, 0, 0.8);
+  z-index: 2;
 }
 
 .navbar .navbar-collapse {
@@ -15,3 +16,6 @@
   align-items: center;
 }
 
+// .navbar-trans {
+//   background: transparent;
+// }

@@ -7,14 +7,18 @@ class ReviewsController < ApplicationController
     authorize @review
   end
 
-  def create
+   def create
     @review = Review.new(review_params)
+    # @review.business_id = params[:business_id]
     @review.booking_id = @booking.id
     @review.user_id = current_user.id
     authorize @review
 
-    if @review.save
-      redirect_to booking_path(@booking)
+    @business = Business.find(params[:business_id])
+
+
+    if @review.save!
+      redirect_to business_path(@business)
     else
       render :new
     end
@@ -43,7 +47,7 @@ class ReviewsController < ApplicationController
   private
 
   def set_booking
-    @booking = Booking.find(params[:booking_id])
+    @booking = Booking.find(params[:review][:booking_id])
   end
 
   def set_review
@@ -51,6 +55,6 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:content, :rating)
+    params.require(:review).permit(:content, :rating, :create, :booking_id)
   end
 end

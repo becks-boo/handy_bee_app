@@ -7,10 +7,21 @@
   font-weight: 600;
   font-size: 18px;
   line-height: 21px;
+ // home-dropdown-banner
+  color: black;
+  width: 331px;
+  margin-bottom: 20px;
+  padding-left: 13px;
+  padding-top: 2px;
   color: #C4C4C4;
   width: 400px;
+  padding: 8px;
+
 }
 
+input.button-main {
+  padding: 8px;
+}
 
 
 .dropdown-filter {
@@ -20,10 +31,21 @@
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
   border-radius: 6px;
   width: 20%;
+  align-items: center;
+  &:hover {
+    border: 1px solid black;
+  }
 }
 
 
-#inputGroupSelect02 {
+#filters {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 34px;
+  margin-bottom: 48px;
+}
+
+#select2 {
   // background: #F1F1F1;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 25px;
@@ -38,3 +60,7 @@
 
 }
 
+
+.select2-dropdown.select2-dropdown--below {
+  background-color: red  !important;
+}

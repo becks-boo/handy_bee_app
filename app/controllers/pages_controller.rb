@@ -13,4 +13,9 @@ class PagesController < ApplicationController
     @user = current_user
   end
 
+  def my_businesses
+    @businesses = Business.where(user_id: current_user)
+  end
+
+
 end

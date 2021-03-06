@@ -1,0 +1,39 @@
+.bookings-index-frame {
+    display: inline-flex;
+    margin: 40px;
+    // position: absolute;
+    top: 50%;
+    // left: 50%;
+    // width: 59%;
+    height: 380px;
+    // margin-top: -200px;
+    // margin-left: -200px;
+    border-radius: 2px;
+    box-shadow: 1px 2px 10px 0px rgba(0,0,0,0.3);
+    background: $orange;
+    background: -webkit-linear-gradient(bottom left, #EEBE6C 0%, $orange 100%);
+    background: -moz-linear-gradient(bottom left, #EEBE6C 0%, $orange 100%);
+    background: -o-linear-gradient(bottom left, #EEBE6C 0%, $orange 100%);
+    background: linear-gradient(to top right, #EEBE6C 0%, $orange 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EEBE6C', endColorstr='$orange',GradientType=1 );
+    color: $black;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+.bookings-index-information {
+  margin: 4%;
+  padding: 8%;
+  background-color: #fff;
+}
+
+ul {
+  padding: 0px;
+  margin: 16px;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.center {
+  background-color: #F5E8DF;
+}

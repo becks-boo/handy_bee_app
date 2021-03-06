@@ -3,6 +3,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  margin: 8px 0;
   // border: 1px solid black;
   .avatar {
     width: 51px;
@@ -27,6 +28,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  margin: 8px 0;
   // border: 1px solid black;
   .avatar {
     width: 51px;
@@ -47,15 +49,21 @@
 
 
 #messages {
-  margin: auto;
-  width: 50%;
+  margin-bottom: 20px;
 }
 
 .active div {
-  background-color: $light-gray;
+  background-color: $orange4;
 }
 
+.message-container {
+  width: 80%;
+  margin: auto;
+}
 
-
+.avatar-chat {
+  width: 2rem;
+  height: 2rem;
+}
 
 
