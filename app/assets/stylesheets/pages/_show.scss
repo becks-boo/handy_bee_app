@@ -242,9 +242,10 @@ main {
 
 .reviews-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 16px;
-    margin-bottom: 20px;
+    margin: 20px;
+    grid-column-gap: 71px;
     // margin: 4%;
 }
 
@@ -262,9 +263,10 @@ main {
 
 
 
-
-
-
+.fa-star:before {
+    content: "\f005";
+    margin-right: -20px;
+}
 
 
  // .circle-3 {
@@ -291,11 +293,6 @@ main {
  //    }
 
 
-.reviews {
-  width: 40%;
-  padding-left: 40px;
-  padding-right: 20px;
-}
 
 
 

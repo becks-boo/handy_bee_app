@@ -1,11 +1,13 @@
 <div id="review">
-  <div class="review-rating">
+
+  <p> <strong><%= review.user.user_name.capitalize %> </strong> </p>
+   <div class="review-rating">
      <% review.rating.times do %>
     <p><i class="fas fa-star"></i></p>
     <% end %>
   </div>
-  <p> <strong><%= review.user.user_name.capitalize %> </strong> </p>
-  <p> <%= Date.today %> </p>
+  <!-- <p> <%# Date.today %> </p> -->
+
   <p><%= review.content %></p>
   <% if user_signed_in? %>
     <% if review.user_id == current_user.id %>
@@ -17,4 +19,3 @@
     <% end %>
     <% end %>
   </div>
-<hr>
