@@ -9,11 +9,12 @@
 require 'open-uri'
 require 'faker'
 
+Chatroom.destroy_all
+Booking.destroy_all
 BusinessLanguage.destroy_all
 Language.destroy_all
 User.destroy_all
 Business.destroy_all
-Booking.destroy_all
 Review.destroy_all
 
 image_1 = URI.open('https://images.unsplash.com/photo-1577033169343-75977941abdd?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MXwxfDB8MXxyYW5kb218fHx8fHx8fA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600')
@@ -51,9 +52,8 @@ business1 = Business.new(
   name: Faker::Company.name,
   location: Faker::Address.city,
   description: Faker::Construction.subcontract_category,
-  category: Faker::Construction.role,
-  qualification: Faker::Construction.trade,
-  language: Faker::Nation.language
+  category: Business::CATEGORY.sample,
+  qualification: Faker::Construction.trade
   )
 
 business_img = URI.open('https://images.unsplash.com/photo-1613288030301-b448aa439640?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MXwxfDB8MXxyYW5kb218fHx8fHx8fA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600')
@@ -61,6 +61,15 @@ business1.pictures.attach(io: business_img, filename: "#{business1.name}", conte
 
 business1.save!
 puts "Creating #{business1.name}"
+end
+
+50.times do
+  business_language = BusinessLanguage.new(
+    business_id: Business.all.sample.id,
+    language_id: Language.all.sample.id
+    )
+  business_language.save!
+  puts "Business_languages created!"
 end
 
 booking = Booking.create(
@@ -93,11 +102,3 @@ booking = Booking.create(
 #   rating: 5,
 #   user_id: User.find_by_role("Customer").id
 #   )
-
-
-
-
-
-
-
-
