@@ -58,7 +58,7 @@ class BusinessesController < ApplicationController
 
     if @business.save
       # @connect_lang = BusinessLanguage.create(business_id: @business.id, language_id: @language.id)
-      redirect_to new_business_business_language_path(@business)
+      redirect_to business_path(@business)
     else
       render :new
     end
