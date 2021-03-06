@@ -5,9 +5,9 @@
 <div>
   <% @bookings.each do |b| %>
     <div class="bookings-index-frame">
-      <div class="center" style="background-color: #F5E8DF";>
+      <div class="center">
         <div class="bookings-index-information">
-          <ul style="padding: 0px; margin: 16px; font-size: 15px; font-weight: 300;">
+          <ul>
             <h6><strong>Booking with </strong><%= b.contractor.user_name %></h6>
             <p><i class="fas fa-money-check"></i></i>Price: <%= b.price.to_i %>€</p>
             <p><i class="fas fa-hourglass-start"></i>From: <%= b.start_date %></p>
