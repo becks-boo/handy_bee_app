@@ -1,4 +1,7 @@
-<%# RATINGS = [1, 2, 3, 4, 5] %>
+<% languages = [] %>
+<% @languages.each do |l| %>
+<% languages << l.name %>
+<% end %>
 
 
 <div class="container-index-page">
@@ -11,11 +14,12 @@
   </div>
 
   <%= form_tag(businesses_path, method: "get", id: "filters") do %>
-    <%= select_tag :language,  options_for_select(@languages, params[:language]), class: "dropdown input-group dropdown-filter", include_blank: "Language" %>
+    <%= select_tag :query,  options_for_select(Business::CATEGORY, params[:query]), class: "dropdown input-group dropdown-filter", include_blank: "Service" %>
+    <%= select_tag :language,  options_for_select(languages.sort, params[:language]), class: "dropdown input-group dropdown-filter", include_blank: "Language" %>
     <%= select_tag :rating,  options_for_select([1, 2, 3, 4, 5], params[:rating]), class: "dropdown input-group dropdown-filter", include_blank: "Rating" %>
     <%#= select_tag :filter,  options_for_select(@languages_uniq, params[:filter]), class: "dropdown input-group dropdown-filter", include_blank: "Language" %>
 
-    <%= hidden_field_tag :query, params[:query] %>
+    <%#= hidden_field_tag :query, params[:query] %>
 
     <input type="submit" class="button-main" value="Search" for="dropdown-index"/>
   <% end %>
