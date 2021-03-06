@@ -4,6 +4,7 @@ class BusinessesController < ApplicationController
     # @businesses = Business.search(params[:search])
     @businesses = policy_scope(Business)
     # filter by category
+    @languages = Language.all
     if params[:query].present?
       @businesses = Business.where(category: params[:query])
       # @businesses_count = @businesses.count
