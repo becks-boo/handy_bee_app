@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :chatrooms_as_customer, foreign_key: :customer_id, class_name: :Chatroom, dependent: :destroy
   has_many :chatrooms_as_contractor, foreign_key: :contractor_id, class_name: :Chatroom, dependent: :destroy
 
-  has_one_attached :picture
+  has_one_attached :picture, dependent: :destroy
 
   validates :user_name, :role, presence: true
 end
