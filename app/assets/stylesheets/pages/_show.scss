@@ -185,7 +185,7 @@ main {
   transition: all .4s;
   font-weight: 400;
   padding: 20px 28px;
-  background: rgba(39, 109, 255, 0.91);
+  background: $blue;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 25px;
   border: none;
@@ -242,10 +242,14 @@ main {
 
 .reviews-grid {
     display: grid;
+
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     // grid-auto-flow: column;
+
+    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 16px;
-    margin-bottom: 20px;
+    margin: 20px;
+    grid-column-gap: 71px;
     // margin: 4%;
 }
 
@@ -263,9 +267,10 @@ main {
 
 
 
-
-
-
+.fa-star:before {
+    content: "\f005";
+    margin-right: -20px;
+}
 
 
  // .circle-3 {
@@ -292,11 +297,6 @@ main {
  //    }
 
 
-.reviews {
-  width: 40%;
-  padding-left: 40px;
-  padding-right: 20px;
-}
 
 
 
