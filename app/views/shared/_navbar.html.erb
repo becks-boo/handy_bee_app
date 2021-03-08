@@ -9,6 +9,11 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+  <% if user_signed_in? %>
+    <% if current_user.role == "Contractor" %>
+    <%= link_to "Add Your Businesses", new_business_path  %>
+    <% end %>
+  <% end %>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
