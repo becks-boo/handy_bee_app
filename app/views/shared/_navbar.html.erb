@@ -1,8 +1,9 @@
  <div class="navbar navbar-expand-sm navbar-trans navbar-light">
   <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "bee.png", alt: "alttext", id: "bee-logo" %>
       HandyBee
-      <%#= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1614804158/l4h3a8lp3h4nsvgz1xlw.png") %>
     <% end %>
+
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -24,6 +25,9 @@
             <%= link_to "My Account", account_path, class: "dropdown-item" %>
             <%= link_to "Messages", chatrooms_path, class: "dropdown-item" %>
             <%= link_to "Bookings", bookings_path, class: "dropdown-item" %>
+            <% if current_user.role == "Contractor" %>
+            <%= link_to "My Businesses", my_businesses_path, class: "dropdown-item"  %>
+            <% end %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>

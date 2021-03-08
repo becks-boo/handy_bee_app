@@ -37,3 +37,57 @@ ul {
 .center {
   background-color: #F5E8DF;
 }
+
+.my-booking-general-info {
+  background-color: #fff;
+  padding: 2%;
+  margin: 2%;
+}
+
+.my-booking-big-card {
+  background-color: rgba(255, 168, 0, 0.8);
+  background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.3)), url('https://images.pexels.com/photos/4312849/pexels-photo-4312849.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+  margin: 4% 10%;
+  padding: 2%;
+}
+
+.my-booking-contractor-avatar {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.my-booking-buttons {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.my-booking-description {
+  padding: 2%;
+  margin: 2%;
+  background-color: $white;
+  // padding-left: 2%;
+  // padding-top: 2%;
+  // padding-right: 2%;
+}
+
+.btn {
+  display: inline-grid;
+  align-items: center;
+  width: 128px;
+  height: 40px;
+  margin: 0 auto 10px auto;
+  background: none;
+  border: 1px solid #FFB201;
+  border-radius: 25px;
+  font-size: 12px;
+  font-weight: 600;
+  box-sizing: border-box;
+  transition: all .3s ease-in-out;
+  color: #FFB201;
+}
+
+.my-booking-button-view {
+  margin-top: 4%;
+}

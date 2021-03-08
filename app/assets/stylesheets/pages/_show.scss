@@ -74,6 +74,7 @@
 header {
   background: $white;
   background-color: rgba(255, 168, 0, 0.8);
+  background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.3)), url('https://images.pexels.com/photos/4312849/pexels-photo-4312849.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -198,7 +199,8 @@ main {
 }
 
 .connect-show-page:hover {
-
+  color: #FFFFFF;
+  background: #021c2a;
 }
 
 @media (max-width:990px) {
