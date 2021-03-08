@@ -28,7 +28,7 @@
         <h3 class="name"><%= @business.name %></h3>
         <br>
         <p class="info"> <i class="fas fa-bolt"></i><%= @business.category %></p>
-        <p class="info"><i class="fas fa-briefcase"></i><%= @business.description %></p>
+        <!-- <p class="info"><i class="fas fa-briefcase"></i><%#= @business.description %></p> -->
         <p class="info"><i class="fas fa-language"></i>
           <% unique_languages = @business.languages.uniq %>
           <% unique_languages.each do |language| %>
@@ -47,8 +47,7 @@
             <p class="desc-stat">Clients</p>
           </div> -->
         <!-- </div> -->
-        <p class="desc">Hello, I am a Painter. With more than 20 years of professional experience I will make your house shining in just a few hours.
-          Contact me to know the price and ask all the question regarding my services.</p>
+        <p class="desc"><%= @business.description %></p>
       </div>
 
       <div class="right col-lg-8">
@@ -89,7 +88,14 @@
 
     <!-- Reviews -->
     <div class="reviews">
-      <p> <strong> <%= pluralize @business.reviews.length, "Review" %></strong> </p>
+      <% if @business.reviews.count >= 1 %>
+        <% ratings = [] %>
+        <% @business.reviews.each do |r| %>
+          <% ratings << r.rating %>
+        <% end %>
+        <% average = ratings.sum.to_f / ratings.length.to_f %>
+      <% end %>
+      <p> <strong> <%= pluralize @business.reviews.length, "Review" %></strong> <span style="padding-left: 12px;"> <%= average.round(2) if @business.reviews.any? %> </span></p>
       <hr style="width: 100%;">
       <div class="reviews-grid">
         <%= render @business.reviews %>

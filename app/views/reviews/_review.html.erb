@@ -1,6 +1,7 @@
 <div id="review">
 
   <p> <strong><%= review.user.user_name.capitalize %> </strong> </p>
+  <p><%= review.created_at.strftime("%B %Y") %></p>
    <div class="review-rating">
      <% review.rating.times do %>
     <p><i class="fas fa-star"></i></p>
