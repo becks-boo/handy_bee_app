@@ -15,10 +15,9 @@
   padding-top: 200px;
 }
 
-.modal-body {
-    label {
+// .modal-body {
+    .hidden-input + label{
       display: block;
-
       cursor: pointer;
       box-sizing: border-box;
       width: 100%;
@@ -31,6 +30,7 @@
     }
 
 
+
     .grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -38,11 +38,18 @@
     }
 
   .hidden-input {
-  display: none;
+  position: absolute;
+  transform: scale(0);
   }
-}
+
+  .hidden-input:checked + label {
+    // background-color: pink !important;
+
+  }
+// }
 
 
-.modal-body label:hover{
-  background-color: pink;
-}
+.modal-body label:hover {
+     background-color: pink;
+     border: 2px solid black;
+    }
