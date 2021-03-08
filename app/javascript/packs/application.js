@@ -33,6 +33,7 @@ import { toggleSignUp } from '../components/toggle_sign_up';
 // for importing the chatroom channel action cable
 import { initChatroomCable, enterkey } from '../channels/chatroom_channel';
 import { multipleSelect } from '../components/select.js';
+import { showGalery } from '../components/image_gallery.js';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -40,6 +41,7 @@ document.addEventListener('turbolinks:load', () => {
   initChatroomCable();
   enterkey();
   multipleSelect();
+  showGalery();
   // booking();
   // initSelect2();
 });
