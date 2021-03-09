@@ -1,4 +1,6 @@
 class BusinessesController < ApplicationController
+  before_action :set_chatroom
+
   def index
     # @businesses = Business.all
     # @businesses = Business.search(params[:search])
@@ -7,15 +9,15 @@ class BusinessesController < ApplicationController
     # filter by category
     @languages = Language.all
     if params[:query].present?
-      @businesses = Business.where(category: params[:query])
+      @businesses = Business.where(category: params[:query][:category_id])
       # @businesses_count = @businesses.count
 
       if params[:language].present? && params[:rating].present?
-        @businesses = Business.where(category: params[:query]).includes(:reviews).where("reviews.rating" => params[:rating]).includes(:languages).where("languages.name" => params[:language])
+        @businesses = Business.where(category: params[:query][:category_id]).includes(:reviews).where("reviews.rating" => params[:rating]).includes(:languages).where("languages.name" => params[:language])
       elsif params[:language].present?
-        @businesses = Business.where(category: params[:query]).includes(:languages).where("languages.name" => params[:language])
+        @businesses = Business.where(category: params[:query][:category_id]).includes(:languages).where("languages.name" => params[:language])
       elsif params[:rating].present?
-        @businesses = Business.where(category: params[:query]).includes(:reviews).where("reviews.rating" => params[:rating])
+        @businesses = Business.where(category: params[:query][:category_id]).includes(:reviews).where("reviews.rating" => params[:rating])
       end
     else
       @businesses = Business.all
@@ -91,5 +93,9 @@ class BusinessesController < ApplicationController
 
   def business_params
     params.require(:business).permit(:name, :description, :category, :qualification, :location, language_ids: [], pictures: [])
+  end
+
+  def set_chatroom
+    @chatroom = policy_scope(Chatroom).first
   end
 end
