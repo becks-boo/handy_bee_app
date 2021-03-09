@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   # before_action :find_business, only: [:create]
+  before_action :set_chatroom
 
   def index
     @bookings = policy_scope(Booking)
@@ -72,5 +73,9 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:price, :start_date, :end_date, :confirmed, :description)
+  end
+
+  def set_chatroom
+    @chatroom = policy_scope(Chatroom).first
   end
 end
