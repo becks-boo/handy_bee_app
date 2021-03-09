@@ -1,49 +1,51 @@
-<div class="cards-container-index-page">
-  <% @businesses.each do |business| %>
-  <!-- each card -->
-  <div class="frame " style="margin-bottom: 20px">
-    <div class="center">
-      <div class="profile">
-        <div class="image">
-          <div class="circle-1"></div>
-            <div class="circle-2"></div>
-             <% if business.user.picture.attached? %>
-              <%= cl_image_tag b.business.user.picture.key, class: "avatar-index" %>
-            <% else %>
-              <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar-index") %>
-            <% end %>
-            </div>
+<div class="container">
+  <div class="cards-container-index-page">
+    <% @businesses.each do |business| %>
+    <!-- each card -->
+    <div class="frame " style="margin-bottom: 20px">
+      <div class="center">
+        <div class="profile">
+          <div class="image">
+            <div class="circle-1"></div>
+              <div class="circle-2"></div>
+               <% if business.user.picture.attached? %>
+                <%= cl_image_tag business.user.picture.key, class: "avatar-index" %>
+              <% else %>
+                <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar-index") %>
+              <% end %>
+              </div>
 
-            <div class="name"><%= business.name %></div>
-            <div class="job"><%= business.description %></div>
+              <div class="name"><%= business.name %></div>
+              <div class="job"><%= business.description %></div>
 
-            <!-- button -->
-            <div class="actions">
-              <%= link_to "View", business_path(business), class: "btn" %>
-            </div>
-      </div>
-
-      <!-- cards with icons -->
-      <div class="stats">
-        <div class="box">
-          <i class="fas fa-bolt"></i>
-          <span class="parameter"><%= business.category %></span>
+              <!-- button -->
+              <div class="actions">
+                <%= link_to "View", business_path(business), class: "btn" %>
+              </div>
         </div>
-        <div class="box">
-          <i class="fas fa-map-marker-alt"></i>
-            <span class="value"><%= business.location %></span>
-        </div>
-        <div class="box">
-          <i class="fas fa-language"></i>
-          <span class="parameter">
-            <% unique_languages = business.languages.uniq %>
-            <% unique_languages.each do |language| %>
-              <%= language.name %>
-            <% end %>
-          </span>
+
+        <!-- cards with icons -->
+        <div class="stats">
+          <div class="box">
+            <i class="fas fa-bolt"></i>
+            <span class="parameter"><%= business.category %></span>
+          </div>
+          <div class="box">
+            <i class="fas fa-map-marker-alt"></i>
+              <span class="value"><%= business.location %></span>
+          </div>
+          <div class="box">
+            <i class="fas fa-language"></i>
+            <span class="parameter">
+              <% unique_languages = business.languages.uniq %>
+              <% unique_languages.each do |language| %>
+                <%= language.name %>
+              <% end %>
+            </span>
+          </div>
         </div>
       </div>
     </div>
+    <% end %>
   </div>
-  <% end %>
 </div>

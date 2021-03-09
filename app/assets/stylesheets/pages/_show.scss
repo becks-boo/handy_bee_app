@@ -74,6 +74,7 @@
 header {
   background: $white;
   background-color: rgba(255, 168, 0, 0.8);
+  background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.3)), url('https://images.pexels.com/photos/4312849/pexels-photo-4312849.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -198,7 +199,8 @@ main {
 }
 
 .connect-show-page:hover {
-
+  color: #FFFFFF;
+  background: #021c2a;
 }
 
 @media (max-width:990px) {
@@ -265,13 +267,61 @@ main {
 }
 
 
-
-
 .fa-star:before {
     content: "\f005";
     margin-right: -20px;
 }
 
+// Styles for business show
+
+/* The grid: Four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+}
+
+/* Style the images inside the grid */
+.column img {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.column img:hover {
+  opacity: 1;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The expanding image container (positioning is needed to position the close button and the text) */
+.business-show-container {
+  position: relative;
+  display: block;
+}
+
+/* Expanding image text */
+#imgtext {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: white;
+  font-size: 20px;
+}
+
+/* Closable button inside the image */
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
 
  // .circle-3 {
 

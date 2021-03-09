@@ -93,7 +93,11 @@
         <% if @pending_booking.any? %>
           <% b = @pending_booking.last %>
           <div class="booking-request">
-            <p>Booking request from <%= @chatroom.contractor.user_name %></p>
+            <% if @chatroom.customer == current_user %>
+              <p>Booking request from <%= @chatroom.contractor.user_name %></p>
+            <% else %>
+              <p>Booking request for <%= @chatroom.customer.user_name %></p>
+            <% end %>
             <p>From: <%= b.start_date.strftime("%-d %b %Y") %></p>
             <p>To: <%= b.end_date.strftime("%-d %b %Y") %></p>
             <p>Price: <%= b.price.to_i %> €</p>
@@ -123,6 +127,8 @@
             <% else %>
                 <%= link_to "View Bookings", bookings_path, class: "button-main", id: "button-chatroom-booking"  %>
               <% end %>
+            <% else %>
+                <%= link_to "View Bookings", bookings_path, class: "button-main", id: "button-chatroom-booking"  %>
             <% end %>
 
               <!-- <button class="button-decline" id="button-decline">

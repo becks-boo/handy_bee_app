@@ -1,6 +1,6 @@
  <div class="navbar navbar-expand-sm navbar-trans navbar-light">
   <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "bee.png", alt: "alttext" %>
+      <%= image_tag "bee.png", alt: "alttext", id: "bee-logo" %>
       HandyBee
     <% end %>
 
@@ -9,6 +9,11 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+  <% if user_signed_in? %>
+    <% if current_user.role == "Contractor" %>
+    <%= link_to "Add Your Businesses", new_business_path  %>
+    <% end %>
+  <% end %>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">

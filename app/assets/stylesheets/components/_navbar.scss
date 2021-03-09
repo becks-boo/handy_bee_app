@@ -19,3 +19,15 @@
 // .navbar-trans {
 //   background: transparent;
 // }
+#bee-logo {
+  transform: rotate(64deg);
+}
+
+.navbar-brand {
+  font-weight: 600;
+  color: black;
+}
+
+.navbar-light .navbar-brand {
+    color: black;
+}
