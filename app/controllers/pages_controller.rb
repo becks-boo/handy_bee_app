@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @users = User.all
+    @chatroom = policy_scope(Chatroom).first
   end
 
   def components

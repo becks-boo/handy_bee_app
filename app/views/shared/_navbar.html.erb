@@ -28,7 +28,7 @@
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "My Account", account_path, class: "dropdown-item" %>
-            <%= link_to "Messages", chatrooms_path, class: "dropdown-item" %>
+            <%= link_to "Messages", chatroom_path(@chatroom), class: "dropdown-item" %>
             <%= link_to "Bookings", bookings_path, class: "dropdown-item" %>
             <% if current_user.role == "Contractor" %>
             <%= link_to "My Businesses", my_businesses_path, class: "dropdown-item"  %>
