@@ -30,10 +30,7 @@
           <% categories_unique.each do |category| %>
 
           <div class="checkbox">
-            <!-- <div class="hidden-input"> -->
-              <%= radio_button_tag("query[category_id]", category, false, class: "hidden-input", id: "query_category_id_#{id}") %>
-            <!-- </div> -->
-
+            <%= radio_button_tag("query[category_id]", category, false, class: "hidden-input", id: "query_category_id_#{id}") %>
             <%= label_tag("query_category_id_#{id}", category) %>
             <% id += 1 %>
           </div>

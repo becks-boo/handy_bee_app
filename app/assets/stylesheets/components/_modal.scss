@@ -43,6 +43,11 @@
   .hidden-input {
   position: absolute;
   transform: scale(0);
+
+  }
+
+  .hidden-input:focus {
+    outline:none;
   }
 
   .hidden-input:checked + label {
@@ -58,4 +63,5 @@
      border: 2px solid #FFB201 !important;
      font-weight: bolder;
      transform: scale(1.1)
+
     }
