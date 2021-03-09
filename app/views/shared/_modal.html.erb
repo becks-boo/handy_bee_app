@@ -23,14 +23,22 @@
       </div>
       <div class="modal-body">
 
-       <%= form_tag(businesses_path, method: "get") do %>
+         <%= form_tag(businesses_path, method: "get") do %>
 
-       <% categories_unique.each do |category| %>
-       <div>
-          <%= radio_button_tag(:query, category) %>
-          <%= label_tag(category) %>
-         <% end %>
-       </div>
+          <div class="grid">
+            <% id = 1 %>
+          <% categories_unique.each do |category| %>
+
+          <div class="checkbox">
+            <!-- <div class="hidden-input"> -->
+              <%= radio_button_tag("query[category_id]", category, false, class: "hidden-input", id: "query_category_id_#{id}") %>
+            <!-- </div> -->
+
+            <%= label_tag("query_category_id_#{id}", category) %>
+            <% id += 1 %>
+          </div>
+          <% end %>
+        </div>
 
       <%# select_tag :query,  options_for_select(categories_unique, params[:query]), class: "dropdown,  input-group, select2", id: "dropdown-home", include_blank: "Choose a service" %>
 

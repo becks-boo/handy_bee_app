@@ -14,3 +14,47 @@
 .modal-dialog {
   padding-top: 200px;
 }
+
+// .modal-body {
+    .hidden-input + label{
+      display: block;
+      cursor: pointer;
+      box-sizing: border-box;
+      width: 100%;
+      font-size: 12px;
+      text-align: left;
+      padding: 10px 10px 20px 10px;
+      border: 1px solid #EAEAEA;
+      border-radius: 10px;
+      background-color: white;
+      font-size: 14px;
+      padding-left: 25%;
+      padding-top: 10%;
+    }
+
+
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 14px;
+    }
+
+  .hidden-input {
+  position: absolute;
+  transform: scale(0);
+  }
+
+  .hidden-input:checked + label {
+     // background-color: #f0faf2 !important;
+     border: 2px solid #FFB201 !important;
+     font-weight: bolder;
+  }
+
+
+
+.modal-body label:hover {
+     // background-color: pink;
+
+     transform: scale(1.1)
+    }

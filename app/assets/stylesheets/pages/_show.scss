@@ -244,6 +244,10 @@ main {
 
 .reviews-grid {
     display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    // grid-auto-flow: column;
+
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 16px;
     margin: 20px;
