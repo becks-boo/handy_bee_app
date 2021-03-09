@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
+  before_action :set_chatroom
 
   def home
     @users = User.all
@@ -17,5 +18,10 @@ class PagesController < ApplicationController
     @businesses = Business.where(user_id: current_user)
   end
 
+  private
+
+  def set_chatroom
+    @chatroom = policy_scope(Chatroom).first
+  end
 
 end
