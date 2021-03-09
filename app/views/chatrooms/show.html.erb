@@ -117,7 +117,7 @@
                 <div class="accept-decline" id="booking-buttons">
                   <%= simple_form_for(b) do |f| %>
                     <%= f.hidden_field :confirmed, :value => true %>
-                    <%= f.submit value="Accept", class: "button-main", id: "button-accept", style: "padding: 14px; margin-right: 12px;" %>
+                    <%= f.submit value="Accept", class: "button-accept", id: "button-accept", style: "padding: 14px; margin-right: 12px;" %>
                   <% end %>
 
                   <%= simple_form_for(b) do |f| %>
