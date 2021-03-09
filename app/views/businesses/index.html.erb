@@ -10,9 +10,8 @@
    <!-- home-dropdown-banner -->
     <div class="row index-title" style="margin-top: 40px">
 
-      <h2><strong> <%= params[:query][:category_id].split.first.capitalize if params[:query][:category_id].present? %></strong>: <%= pluralize @businesses.length, "service" %> available for you</h2>
       <% if params[:query].present? %>
-      <h2><strong> <%= params[:query].split.first.capitalize %></strong> <%= pluralize @businesses.length, "service" %> available for you</h2>
+      <h2><strong> <%= params[:query][:category_id].split.first.capitalize if params[:query][:category_id].present? %></strong>: <%= pluralize @businesses.length, "service" %> available for you</h2>
       <% else %>
       <h2>Search from all <%= pluralize @businesses.length, "service" %></h2>
       <% end %>
