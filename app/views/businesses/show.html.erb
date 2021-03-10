@@ -36,6 +36,9 @@
           <% end %>
         </p>
         <p class="info"><i class="fas fa-map-marker-alt"></i><%= @business.location %></p>
+        <p>
+          <strong><%= pluralize @business.reviews.length, "Review" %></strong><span style="padding-left: 12px;"><%= @business.average_rating.round(2) if @business.reviews.any? %></span>
+        </p>
 
        <!--  <div class="stats row"> -->
          <!--  <div class="stat col-xs-4" style="padding-right: 50px;">
@@ -71,8 +74,6 @@
         <!-- previous work gallery -->
 
         <!-- The expanding image container -->
-
-
         <div class="row gallery">
           <% @business.pictures.each do |picture| %>
             <div class="col-md-2"><%= cl_image_tag picture.key, class: "work-img" %></div>
@@ -83,18 +84,11 @@
 
     <!-- Reviews -->
     <div class="reviews">
-      <% if @business.reviews.count >= 1 %>
-        <% ratings = [] %>
-        <% @business.reviews.each do |r| %>
-          <% ratings << r.rating %>
-        <% end %>
-        <% average = ratings.sum.to_f / ratings.length.to_f %>
-      <% end %>
-      <p> <strong> <%= pluralize @business.reviews.length, "Review" %></strong> <span style="padding-left: 12px;"> <%= average.round(2) if @business.reviews.any? %> </span></p>
       <hr style="width: 100%;">
       <div class="reviews-grid">
         <%= render @business.reviews %>
         <hr>
+        <%= render "reviews/review_carousel" %>
       </div>
 
       <div >
