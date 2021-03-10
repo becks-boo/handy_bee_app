@@ -10,7 +10,7 @@
   align-items: center;
   padding: 8px 0;
   border-bottom: 1px solid rgba(0,0,0,0.2);
-  justify-content: space-around;
+  justify-content: flex-start;
   &:hover {
     background-color: $orange4;
   }

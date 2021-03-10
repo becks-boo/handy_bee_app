@@ -5,15 +5,15 @@
           <div class="chatroom-index-card">
               <% if current_user.role == "Customer" %>
                 <% if c.contractor.picture.attached? %>
-                    <%= cl_image_tag c.contractor.picture.key, class: "avatar", id: "avatar-chat-left" %>
+                    <%= cl_image_tag c.contractor.picture.key, class: "avatar", id: "avatar-chat-left", style: "margin-right: 10%;" %>
                 <% else %>
-                  <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar") %>
+                  <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar", style: "margin-right: 10%;") %>
                 <% end %>
               <% else %>
                 <% if c.customer.picture.attached? %>
-                    <%= cl_image_tag c.customer.picture.key, class: "avatar", id: "avatar-chat-left" %>
+                    <%= cl_image_tag c.customer.picture.key, class: "avatar", id: "avatar-chat-left", style: "margin-right: 10%;" %>
                 <% else %>
-                  <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar") %>
+                  <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar", style: "margin-right: 10%;") %>
                 <% end %>
               <% end %>
               <div class="chatroom-index-card-info">

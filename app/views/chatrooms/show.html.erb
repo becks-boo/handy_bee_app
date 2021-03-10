@@ -39,8 +39,8 @@
         <hr>
         <%= simple_form_for @booking, url: chatroom_bookings_path(@chatroom), method: :post do |f| %>
             <%= f.input :price %>
-            <%= f.input :start_date %>
-            <%= f.input :end_date %>
+            <%= f.input :start_date, as: :string, input_html: {class: "datepicker"} %>
+            <%= f.input :end_date, as: :string, input_html: {class: "datepicker"} %>
             <%= f.input :description %>
             <%= f.button :submit, class: 'button-main' %>
             <% end %>
@@ -101,9 +101,9 @@
             <% end %>
           <div class="booking-request" style="<%= 'background: rgba(100,100,100,0.2);' if confirmed == 'Declined' %>">
             <% if @chatroom.customer == current_user %>
-              <p style="text-align: center;"><strong>Booking request from <%= @chatroom.contractor.user_name %>:</strong> <%= confirmed %></p>
+              <p><strong>Booking request from <%= @chatroom.contractor.user_name %>:</strong> <%= confirmed %></p>
             <% else %>
-              <p style="text-align: center;"><strong>Booking request for <%= @chatroom.customer.user_name %>: </strong> <%= confirmed %></p>
+              <p><strong>Booking request for <%= @chatroom.customer.user_name %>: </strong> <%= confirmed %></p>
             <% end %>
             <div style="display: flex; justify-content: space-between;">
               <p><i class="fas fa-money-check"></i><%= b.price.to_i %>€</p>
