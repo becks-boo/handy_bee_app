@@ -1,3 +1,7 @@
+<% @chatroom = Chatroom.where(customer_id: current_user).or(Chatroom.where(contractor_id: current_user)).first
+ %>
+
+
  <div class="navbar navbar-expand-sm navbar-trans navbar-light">
   <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "bee.png", alt: "alttext", id: "bee-logo" %>
