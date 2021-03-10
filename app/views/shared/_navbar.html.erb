@@ -9,11 +9,11 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <% if user_signed_in? %>
-    <% if current_user.role == "Contractor" %>
-    <%= link_to "Add Your Businesses", new_business_path  %>
-    <% end %>
-  <% end %>
+  <%# if user_signed_in? %>
+    <%# if current_user.role == "Contractor" %>
+    <%#= link_to "Add Your Businesses", new_business_path  %>
+    <%# end %>
+  <%# end %>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -31,7 +31,8 @@
             <%= link_to "Messages", chatroom_path(@chatroom), class: "dropdown-item" %>
             <%= link_to "Bookings", bookings_path, class: "dropdown-item" %>
             <% if current_user.role == "Contractor" %>
-            <%= link_to "My Businesses", my_businesses_path, class: "dropdown-item"  %>
+            <%= link_to "Add Business", new_business_path, class: "dropdown-item" %>
+            <%= link_to "My Businesses", my_businesses_path, class: "dropdown-item" %>
             <% end %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
