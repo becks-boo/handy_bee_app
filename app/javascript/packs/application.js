@@ -34,6 +34,7 @@ import { toggleSignUp } from '../components/toggle_sign_up';
 import { initChatroomCable, enterkey } from '../channels/chatroom_channel';
 import { multipleSelect } from '../components/select.js';
 import { showGalery } from '../components/image_gallery.js';
+import { reviewCarousel } from '../components/review_carousel.js';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -42,6 +43,7 @@ document.addEventListener('turbolinks:load', () => {
   enterkey();
   multipleSelect();
   showGalery();
+  reviewCarousel();
   // booking();
   // initSelect2();
 });

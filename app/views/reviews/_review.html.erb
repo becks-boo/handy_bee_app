@@ -1,12 +1,12 @@
 <div id="review">
 
-  <p> <strong><%= review.user.user_name.capitalize %> </strong> </p>
+  <p><strong><%= review.user.user_name.capitalize %></strong></p>
   <p><%= review.created_at.strftime("%B %Y") %></p>
-   <div class="review-rating">
-     <% review.rating.times do %>
-    <p><i class="fas fa-star"></i></p>
-    <% end %>
-  </div>
+    <div class="review-rating">
+      <% review.rating.times do %>
+        <p><i class="fas fa-star"></i></p>
+      <% end %>
+    </div>
   <!-- <p> <%# Date.today %> </p> -->
 
   <p><%= review.content %></p>
@@ -18,5 +18,5 @@
         <%# link_to "Edit", edit_review_path(review), class: "button-main" %>
         <%# link_to "Delete", review_path(review), method: :delete, data: { confirm: "Are you sure?" }, class: "button-main" %>
     <% end %>
-    <% end %>
-  </div>
+  <% end %>
+</div>
