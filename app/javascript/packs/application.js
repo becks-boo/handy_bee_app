@@ -34,6 +34,7 @@ import { toggleSignUp } from '../components/toggle_sign_up';
 import { initChatroomCable, enterkey } from '../channels/chatroom_channel';
 import { multipleSelect } from '../components/select.js';
 import { showGalery } from '../components/image_gallery.js';
+import { reviewCarousel } from '../components/review_carousel.js';
 import { initFlatpickr } from "../plugins/flatpickr";
 
 window.addEventListener("turbolinks:load", function() {
@@ -47,6 +48,7 @@ document.addEventListener('turbolinks:load', () => {
   enterkey();
   multipleSelect();
   showGalery();
+  reviewCarousel();
   // booking();
   // initSelect2();
 });

@@ -20,10 +20,6 @@ class BusinessesController < ApplicationController
     else
       @businesses = Business.all
     end
-
-
-
-
   end
 
   def show

@@ -10,4 +10,15 @@ class Business < ApplicationRecord
   has_many_attached :pictures
 
   validates :name, :description, :category, :location, presence: true
+
+  # Method to count the average of the rating will be called in show page
+  def average_rating
+    if self.reviews.count >= 1
+      ratings = []
+      self.reviews.each do |r|
+        ratings << r.rating
+      end
+      average = ratings.sum.to_f / ratings.length.to_f
+    end
+  end
 end
