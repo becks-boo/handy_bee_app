@@ -1,5 +1,4 @@
 class BusinessLanguagesController < ApplicationController
-  before_action :set_chatroom
   def new
     @languages = Language.all
     @business = Business.find(params[:business_id])
@@ -22,9 +21,5 @@ class BusinessLanguagesController < ApplicationController
     # else
     #   render :new
     # end
-  end
-
-  def set_chatroom
-    @chatroom = policy_scope(Chatroom).first
   end
 end

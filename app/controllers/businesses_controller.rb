@@ -1,6 +1,4 @@
 class BusinessesController < ApplicationController
-  before_action :set_chatroom
-
   def index
     # @businesses = Business.all
     # @businesses = Business.search(params[:search])
@@ -93,9 +91,5 @@ class BusinessesController < ApplicationController
 
   def business_params
     params.require(:business).permit(:name, :description, :category, :qualification, :location, language_ids: [], pictures: [])
-  end
-
-  def set_chatroom
-    @chatroom = policy_scope(Chatroom).first
   end
 end
