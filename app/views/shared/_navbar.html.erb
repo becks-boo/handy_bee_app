@@ -1,5 +1,9 @@
- <div class="navbar navbar-expand-sm navbar-trans navbar-light">
-  <%= link_to root_path, class: "navbar-brand" do %>
+<% @chatroom = Chatroom.where(customer_id: current_user).or(Chatroom.where(contractor_id: current_user)).first
+ %>
+
+
+ <div class="navbar navbar-expand-sm navbar-light <%= "navbar-trans" if current_page? root_path %>">
+  <%= link_to root_path, class: "navbar-brand #{"brand-white" if current_page? root_path}" do %>
       <%= image_tag "bee.png", alt: "alttext", id: "bee-logo" %>
       HandyBee
     <% end %>
@@ -28,7 +32,9 @@
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "My Account", account_path, class: "dropdown-item" %>
+            <% if @chatroom %>
             <%= link_to "Messages", chatroom_path(@chatroom), class: "dropdown-item" %>
+            <% end %>
             <%= link_to "Bookings", bookings_path, class: "dropdown-item" %>
             <% if current_user.role == "Contractor" %>
             <%= link_to "Add Business", new_business_path, class: "dropdown-item" %>

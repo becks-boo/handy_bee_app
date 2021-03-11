@@ -7,6 +7,7 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.3.0",
     "bootstrap": "^4.6.0",
+    "flatpickr": "^4.6.9",
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1",
     "select2": "^4.1.0-rc.0",

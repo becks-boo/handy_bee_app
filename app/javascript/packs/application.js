@@ -35,6 +35,11 @@ import { initChatroomCable, enterkey } from '../channels/chatroom_channel';
 import { multipleSelect } from '../components/select.js';
 import { showGalery } from '../components/image_gallery.js';
 import { reviewCarousel } from '../components/review_carousel.js';
+import { initFlatpickr } from "../plugins/flatpickr";
+
+window.addEventListener("turbolinks:load", function() {
+  flatpickr('.datepicker');
+});
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:

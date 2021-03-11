@@ -26,7 +26,7 @@
 
         <h3 class="name"><%= @business.name %></h3>
         <br>
-        <p class="info"> <i class="fas fa-bolt"></i><%= @business.category %></p>
+        <p class="info"><i class="fas fa-briefcase"></i><%= @business.category %></p>
         <!-- <p class="info"><i class="fas fa-briefcase"></i><%#= @business.description %></p> -->
         <p class="info"><i class="fas fa-language"></i>
           <% unique_languages = @business.languages.uniq %>
@@ -67,10 +67,12 @@
 
         <!-- connect button -->
         <div>
-          <% if existing_chatroom %>
-            <%= link_to "Connect", assigned_chat, class: "connect-show-page" %>
-          <% else %>
-            <%= link_to "Connect", assigned_chat, method: :post, class: "connect-show-page" %>
+          <% if current_user.role == "Customer" %>
+            <% if existing_chatroom %>
+              <%= link_to "Connect", assigned_chat, class: "connect-show-page" %>
+            <% else %>
+              <%= link_to "Connect", assigned_chat, method: :post, class: "connect-show-page" %>
+            <% end %>
           <% end %>
         </div>
 
