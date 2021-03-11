@@ -99,7 +99,7 @@
             <% else %>
               <% confirmed = 'Declined' %>
             <% end %>
-          <div class="booking-request" style="<%= 'background: rgba(100,100,100,0.2);' if confirmed == 'Declined' %>">
+          <div class="booking-request" style="<%= 'background: rgba(250, 97, 45, 0.7);' if confirmed == 'Declined' %>">
             <% if @chatroom.customer == current_user %>
               <p><strong>Booking request from <%= @chatroom.contractor.user_name %>:</strong> <%= confirmed %></p>
             <% else %>
