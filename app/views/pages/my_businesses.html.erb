@@ -1,5 +1,10 @@
-<div class="container">
-  <div class="cards-container-index-page">
+<div class="cards-big-container-my-businesses">
+
+  <div class="row d-flex justify-content-around">
+    <h2>My businesses</h2>
+  </div>
+
+  <div class="cards-container-my-businesses">
     <% @businesses.each do |business| %>
     <!-- each card -->
     <div class="frame " style="margin-bottom: 20px">
@@ -16,7 +21,6 @@
               </div>
 
               <div class="name"><%= business.name %></div>
-              <div class="job"><%= business.description %></div>
 
               <!-- button -->
               <div class="actions">

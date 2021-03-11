@@ -27,7 +27,7 @@
 
         <h3 class="name"><%= @business.name %></h3>
         <br>
-        <p class="info"> <i class="fas fa-bolt"></i><%= @business.category %></p>
+        <p class="info"><i class="fas fa-briefcase"></i><%= @business.category %></p>
         <!-- <p class="info"><i class="fas fa-briefcase"></i><%#= @business.description %></p> -->
         <p class="info"><i class="fas fa-language"></i>
           <% unique_languages = @business.languages.uniq %>
@@ -83,6 +83,7 @@
 
             <div class="col-md-2"><%= cl_image_tag picture.key, class: "work-img" %></div>
           <% end %>
+<<<<<<< HEAD
 
 
           <div class="col-md-2">
@@ -99,6 +100,8 @@
           </div>
 
         </div>
+=======
+>>>>>>> main
         </div>
       </div>
     </main>
