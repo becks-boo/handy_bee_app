@@ -61,10 +61,12 @@
 
         <!-- connect button -->
         <div>
-          <% if existing_chatroom %>
-            <%= link_to "Connect", assigned_chat, class: "connect-show-page" %>
-          <% else %>
-            <%= link_to "Connect", assigned_chat, method: :post, class: "connect-show-page" %>
+          <% if current_user.role == "Customer" %>
+            <% if existing_chatroom %>
+              <%= link_to "Connect", assigned_chat, class: "connect-show-page" %>
+            <% else %>
+              <%= link_to "Connect", assigned_chat, method: :post, class: "connect-show-page" %>
+            <% end %>
           <% end %>
         </div>
 

@@ -49,6 +49,7 @@ a:hover {
   border-radius: 50px;
   border: orange 1px solid;
   width: 95%;
+  padding: 12px 0 12px 22px;
 }
 
 
@@ -96,10 +97,12 @@ a:hover {
 }
 
 #button-chatroom-booking {
-  padding: 11px 0;
-  position: absolute;
-  bottom: 2%;
-  right: 7%;
+  padding: 14px 14px;
+  margin-top: 4px;
+  position: relative;
+  left: 65%;
+  // bottom: 2%;
+  // right: 7%;
   color: white;
   background-color: $blue;
   text-align: center;
