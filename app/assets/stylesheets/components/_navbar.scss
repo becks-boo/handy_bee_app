@@ -20,9 +20,9 @@
   align-items: center;
 }
 
-// .navbar-trans {
-//   background: transparent;
-// }
+.navbar-trans {
+  background: transparent !important;
+}
 #bee-logo {
   transform: rotate(64deg);
 }
@@ -30,6 +30,13 @@
 .navbar-brand {
   font-weight: 600;
   color: black;
+}
+
+.brand-white {
+  color: white !important;
+  img {
+  filter: brightness(0) invert(1);
+  }
 }
 
 .navbar-light .navbar-brand {
