@@ -91,13 +91,6 @@
           <% @business.pictures.each do |picture| %>
 
             <div class="col-md-2"><%= cl_image_tag picture.key, class: "work-img" %></div>
-
-        <div class="row gallery">
-          <% @business.pictures.each do |picture| %>
-            <div class="col-md-2">
-              <%= cl_image_tag picture.key, class: "work-img" %>
-            </div>
-
           <% end %>
 
 
