@@ -361,7 +361,7 @@ padding-left: 20px;
  //    border-color: $orange1 transparent $orange1 $orange1;
  //    }
 
-
+// Big image
 #expandedImg {
 
   max-height: 643px;
@@ -376,15 +376,15 @@ padding-left: 20px;
   color: $pure-white;
 }
 
-
+// Little images
 .row.gallery img {
    width: 300px;
 
 }
 
+// All images
 .pictures-container {
   display: flex;
-
 }
 
 @media (min-width: 768px) {
