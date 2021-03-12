@@ -8,6 +8,14 @@
 
 h2 {
   text-align: center;
-  margin-top: 40px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+  margin-top: 12px;
   padding: 2%;
+}
+
+.second-banner-my-business {
+  margin: 88px;
+  padding: 4px;
+  color: white;
+  background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/4312849/pexels-photo-4312849.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
 }
