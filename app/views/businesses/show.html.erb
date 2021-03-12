@@ -12,7 +12,7 @@
 <div class="container">
   <header></header>
   <main>
-    <div class="row">
+    <div class="row justify-content-between">
       <div class="left col-lg-4">
         <!-- avatar -->
         <div class="photo-left">
@@ -47,7 +47,7 @@
           </div> -->
         <!-- </div> -->
         <p class="desc"><%= @business.description %></p>
-         <div class="business-show-container">
+         <div class="business-show-container col-lg-6">
           <!-- Expanded image -->
           <img src="<%= cl_image_path @business.pictures.first.key %>" id="expandedImg" style="width:100%">
         </div>
@@ -70,7 +70,7 @@
       <!-- previous work gallery -->
       <!-- The expanding image container -->
         <div class="pictures-container row justify-content-between">
-          <div class="row gallery">
+          <div class="row gallery col-lg-6">
             <% @business.pictures.each do |picture| %>
               <div class="col-md-2"><%= cl_image_tag picture.key, class: "work-img" %></div>
             <% end %>
