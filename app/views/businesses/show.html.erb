@@ -22,7 +22,6 @@
           <% else %>
             <img class="photo" src="https://images.unsplash.com/photo-1581783898377-1c85bf937427?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2458&q=80">
           <% end %>
-          <div class="active"></div>
         </div>
 
         <h3 class="name"><%= @business.name %></h3>
@@ -36,6 +35,14 @@
           <% end %>
         </p>
         <p class="info"><i class="fas fa-map-marker-alt"></i><%= @business.location %></p>
+
+        <p>
+          <% if @business.reviews.any? %>
+            <% @business.average_rating.to_i.times do %>
+              <span><i class="fas fa-star"></i></span>
+            <% end %>
+         <% end %>
+        </p>
 
        <!--  <div class="stats row"> -->
          <!--  <div class="stat col-xs-4" style="padding-right: 50px;">
@@ -58,10 +65,12 @@
 
         <!-- connect button -->
         <div>
-          <% if existing_chatroom %>
-            <%= link_to "Connect", assigned_chat, class: "connect-show-page" %>
-          <% else %>
-            <%= link_to "Connect", assigned_chat, method: :post, class: "connect-show-page" %>
+          <% if current_user.role == "Customer" %>
+            <% if existing_chatroom %>
+              <%= link_to "Connect", assigned_chat, class: "connect-show-page" %>
+            <% else %>
+              <%= link_to "Connect", assigned_chat, method: :post, class: "connect-show-page" %>
+            <% end %>
           <% end %>
         </div>
 
@@ -100,45 +109,25 @@
           </div> -->
 
         </div>
-
-        </div>
       </div>
-    </main>
-
-    <!-- Reviews -->
-    <div class="reviews">
-      <% if @business.reviews.count >= 1 %>
-        <% ratings = [] %>
-        <% @business.reviews.each do |r| %>
-          <% ratings << r.rating %>
-        <% end %>
-        <% average = ratings.sum.to_f / ratings.length.to_f %>
-      <% end %>
-      <p> <strong> <%= pluralize @business.reviews.length, "Review" %></strong> <span style="padding-left: 12px;"> <%= average.round(2) if @business.reviews.any? %> </span></p>
-      <hr style="width: 100%;">
-      <div class="reviews-grid">
-        <%= render @business.reviews %>
-        <hr>
-      </div>
-
-      <div >
-        <% if current_user.bookings.where(business: @business).any? %>
-        <% end %>
-        <br>
-        <hr style="width: 100%;">
-        <div class="reviews-form" >
-        <p> <strong> Leave a review </strong></p>
-        <% if @business.bookings.any? {|booking| booking.customer_id == current_user.id}%>
-        <%= render "reviews/form" %>
-        <% end %>
-        </div>
-      </div>
-
     </div>
+  </main>
 
-
-<%# render 'reviews/form' %>
-
+  <!-- Reviews -->
+  <%= render "reviews/review_carousel" %>
+  <div >
+    <% if current_user.bookings.where(business: @business).any? %>
+    <% end %>
+    <br>
+    <hr style="width: 100%;">
+    <div class="reviews-form" >
+      <p><strong>Leave a review</strong></p>
+      <% if @business.bookings.any? {|booking| booking.customer_id == current_user.id} %>
+        <%= render "reviews/form" %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <!-- modal  -->
 
