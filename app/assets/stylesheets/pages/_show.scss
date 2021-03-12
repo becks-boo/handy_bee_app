@@ -42,6 +42,11 @@
  opacity: 1;
 }
 
+.booking-show-star {
+  color: #F9B203;
+  font-size: 15px;
+}
+
 .review-rating {
   display: flex;
   margin: 0;
@@ -59,6 +64,10 @@
 .raiting-stars {
   display: flex;
   align-items: center;
+}
+
+.show-info {
+  text-align: center;
 }
 
 
@@ -369,9 +378,9 @@ padding-left: 20px;
 }
 
 
-.form-control {
-  color: $pure-white;
-}
+// .form-control {
+//   color: $pure-white;
+// }
 
 // Little images
 .row.gallery img {

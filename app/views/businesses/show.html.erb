@@ -26,24 +26,27 @@
 
         <h3 class="name"><%= @business.name %></h3>
         <br>
-        <p class="info"><i class="fas fa-briefcase"></i><%= @business.category %></p>
-        <!-- <p class="info"><i class="fas fa-briefcase"></i><%#= @business.description %></p> -->
-        <p class="info"><i class="fas fa-language"></i>
-          <% unique_languages = @business.languages.uniq %>
-          <% unique_languages.each do |language| %>
-            <%= language.name %>
-          <% end %>
-        </p>
-        <p class="info"><i class="fas fa-map-marker-alt"></i><%= @business.location %></p>
-
-        <p>
-          <% if @business.reviews.any? %>
-            <% @business.average_rating.to_i.times do %>
-              <span><i class="fas fa-star"></i></span>
+        <div class="show-info">
+          <p class="info"><i class="fas fa-briefcase"></i><%= @business.category %></p>
+          <!-- <p class="info"><i class="fas fa-briefcase"></i><%#= @business.description %></p> -->
+          <p class="info"><i class="fas fa-language"></i>
+            <% unique_languages = @business.languages.uniq %>
+            <% unique_languages.each do |language| %>
+              <%= language.name %>
             <% end %>
-         <% end %>
-        </p>
-
+          </p>
+          <p class="info"><i class="fas fa-map-marker-alt"></i><%= @business.location %></p>
+        </div>
+        <br>
+            <div>
+              <span style="margin-left: -32px;">
+            <% if @business.reviews.any? %>
+              <% @business.average_rating.to_i.times do %>
+                <i class="fas fa-star booking-show-star"></i>
+              <% end %>
+           <% end %>
+           </span>
+           </div>
        <!--  <div class="stats row"> -->
          <!--  <div class="stat col-xs-4" style="padding-right: 50px;">
             <p class="number-stat">3 619</p>
@@ -60,7 +63,7 @@
 
       <div class="right col-lg-8">
         <ul class="nav">
-          <li>Previous works gallery</li>
+          <li style="margin-left: -16px;">Previous works gallery</li>
         </ul>
 
         <!-- connect button -->
@@ -112,6 +115,11 @@
       </div>
     </div>
   </main>
+
+
+  <br>
+  <br>
+  <br>
 
   <!-- Reviews -->
   <%= render "reviews/review_carousel" %>
