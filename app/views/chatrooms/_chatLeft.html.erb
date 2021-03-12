@@ -1,7 +1,7 @@
 <p>Messages (<%= @chatrooms.count %>)</p>
       <hr>
       <% @chatrooms.each do |c| %>
-        <%= link_to chatroom_path(c), class: "#{'active' if c == @chatroom}" do  %>
+        <%= link_to chatroom_path(c), id: "#{'active' if c == @chatroom}" do  %>
           <div class="chatroom-index-card">
               <% if current_user.role == "Customer" %>
                 <% if c.contractor.picture.attached? %>
