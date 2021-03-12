@@ -302,10 +302,11 @@ li {
 
 }
 
-// .second-banner-index {
-//   margin: 88px;
-//   padding: 4px;
-//   color: white;
-//   background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/4312849/pexels-photo-4312849.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
-// }
+.second-banner-index {
+  margin: 88px;
+  padding: 4px;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/4312849/pexels-photo-4312849.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
+}
 
