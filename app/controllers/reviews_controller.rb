@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
 
 
     if @review.save!
-      redirect_to business_path(@business)
+      redirect_to business_path(@business, anchor: "review")
     else
       render :new
     end

@@ -1,0 +1,13 @@
+.cards-container-my-businesses {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+  padding: 2%;
+  margin: 0% 8%;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 40px;
+  padding: 2%;
+}

@@ -6,7 +6,11 @@
 
 .navbar .navbar-collapse {
   flex-grow: 0;
+  &:hover {
+    text-decoration: none;
+  }
 }
+
 
 .navbar .navbar-brand img {
   width: 40px;
@@ -16,6 +20,33 @@
   align-items: center;
 }
 
-// .navbar-trans {
-//   background: transparent;
-// }
+.navbar-trans {
+  background: transparent !important;
+}
+#bee-logo {
+  transform: rotate(64deg);
+}
+
+.navbar-brand {
+  font-weight: 600;
+  color: black;
+}
+
+.brand-white {
+  color: white !important;
+  img {
+  filter: brightness(0) invert(1);
+  }
+}
+
+.navbar-light .navbar-brand {
+    color: black;
+}
+
+#navbarDropdown {
+  position: relative;
+  bottom: 9px;
+  &:hover {
+    text-decoration: none;
+  }
+}
