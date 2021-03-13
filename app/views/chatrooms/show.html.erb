@@ -99,11 +99,11 @@
             <% else %>
               <% confirmed = 'Declined' %>
             <% end %>
-          <div class="booking-request" style="<%= 'background: rgba(250, 97, 45, 0.7);' if confirmed == 'Declined' %>">
+          <div class="booking-request">
             <% if @chatroom.customer == current_user %>
-              <p><strong>Booking request from <%= @chatroom.contractor.user_name %>:</strong> <%= confirmed %></p>
+              <p><strong>Booking request from <%= @chatroom.contractor.user_name %>: </strong><span style="<%= 'color: red;' if confirmed == 'Declined' %>"><%= confirmed %></span></p>
             <% else %>
-              <p><strong>Booking request for <%= @chatroom.customer.user_name %>: </strong> <%= confirmed %></p>
+              <p><strong>Booking request for <%= @chatroom.customer.user_name %>: </strong><span style="<%= 'color: red;' if confirmed == 'Declined' %>"> <%= confirmed %></span></p>
             <% end %>
             <div style="display: flex; justify-content: space-between;">
               <p><i class="fas fa-money-check"></i><%= b.price.to_i %>€</p>
