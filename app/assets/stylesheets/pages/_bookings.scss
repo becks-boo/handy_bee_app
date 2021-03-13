@@ -41,7 +41,12 @@ ul {
 .my-booking-general-info {
   background-color: $pure-white;
   padding: 2%;
-  margin: 2%;
+  width: 50%;
+  margin: auto;
+}
+
+.my-booking-general-info.row {
+margin-bottom: 2%;
 }
 
 .my-booking-big-card {
@@ -49,12 +54,15 @@ ul {
   background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.3)), url('https://images.pexels.com/photos/4312849/pexels-photo-4312849.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
   margin: 4% 10%;
   padding: 2%;
+  width: 65%;
+  margin-left: 17%;
 }
 
 .my-booking-contractor-avatar {
   flex-direction: column;
   display: flex;
   align-items: center;
+  margin-bottom: 3%;
 }
 
 .my-booking-buttons {
@@ -63,9 +71,14 @@ ul {
   align-items: center;
 }
 
+.my-booking-buttons-two {
+margin-top: 3%;
+}
+
 .my-booking-description {
   padding: 2%;
-  margin: 2%;
+  margin: auto;
+  width: 50%;
   background-color: $pure-white;
   // padding-left: 2%;
   // padding-top: 2%;
