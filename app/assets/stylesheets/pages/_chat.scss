@@ -10,7 +10,7 @@
   align-items: center;
   padding: 8px 0;
   border-bottom: 1px solid rgba(0,0,0,0.2);
-  justify-content: space-around;
+  justify-content: flex-start;
   &:hover {
     background-color: $orange4;
   }
@@ -49,15 +49,15 @@ a:hover {
   border-radius: 50px;
   border: orange 1px solid;
   width: 95%;
+  padding: 12px 0 12px 22px;
 }
 
 
 .booking-request {
   // border: 1px solid black;
-  border-radius: 25px;
+  border-radius: 2px;
   padding: 20px;
-  background: linear-gradient(to top right, #EEBE6C 0%, $orange 100%);
-
+  background: linear-gradient(to top right, #f4e1b7 8%, #ffa800cc 100%);
   box-shadow: 1px 2px 5px rgba(10, 10, 10, 0.5);
 }
 
@@ -75,7 +75,19 @@ a:hover {
 .accept-decline {
   display: flex;
   justify-content: flex-end;
+  margin-right: -18px;
 }
+
+.button-accept {
+  background: #042E46;
+  color: white;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.10);
+  width: 137px;
+  height: 50px;
+  border-radius: 25px;
+  border: none
+}
+
 
 #button-accept:hover {
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
@@ -86,10 +98,12 @@ a:hover {
 }
 
 #button-chatroom-booking {
-  padding: 11px 0;
-  position: absolute;
-  bottom: 2%;
-  right: 7%;
+  padding: 14px 14px;
+  margin-top: 4px;
+  position: relative;
+  left: 65%;
+  // bottom: 2%;
+  // right: 7%;
   color: white;
   background-color: $blue;
   text-align: center;

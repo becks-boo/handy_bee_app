@@ -39,7 +39,7 @@
 .chat-box-sender-text {
   width: 90%;
   background: $blue;
-  color: $white;
+  color: $pure-white;
   border-radius: 10px;
   padding: 8px;
   p {
@@ -52,7 +52,7 @@
   margin-bottom: 20px;
 }
 
-.active div {
+#active div {
   background-color: $orange4;
 }
 

@@ -6,29 +6,29 @@
 
 <div class="container-index-page">
 <!-- Filter by category -->
-  <div class="title-index">
-   <!-- home-dropdown-banner -->
-    <div class="row index-title" style="margin-top: 40px">
 
+  <!-- home-dropdown-banner -->
+  <div class="second-banner-index">
+    <div>
       <% if params[:query].present? %>
-      <h2><strong> <%= params[:query][:category_id].split.first.capitalize if params[:query][:category_id].present? %></strong>: <%= pluralize @businesses.length, "service" %> available for you</h2>
+        <h2><strong> <%= params[:query][:category_id].split.first.capitalize if params[:query][:category_id].present? %></strong>: <%= pluralize @businesses.length, "service" %> available for you</h2>
       <% else %>
-      <h2>Search from all <%= pluralize @businesses.length, "service" %></h2>
+        <h2>Search from all <%= pluralize @businesses.length, "service" %></h2>
       <% end %>
     </div>
+
+
+    <%= form_tag(businesses_path, method: "get", id: "filters") do %>
+      <%= select_tag "query[category_id]",  options_for_select(Business::CATEGORY, params[:query][:category_id]), class: "dropdown input-group dropdown-filter", include_blank: "Service" %>
+      <%= select_tag :language,  options_for_select(languages.sort, params[:language]), class: "dropdown input-group dropdown-filter", include_blank: "Language" %>
+      <%= select_tag :rating,  options_for_select([1, 2, 3, 4, 5], params[:rating]), class: "dropdown input-group dropdown-filter", include_blank: "Rating" %>
+      <%#= select_tag :filter,  options_for_select(@languages_uniq, params[:filter]), class: "dropdown input-group dropdown-filter", include_blank: "Language" %>
+
+      <%#= hidden_field_tag :query, params[:query] %>
+
+      <input type="submit" class="button-main" value="Apply" for="dropdown-index"/>
+    <% end %>
   </div>
-
-  <%= form_tag(businesses_path, method: "get", id: "filters") do %>
-    <%= select_tag "query[category_id]",  options_for_select(Business::CATEGORY, params[:query][:category_id]), class: "dropdown input-group dropdown-filter", include_blank: "Service" %>
-    <%= select_tag :language,  options_for_select(languages.sort, params[:language]), class: "dropdown input-group dropdown-filter", include_blank: "Language" %>
-    <%= select_tag :rating,  options_for_select([1, 2, 3, 4, 5], params[:rating]), class: "dropdown input-group dropdown-filter", include_blank: "Rating" %>
-    <%#= select_tag :filter,  options_for_select(@languages_uniq, params[:filter]), class: "dropdown input-group dropdown-filter", include_blank: "Language" %>
-
-    <%#= hidden_field_tag :query, params[:query] %>
-
-    <input type="submit" class="button-main" value="Apply" for="dropdown-index"/>
-  <% end %>
-
   <%#= link_to "Sort by rating", sort: "rating"  %>
 
   <!-- other services  -->
@@ -81,7 +81,7 @@
           <!-- cards with icons -->
           <div class="stats">
             <div class="box">
-              <i class="fas fa-bolt"></i>
+              <i class="fas fa-briefcase"></i>
               <span class="parameter"><%= business.category %></span>
             </div>
             <div class="box">

@@ -17,5 +17,4 @@ class PagesController < ApplicationController
     @businesses = Business.where(user_id: current_user)
   end
 
-
 end

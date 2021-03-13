@@ -1,9 +1,10 @@
 <!-- <div class="row d-flex justify-content-around" style="margin-top: 40px"> -->
-<div class="row d-flex justify-content-around" style="margin-top: 40px">
-  <h2>My bookings</h2>
+<div class="second-banner-my-bookings">
+  <h2>My Bookings</h2>
 </div>
+
   <div>
-    <% @bookings.each do |b| %>
+    <% @bookings.where(confirmed: true).each do |b| %>
       <!-- big booking card -->
       <div class="my-booking-big-card">
         <div class="my-booking-general-info row">
@@ -12,11 +13,11 @@
               <h6><strong>Booking with </strong><%= b.contractor.user_name %>, <%= b.business.category %>.</h6>
               <br>
               <p><i class="fas fa-money-check"></i></i>Price: <%= b.price.to_i %>€</p>
-              <p><i class="fas fa-hourglass-start"></i>From: <%= b.start_date %></p>
-              <p><i class="fas fa-hourglass-end"></i>To: <%= b.end_date %></p>
+              <p><i class="fas fa-hourglass-start"></i>From: <%= b.start_date.strftime("%-d %b %Y") %></p>
+              <p><i class="fas fa-hourglass-end"></i>To: <%= b.end_date.strftime("%-d %b %Y") %></p>
             </ul>
           </div>
-            <div class="col-md-3">
+            <div class="my-booking-buttons-two col-md-3">
             <!-- contractor avatar -->
               <div class="my-booking-contractor">
                 <div class="my-booking-contractor-avatar">

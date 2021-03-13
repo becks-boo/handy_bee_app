@@ -13,7 +13,7 @@
 <div class="container">
   <header></header>
   <main>
-    <div class="row">
+    <div class="row justify-content-between">
       <div class="left col-lg-4">
         <!-- avatar -->
         <div class="photo-left">
@@ -22,21 +22,31 @@
           <% else %>
             <img class="photo" src="https://images.unsplash.com/photo-1581783898377-1c85bf937427?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2458&q=80">
           <% end %>
-          <div class="active"></div>
         </div>
 
         <h3 class="name"><%= @business.name %></h3>
         <br>
-        <p class="info"> <i class="fas fa-bolt"></i><%= @business.category %></p>
-        <!-- <p class="info"><i class="fas fa-briefcase"></i><%#= @business.description %></p> -->
-        <p class="info"><i class="fas fa-language"></i>
-          <% unique_languages = @business.languages.uniq %>
-          <% unique_languages.each do |language| %>
-            <%= language.name %>
-          <% end %>
-        </p>
-        <p class="info"><i class="fas fa-map-marker-alt"></i><%= @business.location %></p>
-
+        <div class="show-info">
+          <p class="info"><i class="fas fa-briefcase"></i><%= @business.category %></p>
+          <!-- <p class="info"><i class="fas fa-briefcase"></i><%#= @business.description %></p> -->
+          <p class="info"><i class="fas fa-language"></i>
+            <% unique_languages = @business.languages.uniq %>
+            <% unique_languages.each do |language| %>
+              <%= language.name %>
+            <% end %>
+          </p>
+          <p class="info"><i class="fas fa-map-marker-alt"></i><%= @business.location %></p>
+        </div>
+        <br>
+            <div>
+              <span style="margin-left: -32px;">
+            <% if @business.reviews.any? %>
+              <% @business.average_rating.to_i.times do %>
+                <i class="fas fa-star booking-show-star"></i>
+              <% end %>
+           <% end %>
+           </span>
+           </div>
        <!--  <div class="stats row"> -->
          <!--  <div class="stat col-xs-4" style="padding-right: 50px;">
             <p class="number-stat">3 619</p>
@@ -48,86 +58,84 @@
           </div> -->
         <!-- </div> -->
         <p class="desc"><%= @business.description %></p>
-         <div class="business-show-container">
-          <!-- Expanded image -->
-          <img src="<%= cl_image_path @business.pictures.first.key %>" id="expandedImg" style="width:100%">
-        </div>
+
       </div>
 
       <div class="right col-lg-8">
         <ul class="nav">
-          <li>Previous works gallery</li>
+          <li style="margin-left: -16px;">Previous works gallery</li>
         </ul>
 
         <!-- connect button -->
         <div>
-          <% if existing_chatroom %>
-            <%= link_to "Connect", assigned_chat, class: "connect-show-page" %>
-          <% else %>
-            <%= link_to "Connect", assigned_chat, method: :post, class: "connect-show-page" %>
+          <% if current_user.role == "Customer" %>
+            <% if existing_chatroom %>
+              <%= link_to "Connect", assigned_chat, class: "connect-show-page" %>
+            <% else %>
+              <%= link_to "Connect", assigned_chat, method: :post, class: "connect-show-page" %>
+            <% end %>
           <% end %>
         </div>
 
         <!-- previous work gallery -->
-
         <!-- The expanding image container -->
+        <div class="pictures-container row justify-content-between">
 
 
-        <div class="row gallery">
+        <div class="business-show-container col-lg-6">
+          <!-- Expanded image -->
+          <img src="<%= cl_image_path @business.pictures.first.key %>" id="expandedImg" >
+        </div>
+
+
+        <div class="row gallery col-lg-6">
+
+
           <% @business.pictures.each do |picture| %>
+
             <div class="col-md-2"><%= cl_image_tag picture.key, class: "work-img" %></div>
           <% end %>
 
-          <div class="col-md-2">
-             <img src="https://images.unsplash.com/photo-1611270478558-0e1207ccee67?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2466&q=80" alt="..." class="work-img"/>
+
+
+         <!--  <div class="col-md-2">
+             <img src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1042&q=80" alt="..." class="work-img"/>
           </div>
           <div class="col-md-2">
-             <img src="https://images.unsplash.com/photo-1601628828688-632f38a5a7d0?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=911&q=80" alt="..." class="work-img"/>
+             <img src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1042&q=80" alt="..." class="work-img"/>
           </div>
           <div class="col-md-2">
-             <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2468&q=80" alt="..." class="work-img"/>
+             <img src="https://images.unsplash.com/photo-1569152811536-fb47aced8409?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1042&q=80" alt="..." class="work-img"/>
           </div>
           <div class="col-md-2">
              <img src="https://images.unsplash.com/photo-1521783593447-5702b9bfd267?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1042&q=80" alt="..." class="work-img"/>
-          </div>
+          </div> -->
+
         </div>
       </div>
-    </main>
-
-    <!-- Reviews -->
-    <div class="reviews">
-      <% if @business.reviews.count >= 1 %>
-        <% ratings = [] %>
-        <% @business.reviews.each do |r| %>
-          <% ratings << r.rating %>
-        <% end %>
-        <% average = ratings.sum.to_f / ratings.length.to_f %>
-      <% end %>
-      <p> <strong> <%= pluralize @business.reviews.length, "Review" %></strong> <span style="padding-left: 12px;"> <%= average.round(2) if @business.reviews.any? %> </span></p>
-      <hr style="width: 100%;">
-      <div class="reviews-grid">
-        <%= render @business.reviews %>
-        <hr>
-      </div>
-
-      <div >
-        <% if current_user.bookings.where(business: @business).any? %>
-        <% end %>
-        <br>
-        <hr style="width: 100%;">
-        <div class="reviews-form" >
-        <p> <strong> Leave a review </strong></p>
-        <% if @business.bookings.any? {|booking| booking.customer_id == current_user.id}%>
-        <%= render "reviews/form" %>
-        <% end %>
-        </div>
-      </div>
-
     </div>
+  </main>
 
 
-<%# render 'reviews/form' %>
+  <br>
+  <br>
+  <br>
 
+  <!-- Reviews -->
+  <%= render "reviews/review_carousel" %>
+  <div >
+    <% if current_user.bookings.where(business: @business).any? %>
+    <% end %>
+    <br>
+    <hr style="width: 100%;">
+    <div class="reviews-form" >
+      <p><strong>Leave a review</strong></p>
+      <% if @business.bookings.any? {|booking| booking.customer_id == current_user.id} %>
+        <%= render "reviews/form" %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <!-- modal  -->
 
