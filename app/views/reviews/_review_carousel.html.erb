@@ -1,7 +1,7 @@
 <div class="top-content">
   <div class="container-fluid">
     <div id="carousel-example" class="carousel slide d-flex justify-content-center" data-ride="carousel" data-interval="false">
-      <div class="carousel-inner row mx-auto" style="width: 85%;" role="listbox">
+      <div class="carousel-inner d-flex mx-auto" style="width: 85%;" role="listbox">
         <% @business.reviews.each do |review| %>
           <% if review == @business.reviews.first %>
             <div class="carousel-item active col-12 col-sm-6 col-md-4 col-lg-4">

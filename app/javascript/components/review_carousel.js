@@ -2,7 +2,6 @@ import $ from 'jquery';
 
 const reviewCarousel = () => {
   $('#carousel-example').on('slide.bs.carousel', function (e) {
-    console.log("Hallo");
       var $e = $(e.relatedTarget);
       var idx = $e.index();
       var itemsPerSlide = 3;
