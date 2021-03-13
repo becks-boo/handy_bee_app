@@ -29,13 +29,15 @@
         <div class="show-info">
           <p class="info"><i class="fas fa-briefcase"></i><%= @business.category %></p>
           <!-- <p class="info"><i class="fas fa-briefcase"></i><%#= @business.description %></p> -->
-          <p class="info"><i class="fas fa-language"></i>
+          <p class="info"><i class="fas fa-language" style="position: relative; right: 3px;"></i>
             <% unique_languages = @business.languages.uniq %>
+            <span style="position: relative; right: 12px">
             <% unique_languages.each do |language| %>
               <%= language.name %>
             <% end %>
+            </span>
           </p>
-          <p class="info"><i class="fas fa-map-marker-alt"></i><%= @business.location %></p>
+          <p class="info"><i class="fas fa-map-marker-alt" style="position: relative; left: 3px;"></i><span style="position: relative; left: 5px;"><%= @business.location %></span></p>
         </div>
         <br>
             <div>
