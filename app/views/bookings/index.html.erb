@@ -10,7 +10,11 @@
         <div class="my-booking-general-info row">
           <div class="my-booking-info col-md-9">
             <ul>
-              <h6><strong>Booking with </strong><%= b.contractor.user_name %>, <%= b.business.category %>.</h6>
+              <% if current_user.role == "Customer" %>
+                <h6><strong>Booking with </strong><%= b.contractor.user_name %>, <%= b.business.category %>.</h6>
+              <% else %>
+                <h6><strong>Booking with </strong><%= b.customer.user_name %>, <%= b.business.category %>.</h6>
+              <% end %>
               <br>
               <p><i class="fas fa-money-check"></i></i>Price: <%= b.price.to_i %>€</p>
               <p><i class="fas fa-hourglass-start"></i>From: <%= b.start_date.strftime("%-d %b %Y") %></p>
