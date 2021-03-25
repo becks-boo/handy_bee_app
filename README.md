@@ -1,6 +1,6 @@
 # HandyBee
 
-HandyBee is the final project built from 4 students enrolled in the Full Stack Web Development course at Le Wagon.
+[HandyBee](https://www.handybee.me/) is the final project built from 4 students enrolled in the Full Stack Web Development course at Le Wagon.
 
 This web application is built on Ruby on Rails with Ruby, HTML, CSS, & Javascript
 
