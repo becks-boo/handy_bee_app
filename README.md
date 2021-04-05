@@ -8,7 +8,7 @@ This web application is built on Ruby on Rails with Ruby, HTML, CSS, & Javascrip
 
 * <a href="https://github.com/jordannadroj">Jordan Siemens</a>
 * <a href="https://github.com/becks-boo">Igor Stein</a>
-* <a href="https://github.com/XaviWasabi">Lena Blank</a>
+* <a href="https://github.com/lenablank">Lena Blank</a>
 * <a href="https://github.com/XaviWasabi">Xavi MB</a>
 
 ## Web Stack
