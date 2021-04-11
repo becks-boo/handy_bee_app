@@ -3,12 +3,12 @@ class BusinessesController < ApplicationController
   def index
     # @businesses = Business.all
     # @businesses = Business.search(params[:search])
-    @users = User.all
-    @businesses = policy_scope(Business)
+    @users = User.all.includes(:businesses)
+    @businesses = policy_scope(Business).includes(:users)
     # filter by category
     @languages = Language.all
     if params[:query].present?
-      @businesses = Business.where(category: params[:query][:category_id])
+      @businesses = Business.where(category: params[:query][:category_id]).includes(:languages, :reviews)
       # @businesses_count = @businesses.count
 
       if params[:language].present? && params[:rating].present?
@@ -16,10 +16,10 @@ class BusinessesController < ApplicationController
       elsif params[:language].present?
         @businesses = Business.where(category: params[:query][:category_id]).includes(:languages).where("languages.name" => params[:language])
       elsif params[:rating].present?
-        @businesses = Business.where(category: params[:query][:category_id]).includes(:reviews).where("reviews.rating" => params[:rating])
+        @businesses = Business.where(category: params[:query][:category_id]).includes(:reviews).where("reviews.rating" => params[:rating]).includes(:languages)
       end
     else
-      @businesses = Business.all
+      @businesses = Business.all.includes(:reviews, :languages)
     end
   end
 
