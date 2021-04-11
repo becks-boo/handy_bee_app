@@ -1,3 +1,4 @@
+module Services
   class InitializeBookingService
     def initialize(chatroom_id)
       @chatroom_id = chatroom_id
@@ -16,3 +17,5 @@
       booking
     end
   end
+end
+
