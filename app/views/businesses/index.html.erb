@@ -19,7 +19,9 @@
 
 
     <%= form_tag(businesses_path, method: "get", id: "filters") do %>
-      <%= select_tag "query[category_id]",  options_for_select(Business::CATEGORY, params[:query][:category_id]), class: "dropdown input-group dropdown-filter", include_blank: "Service" %>
+      <% if params[:query].present? %>
+        <%= select_tag "query[category_id]",  options_for_select(Business::CATEGORY, params[:query][:category_id]), class: "dropdown input-group dropdown-filter", include_blank: "Service" %>
+      <% end %>
       <%= select_tag :language,  options_for_select(languages.sort, params[:language]), class: "dropdown input-group dropdown-filter", include_blank: "Language" %>
       <%= select_tag :rating,  options_for_select([1, 2, 3, 4, 5], params[:rating]), class: "dropdown input-group dropdown-filter", include_blank: "Rating" %>
 
