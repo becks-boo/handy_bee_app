@@ -110,6 +110,8 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
+    launchy (2.5.0)
+      addressable (~> 2.7)
     listen (3.4.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -270,6 +272,7 @@ DEPENDENCIES
   faker
   font-awesome-sass
   jbuilder (~> 2.7)
+  launchy
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
   pry-byebug
@@ -293,4 +296,4 @@ RUBY VERSION
    ruby 2.6.6p146
 
 BUNDLED WITH
-   2.1.4
+   2.2.14
