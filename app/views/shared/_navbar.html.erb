@@ -31,7 +31,7 @@
             <i class="far fa-user avatar-navbar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%#= link_to "My Account", account_path, class: "dropdown-item" %>
+            <%= link_to "My Account", account_path, class: "dropdown-item" %>
             <% if @chatroom %>
             <%= link_to "Messages", chatroom_path(@chatroom), class: "dropdown-item" %>
             <% end %>
