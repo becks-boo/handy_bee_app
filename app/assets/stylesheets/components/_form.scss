@@ -1,0 +1,50 @@
+.devise-form  {
+  background-color: grey;
+  border: solid 1px;
+  margin: 2rem auto;
+  width: 25rem;
+  box-shadow: 2px 2px 5px black;
+  border-radius: 20px;
+}
+
+.devise-form .form-inputs {
+  margin: auto;
+  width: 75%;
+}
+
+.devise-form .form-actions {
+  display: flex;
+}
+
+.devise-form .form-actions > input {
+  background-color: #FFB201;
+  width: 75%;
+  color: black;
+  font-size: 14px;
+  border-radius: 10px;
+}
+
+.break-line {
+  width: 85%;
+  text-align: center;
+  border-bottom: 1px solid #000;
+  line-height: 0.1em;
+  margin: 10px auto;
+}
+
+.break-line span {
+  background: grey;
+  padding:0 10px;
+}
+
+.devise-link-btn {
+  border: solid 1px;
+  padding: 8px 36px;
+  background-color: red;
+  border-radius: 10px;
+  width: 75%;
+  display: block;
+  margin: auto;
+  text-align: center;
+  font-weight: 600;
+}
