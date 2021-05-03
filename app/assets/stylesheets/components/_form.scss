@@ -1,9 +1,9 @@
 .devise-form  {
-  background-color: grey;
+  background-color: white;
   border: solid 1px;
   margin: 2rem auto;
   width: 25rem;
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #24586A;
   border-radius: 20px;
 }
 
@@ -20,7 +20,7 @@
   background-color: #FFB201;
   width: 75%;
   color: black;
-  font-size: 14px;
+  font-size: 16px;
   border-radius: 10px;
 }
 
@@ -29,18 +29,19 @@
   text-align: center;
   border-bottom: 1px solid #000;
   line-height: 0.1em;
-  margin: 10px auto;
+  margin: 40px auto;
 }
 
 .break-line span {
-  background: grey;
+  background: white;
   padding:0 10px;
 }
 
 .devise-link-btn {
   border: solid 1px;
+  color: #FCF7EF;
   padding: 8px 36px;
-  background-color: red;
+  background-color: #24586A;
   border-radius: 10px;
   width: 75%;
   display: block;
