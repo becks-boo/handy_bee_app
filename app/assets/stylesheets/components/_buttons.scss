@@ -1,4 +1,4 @@
-.button-main {
+.button-main-deprecated {
   width: 137px;
   // height: 100%;
   background: #FFB201;
@@ -81,4 +81,24 @@
 
 // this is for specific button on this page
 
+.button-main {
+  background-color: #FFB201;
+  width: 137px;
+  color: black;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  height: 47px;
+  font-weight: 500;
+}
 
+.button-main:hover {
+  background-color: #FDA521;
+  width: 137px;
+  color: black;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  height: 47px;
+  font-weight: 500;
+}

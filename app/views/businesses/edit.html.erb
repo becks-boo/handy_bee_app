@@ -3,7 +3,7 @@
     <%= f.input :name %>
     <%= f.input :category, collection: %w(Painting Electrical Installation Plumbing Carpentry) %>
     <%= f.input :description %>
-    <%= f.input :language, collection: %w(English French German Arabic Turkish Farsi Portuguese Spanish Russian Manding) %>
+    <%= f.association :languages, collection: Language.all, as: :select, input_html: { class: "multiple-select", multiple: true } %>
     <%= f.input :location %>
     <%= f.input :qualification %>
     <%= f.input :pictures, as: :file, input_html: { multiple: true } %>
