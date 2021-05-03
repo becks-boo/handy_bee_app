@@ -60,6 +60,11 @@ class BusinessesController < ApplicationController
     @business = Business.find(params[:id])
 
     if @business.update(business_params)
+      if params[:business][:pictures].present?
+          params[:business][:pictures].each do |picture|
+            @business.pictures.attach(picture)
+          end
+      end
       redirect_to @business, notice: "Business was succesfully updated."
     else
       render :edit
@@ -87,6 +92,6 @@ class BusinessesController < ApplicationController
   end
 
   def business_params
-    params.require(:business).permit(:name, :description, :category, :qualification, :location, language_ids: [], pictures: [])
+    params.require(:business).permit(:name, :description, :category, :qualification, :location, language_ids: [])
   end
 end

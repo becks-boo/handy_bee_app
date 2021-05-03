@@ -78,7 +78,6 @@
             <% end %>
           <% end %>
         </div>
-
         <!-- previous work gallery -->
         <!-- The expanding image container -->
         <div class="pictures-container row justify-content-between">
@@ -86,7 +85,12 @@
 
         <div class="business-show-container col-lg-6">
           <!-- Expanded image -->
-          <img src="<%= cl_image_path @business.pictures.first.key %>" id="expandedImg" >
+          <% if @business.pictures.present? %>
+            <img src="<%= cl_image_path @business.pictures.first.key %>" id="expandedImg" >
+          <% else %>
+            <!-- <img src="/assets/images/placeholder.jpeg" alt="" id="expandedImg"> -->
+            <%= image_tag("placeholder.jpeg", id: "expandedImg") %>
+          <% end %>
         </div>
 
 
