@@ -18,10 +18,40 @@
 
 .devise-form .form-actions > input {
   background-color: #FFB201;
+  width: 100%;
+  color: black;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+
+.devise-form .form-actions > input:hover {
+  background-color: #FDA521;
+  width: 100%;
+  color: black;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+.devise-form .form-actions-signin > input {
+  background-color: #FFB201;
   width: 75%;
   color: black;
   font-size: 16px;
   border-radius: 10px;
+  margin: auto;
+  display: block;
+}
+
+
+.devise-form .form-actions-signin > input:hover {
+  background-color: #FDA521;
+  width: 75%;
+  color: black;
+  font-size: 16px;
+  border-radius: 10px;
+  margin: auto;
+  display: block;
 }
 
 .break-line {

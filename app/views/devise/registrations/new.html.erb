@@ -2,45 +2,10 @@
 
   <h2 align="center" style="margin-top: 20px ">Sign up</h2>
   <!-- Buttons to choose and trigger EventListener with the specific form -->
-  <div class="btn-toolbar" role="toolbar">
-    <div>
-      <div class="btn-group" role="group">
-        <button id="customer-btn" class="button-blue">Customer</button>
-      </div>
-      <div class="btn-group" role="group">
-        <button id="contractor-btn" class="button-blue">Contractor</button>
-      </div>
-    </div>
-  </div>
       <!-- Two different divs, with contractor with d-none class to hide -->
-      <div id="customer-form" class="form-inputs">
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-
-          <%= f.error_notification %>
-          <%= f.input :user_name, required: true %>
-          <%= f.input :email,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "email" }%>
-          <%= f.input :password,
-                      required: true,
-                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                      input_html: { autocomplete: "new-password" } %>
-          <%= f.input :password_confirmation,
-                      required: true,
-                      input_html: { autocomplete: "new-password" } %>
-          <%= f.input :picture, as: :file %>
-          <%= f.input :role, as: :hidden, input_html: {value: "Customer"} %>
-          <!-- Added form field :role, :user_name and :address (like db) -->
-
-          <div class="form-actions">
-            <%= f.button :submit, "Sign up" %>
-          </div>
-        <% end %>
-      </div>
-
-    <div id="contractor-form" class="form-inputs d-none">
+    <div id="customer-form" class="form-inputs">
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
         <%= f.error_notification %>
         <%= f.input :user_name, required: true %>
         <%= f.input :email,
@@ -55,7 +20,7 @@
                     required: true,
                     input_html: { autocomplete: "new-password" } %>
         <%= f.input :picture, as: :file %>
-        <%= f.input :role, as: :hidden, input_html: {value: "Contractor"} %>
+        <%= f.input :role, as: :radio_buttons, collection: [['Customer', 'Customer'], ['Contractor', 'Contractor']], label_method: :second, value_method: :first %>
         <!-- Added form field :role, :user_name and :address (like db) -->
 
         <div class="form-actions">
@@ -63,6 +28,31 @@
         </div>
       <% end %>
     </div>
+
+<!--     <div id="contractor-form" class="form-inputs d-none">
+      <%#= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%#= f.error_notification %>
+        <%#= f.input :user_name, required: true %>
+        <%#= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" }%>
+        <%#= f.input :password,
+                    required: true,
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password" } %>
+        <%#= f.input :password_confirmation,
+                    required: true,
+                    input_html: { autocomplete: "new-password" } %>
+        <%#= f.input :picture, as: :file %>
+        <%#= f.input :role, as: :hidden, input_html: {value: "Contractor"} %> -->
+
+
+        <!-- <div class="form-actions">
+          <%#= f.button :submit, "Sign up" %>
+        </div>
+      <%# end %>
+    </div> -->
 
     <div class="break-line">
       <span>or</span>

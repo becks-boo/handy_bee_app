@@ -44,7 +44,7 @@ window.addEventListener("turbolinks:load", function() {
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  toggleSignUp();
+  // toggleSignUp();
   initChatroomCable();
   enterkey();
   multipleSelect();
