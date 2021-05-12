@@ -1,6 +1,8 @@
 // JS to toggle the different forms with click event
 // Look at toggle (add/remove)
 // Function is called in application.js
+
+// This function is not used anymore, instead radio buttons in simple form is used.
 const toggleSignUp = () => {
   const customerButton = document.getElementById("customer-btn");
   const customerForm = document.getElementById("customer-form");

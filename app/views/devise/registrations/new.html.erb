@@ -3,7 +3,7 @@
   <h2 align="center" style="margin-top: 20px ">Sign up</h2>
   <!-- Buttons to choose and trigger EventListener with the specific form -->
       <!-- Two different divs, with contractor with d-none class to hide -->
-    <div id="customer-form" class="form-inputs">
+    <div class="form-inputs">
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
         <%= f.error_notification %>
