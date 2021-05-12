@@ -79,3 +79,12 @@
   text-align: center;
   font-weight: 600;
 }
+
+.form-check-box > fieldset {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.form-check-box > fieldset div {
+  margin-right: 1rem;
+}

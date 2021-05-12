@@ -20,7 +20,9 @@
                     required: true,
                     input_html: { autocomplete: "new-password" } %>
         <%= f.input :picture, as: :file %>
-        <%= f.input :role, as: :radio_buttons, collection: [['Customer', 'Customer'], ['Contractor', 'Contractor']], label_method: :second, value_method: :first %>
+        <div class="form-check-box">
+          <%= f.input :role, as: :radio_buttons, collection: [['Customer', 'Customer'], ['Contractor', 'Contractor']], label_method: :second, value_method: :first %>
+        </div>
         <!-- Added form field :role, :user_name and :address (like db) -->
 
         <div class="form-actions">
