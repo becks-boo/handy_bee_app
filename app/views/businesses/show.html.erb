@@ -25,6 +25,11 @@
         </div>
 
         <h3 class="name"><%= @business.name %></h3>
+        <% if current_user == @business.user %>
+          <%= link_to edit_business_path(@business) do %>
+            <i class="fas fa-pen-square"></i>
+          <% end %>
+        <% end %>
         <br>
         <div class="show-info">
           <p class="info"><i class="fas fa-briefcase"></i><%= @business.category %></p>
