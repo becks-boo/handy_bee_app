@@ -1,4 +1,5 @@
 class BusinessesController < ApplicationController
+  skip_after_action :verify_authorized, only: :delete_image_attachment
 
   def index
     # @businesses = Business.all
@@ -79,6 +80,16 @@ class BusinessesController < ApplicationController
     authorize @business
     @business.destroy
     redirect_to account_path
+  end
+
+  def delete_image_attachment
+    @business = Business.find(params[:business_id])
+
+    attachment = @business.pictures.find(params[:picture_id])
+
+    attachment.purge
+
+    redirect_to edit_business_path(@business)
   end
 
   private

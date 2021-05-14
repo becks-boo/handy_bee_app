@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :businesses do
     # resources :bookings, only: [ :index, :new, :create ]
+    delete "/delete_image_attachment/:picture_id", to: "businesses#delete_image_attachment", as: "delete_image_attachment"
     resources :reviews, only: [ :index, :new, :create ]
     resources :chatrooms, only: [:create, :show]
     resources :business_languages, only: [:new, :create]
@@ -16,9 +17,6 @@ Rails.application.routes.draw do
   get '/components', to: 'pages#components', as: 'components'
   get '/account', to: 'pages#account', as: 'account'
   get '/my_businesses', to: 'pages#my_businesses', as: 'my_businesses'
-
-
-
 
 
   # for chatrooms

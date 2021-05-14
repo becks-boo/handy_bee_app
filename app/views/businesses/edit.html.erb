@@ -7,6 +7,13 @@
     <%= f.input :location %>
     <%= f.input :qualification %>
     <%= f.input :pictures, as: :file, input_html: { multiple: true } %>
+    <% f.object.pictures.each do |picture| %>
+      <%= image_tag(picture) %>
+      <%= link_to 'Remove', business_delete_image_attachment_path(@business, picture.id),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+    <% end %>
+
     <%= f.submit "Edit business", class: "form-actions button-main" %>
   <% end %>
 </div>

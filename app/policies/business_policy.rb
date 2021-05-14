@@ -32,4 +32,8 @@ class BusinessPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def delete_image_attachment?
+    record.user == user
+  end
 end
