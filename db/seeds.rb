@@ -78,7 +78,7 @@ booking = Booking.create(
   end_date: Date.tomorrow,
   confirmed: true,
   business: Business.first,
-  user: customer,
+  # user: customer,
   customer_id: customer.id,
   contractor_id: User.where(role: "Contractor").sample.id,
   )

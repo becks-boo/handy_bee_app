@@ -39,7 +39,7 @@
                   <%= link_to "View", business_path(b.business), class: "btn" %>
                 </div>
                  <div class="my-booking-button-go-to-chart">
-                  <% @chatroom = Chatroom.find_by(contractor_id: b.contractor_id) %>
+                  <% @chatroom = Chatroom.where(customer_id: b.customer_id) %>
                   <%= link_to "Go to chat",  chatroom_path(@chatroom), class: "btn" %>
                 </div>
               </div>

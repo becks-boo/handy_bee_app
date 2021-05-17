@@ -1,6 +1,6 @@
 class Booking < ApplicationRecord
   belongs_to :business
-  belongs_to :user
+  # belongs_to :user
   belongs_to :customer, class_name: "User"
   belongs_to :contractor, class_name: "User"
 
