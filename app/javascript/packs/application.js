@@ -26,10 +26,10 @@ require("channels")
 import "bootstrap";
 
 // Internal imports, e.g:
-import { booking } from '../components/booking';
+// import { booking } from '../components/booking';
 import { homepage } from '../components/homepage';
 // import { initSelect2 } from '../components/init_select2';
-import { toggleSignUp } from '../components/toggle_sign_up';
+// import { toggleSignUp } from '../components/toggle_sign_up';
 // import { initSelect2 } from '../components/init_select2'
 // for importing the chatroom channel action cable
 import { initChatroomCable, enterkey } from '../channels/chatroom_channel';
@@ -38,8 +38,8 @@ import { showGalery } from '../components/image_gallery.js';
 import { reviewCarousel } from '../components/review_carousel.js';
 import { initFlatpickr } from "../plugins/flatpickr";
 
-window.addEventListener("turbolinks:load", function() {
-  flatpickr('.datepicker');
+window.addEventListener("turbolinks:load", () => {
+  // flatpickr('.datepicker');
 });
 
 document.addEventListener('turbolinks:load', () => {
