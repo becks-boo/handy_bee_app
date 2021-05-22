@@ -81,7 +81,6 @@ end
     end_date: Date.tomorrow,
     confirmed: true,
     business: business_booking,
-    # user: customer,
     customer_id: customer.id,
     contractor_id: business_booking.user_id
     )
