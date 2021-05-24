@@ -88,3 +88,51 @@
 .form-check-box > fieldset div {
   margin-right: 1rem;
 }
+
+.business-form {
+  background-color: white;
+  border: solid 1px;
+  margin: 6rem auto;
+  width: 25rem;
+  box-shadow: 2px 2px 5px #24586a;
+  border-radius: 20px;
+}
+
+.business-form-input {
+  margin: auto;
+  width: 75%;
+}
+
+.business-form-input .button-main {
+  background-color: #FFB201;
+  width: 75%;
+  color: black;
+  font-size: 16px;
+  border-radius: 10px;
+  margin: 1.5rem auto;
+  display: block;
+  font-weight: 600;
+}
+
+.business-form-input .button-main:hover {
+  background-color: #FDA521;
+  width: 75%;
+  color: black;
+  font-size: 16px;
+  border-radius: 10px;
+  margin: 1.5rem auto;
+  display: block;
+  font-weight: 600;
+}
+
+.select2-container--default .select2-selection--multiple {
+    background-color: white;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    cursor: text;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    margin-left: 0.5rem;
+    position: relative;
+    width: 13rem;
+}
