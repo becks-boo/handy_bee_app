@@ -27,8 +27,8 @@
                 <div class="my-booking-contractor-avatar">
                   <div class="circle-1"></div>
                     <div class="circle-2"></div>
-                      <% if b.business.user.picture.attached? %>
-                        <%= cl_image_tag b.business.user.picture.key, class: "avatar-index" %>
+                      <% if b.business.contractor.picture.attached? %>
+                        <%= cl_image_tag b.business.contractor.picture.key, class: "avatar-index" %>
                       <% else %>
                         <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar-index") %>
                       <% end %>
