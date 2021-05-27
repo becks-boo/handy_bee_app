@@ -26,7 +26,7 @@
         <!-- form for creating messages  -->
         <div class="new_message_form">
           <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-            <%= f.input :content, label: false, placeholder: "Type a message #{@chatroom.name}" %>
+            <%= f.input :content, label: false, placeholder: "Type a message" %>
             <%= f.button :submit, class: 'button-main', value: "Send", id: 'button-message' %>
           <% end %>
         </div>
@@ -53,8 +53,8 @@
                   <div class="image">
                     <div class="circle-1"></div>
                       <div class="circle-2"></div>
-                       <% if @chatroom.business.user.picture.attached? %>
-                          <%= cl_image_tag @chatroom.business.user.picture.key, class: "avatar-index" %>
+                       <% if @chatroom.business.contractor.picture.attached? %>
+                          <%= cl_image_tag @chatroom.business.contractor.picture.key, class: "avatar-index" %>
                         <% else %>
                           <%= cl_image_tag("https://res.cloudinary.com/jordannadroj/image/upload/v1613501376/pkvrmhcsxi7i7slo0tcx.jpg", alt: "alttext", class: "avatar-index") %>
                         <% end %>
