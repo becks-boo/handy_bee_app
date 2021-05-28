@@ -40,7 +40,7 @@
                 </div>
                  <div class="my-booking-button-go-to-chart">
                   <% @chatroom = Chatroom.where(customer_id: b.customer_id) %>
-                  <%= link_to "Go to chat",  chatroom_path(@chatroom), class: "btn" %>
+                  <%= link_to "Go to chat", chatroom_path(@chatroom.first), class: "btn" %>
                 </div>
               </div>
           </div>
