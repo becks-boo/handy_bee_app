@@ -30,7 +30,6 @@ class BookingsController < ApplicationController
     @booking.contractor_id = @contractor
     @booking.business = @business
     @booking.customer_id = @customer
-    @booking.user_id = @contractor
     authorize @booking
 
     if @booking.save!

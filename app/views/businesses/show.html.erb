@@ -17,15 +17,15 @@
       <div class="left col-lg-4">
         <!-- avatar -->
         <div class="photo-left">
-          <% if @business.user.picture.attached? %>
-            <%= cl_image_tag @business.user.picture.key, class: "photo" %>
+          <% if @business.contractor.picture.attached? %>
+            <%= cl_image_tag @business.contractor.picture.key, class: "photo" %>
           <% else %>
             <img class="photo" src="https://images.unsplash.com/photo-1581783898377-1c85bf937427?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2458&q=80">
           <% end %>
         </div>
 
         <h3 class="name"><%= @business.name %></h3>
-        <% if current_user == @business.user %>
+        <% if current_user == @business.contractor %>
           <%= link_to edit_business_path(@business) do %>
             <i class="fas fa-pen-square"></i>
           <% end %>
@@ -135,8 +135,6 @@
   <!-- Reviews -->
   <%= render "reviews/review_carousel" %>
   <div >
-    <% if current_user.bookings.where(business: @business).any? %>
-    <% end %>
     <br>
     <hr style="width: 100%;">
     <div class="reviews-form" >

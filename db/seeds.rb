@@ -72,16 +72,19 @@ end
   puts "Business_languages created!"
 end
 
-booking = Booking.create(
-  price: 55,
-  start_date: Date.today,
-  end_date: Date.tomorrow,
-  confirmed: true,
-  business: Business.first,
-  user: customer,
-  customer_id: customer.id,
-  contractor_id: User.where(role: "Contractor").sample.id,
-  )
+5.times do
+  business_booking = Business.all.sample
+
+  booking = Booking.create(
+    price: (20..100).to_a.sample,
+    start_date: Date.today,
+    end_date: Date.tomorrow,
+    confirmed: true,
+    business: business_booking,
+    customer_id: customer.id,
+    contractor_id: business_booking.user_id
+    )
+end
 
 # puts "---------------- 1 -----------------"
 

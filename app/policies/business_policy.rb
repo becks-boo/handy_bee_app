@@ -22,18 +22,18 @@ class BusinessPolicy < ApplicationPolicy
   end
 
   def edit?
-    record.user == user
+    record.contractor == user
   end
 
   def update?
-    record.user == user
+    record.contractor == user
   end
 
   def destroy?
-    record.user == user
+    record.contractor == user
   end
 
   def delete_image_attachment?
-    record.user == user
+    record.contractor == user
   end
 end

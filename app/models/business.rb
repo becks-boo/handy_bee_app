@@ -1,6 +1,6 @@
 class Business < ApplicationRecord
   CATEGORY = %w(Painting Carpentry Plumbing Electrical Landscaper Engineer Estimator Cabinet-Maker Heating-Technician Laborer Drywall Mechanic Welder Mason Roofer Floorer)
-  belongs_to :user
+  belongs_to :contractor, class_name: 'User', foreign_key: 'user_id'
 
   has_many :bookings, dependent: :destroy
   has_many :chatrooms, dependent: :destroy

@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 2021_03_03_205646) do
     t.bigint "business_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
     t.bigint "customer_id", null: false
     t.bigint "contractor_id", null: false
     t.boolean "confirmed"
@@ -51,7 +50,6 @@ ActiveRecord::Schema.define(version: 2021_03_03_205646) do
     t.index ["business_id"], name: "index_bookings_on_business_id"
     t.index ["contractor_id"], name: "index_bookings_on_contractor_id"
     t.index ["customer_id"], name: "index_bookings_on_customer_id"
-    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "business_languages", force: :cascade do |t|
@@ -65,7 +63,6 @@ ActiveRecord::Schema.define(version: 2021_03_03_205646) do
 
   create_table "businesses", force: :cascade do |t|
     t.string "name"
-    t.string "picture"
     t.text "description"
     t.string "category"
     t.datetime "created_at", precision: 6, null: false
@@ -77,7 +74,6 @@ ActiveRecord::Schema.define(version: 2021_03_03_205646) do
   end
 
   create_table "chatrooms", force: :cascade do |t|
-    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "customer_id", null: false
@@ -132,7 +128,6 @@ ActiveRecord::Schema.define(version: 2021_03_03_205646) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "businesses"
-  add_foreign_key "bookings", "users"
   add_foreign_key "bookings", "users", column: "contractor_id"
   add_foreign_key "bookings", "users", column: "customer_id"
   add_foreign_key "business_languages", "businesses"

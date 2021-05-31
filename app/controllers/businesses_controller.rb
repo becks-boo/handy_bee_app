@@ -40,7 +40,7 @@ class BusinessesController < ApplicationController
 
   def create
     @business = Business.new(business_params)
-    @business.user = current_user
+    @business.contractor = current_user
     authorize @business
 
     if @business.save
